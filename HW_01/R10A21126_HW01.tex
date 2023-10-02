@@ -1,0 +1,174 @@
+\documentclass[UTF8,a4paper,10pt]{article}
+
+\input{preamble.tex}
+
+\begin{document}
+
+
+\begin{mybox}{Definition of \(\sigma\)-algebra}
+  kernel estimator: 
+  \begin{equation*}
+    \begin{aligned}
+      \omega(u,v)\triangleq \frac{1}{h}k(\frac{u-v}{h})
+    \end{aligned}
+  \end{equation*}
+  with \(h>0\).
+  
+
+
+\end{mybox}
+
+
+% Q1
+
+
+  \begin{Problem}[]{}
+
+    The local polynomial estimator can be derived as 
+    \begin{equation*}
+      \begin{aligned}
+        (\tilde{\beta_0},\ldots,\tilde{\beta_k}) = \argmin_{\beta_0,\ldots,\beta_k} \frac{1}{N}\sum_{i=1}^{n}\sum_{j=1}^{m_i} (Y_{ij}-\sum_{j=0}^{k_i}\frac{g^{(j)}(t)}{j!}(t_{ij}-t)^{j})^2k_{h}(t-t_{ij}) 
+      \end{aligned}
+    \end{equation*}
+    where
+    \begin{equation*}
+      \begin{aligned}
+        k_{h}(v) = \frac{1}{h}k(\frac{v}{h}).
+      \end{aligned}
+    \end{equation*}
+    It implies that \(\tilde{g}_h(t) = \tilde{\beta}_0\).
+
+    Show that, when \(k=1\): (local linear fit)
+
+    \begin{equation*}
+      \begin{aligned}
+        \tilde{g}_h(t) = \frac{\sum_{i=1}^{n}\sum_{j=1}^{m_i}\omega(t,t_{ij})Y_{ij}}{\sum_{i=1}^{n}\sum_{j=1}^{m_i}\omega(t,t_{ij})}
+      \end{aligned}
+    \end{equation*}
+    where
+    \begin{equation*}
+      \begin{aligned}
+        \omega(t,t_{ij}) = k_h(t-t_{ij})\{S_{n,2}+(t-t_{ij})S_{n,2}\},
+      \end{aligned}
+    \end{equation*}
+    with
+    \begin{equation*}
+      \begin{aligned}
+        S_{i,j} = \sum_{i=1}^{n}\sum_{j=1}^{m_i} k_h(t-t_{ij})(t-t_{ij})^j.
+      \end{aligned}
+    \end{equation*}
+  \end{Problem}
+
+
+
+
+  \begin{solution}\,\\
+
+
+  \end{solution}
+
+
+  \begin{Problem}[]{}
+    Explain
+    \begin{enumerate}
+      \item Total regression coefficient estimator
+      \item Partial regression coefficient estimator
+      \item Sequential regression coefficient estimator
+    \end{enumerate}
+    and when can they be the same
+  \end{Problem} 
+
+  \begin{solution}
+    
+Total Regression Coefficient Estimator:
+
+The total regression coefficient estimator measures the relationship between a dependent variable and an independent variable while considering the combined influence of all other independent variables in the model. It quantifies the change in the dependent variable associated with a one-unit change in the specific independent variable, assuming all other variables are held constant.
+Partial Regression Coefficient Estimator:
+
+The partial regression coefficient estimator quantifies the relationship between a dependent variable and a specific independent variable while controlling for the effects of all other independent variables in the model. It isolates the unique impact of that particular independent variable on the dependent variable.
+Sequential Regression Coefficient Estimator:
+
+The sequential regression coefficient estimator involves estimating regression coefficients step by step, typically by adding or removing variables from the model based on selection criteria. It iteratively adjusts the coefficients as variables are added or removed, aiming to find the best subset of predictors.
+When Can They Be the Same:
+
+The total regression coefficient estimator, partial regression coefficient estimator, and sequential regression coefficient estimator can be the same under certain condition:
+
+Simple Linear Regression:
+
+When you are dealing with a simple linear regression model (i.e., there is only one independent variable), all three estimators will be the same. This is because there are no other independent variables to control for or select from, and the total, partial, and sequential estimators will all measure the relationship between the single independent variable and the dependent variable in the same way.
+    
+  \end{solution}
+
+  \begin{Problem}[]{Time Series Correlation Structure}
+The first-order autoregressive model with equally spaced time points:
+\begin{equation*}
+  \begin{aligned}
+    \varepsilon_{i,j} = \rho\varepsilon_{i,j-1}+Z_{i,j}\text{ with }Z_{i,j}\overset{\text{iid}}{\sim } (0,(1-\rho^2)\sigma^2),|\rho|<1.
+  \end{aligned}
+\end{equation*}
+
+Show that 
+\begin{equation*}
+  \begin{aligned}
+    \Cov[\varepsilon_{i,j},\varepsilon_{i,j-k}] = \rho^k\sigma^2
+  \end{aligned}
+\end{equation*}
+
+  \end{Problem} 
+
+
+
+  \begin{Problem}[]{Cross-Sectional Data}
+    For Cross-Sectional Data
+    \begin{equation*}
+      \begin{aligned}
+        Y_i = X_i^T\beta +\varepsilon_i, \varepsilon \overset{\text{iid}}{\sim } (0,\sigma^2),
+      \end{aligned}
+    \end{equation*}
+    prove that the least square estimator \(\hat{\beta} = (X^TX)^{-1}X^TY\) is the best linear unbiased estimator (BLUE) of \(\beta\).
+    
+      \end{Problem} 
+    
+  \begin{Problem}[]{}
+
+    GLM: \(Y = X\beta +\varepsilon \), where \(\varepsilon \sim(0,\sigma^2V)\).
+    Let \(A = I-X(X^TX)^{-1}X^T\) and \(B\) be the \(N\times (N-(p-1))\) matrix such that \(BB^T = A\) and \(B^TB = I_{N-(p-1)}\).
+
+    For any fixed \(V\), the MLE of \(\beta\) is \(\hat{\beta}(V) = GY\), with \(G = (X^TV^{-1}X)^{-1}X^TV^{-1}\)
+    Show that
+    \begin{equation*}
+      \begin{aligned}
+        |GG^T-GBB^TG^T|^{\frac{1}{2}} = |X^TX|^{-\frac{1}{2}}
+      \end{aligned}
+    \end{equation*}
+    
+      \end{Problem} 
+
+
+          
+  \begin{Problem}[]{Serial rorrelation plus mesurement error}
+    Mesurement error: \(\varepsilon \sim (0,\sigma^2 H+\tau^2I_N)\).
+
+    Show that the corresponding variogram is \(r(u) = \tau^2+\sigma^2(1-\rho(u))\) for \(u\geq 0\), with \(r(0) = \tau^2>0\).
+
+    
+      \end{Problem} 
+
+
+  \begin{Problem}[]{Repeated Measures}
+
+    \begin{equation*}
+      \begin{aligned}
+        y_{hij} = \beta_{h}+r_{hj}+ U_{hi}+z_{hij}, h = 1,\ldots,g, i=1,\ldots,n_h, j=1,\ldots,m,
+      \end{aligned}
+    \end{equation*}
+    where \(\beta_h\) is the main effect for the \(h\)\th treatment, and \(r_{hj}\) is the interaction effect between the \(h\)-th treatment and the \(j\)-th time with \(\sum_{j=1}^{m}r_{hj} = 0 \forall h\).
+
+    For the hypothesis \(H_0:\beta_1 = \cdots\beta_g\)
+find the F statistics \(F = \frac{MBTSS_1}{MRSS_1}\) of the ANOVA table.
+
+    
+      \end{Problem} 
+
+
+\end{document}
