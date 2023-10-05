@@ -5,8 +5,8 @@
 \begin{document}
 
 
-\begin{mybox}{Definition of \(\sigma\)-algebra}
-  kernel estimator: 
+\begin{mybox}{}
+  Kernel estimator: 
   \begin{equation*}
     \begin{aligned}
       \omega(u,v)\triangleq \frac{1}{h}k(\frac{u-v}{h})
@@ -80,22 +80,22 @@
 
   \begin{solution}
     
-Total Regression Coefficient Estimator:
+% Total Regression Coefficient Estimator:
 
-The total regression coefficient estimator measures the relationship between a dependent variable and an independent variable while considering the combined influence of all other independent variables in the model. It quantifies the change in the dependent variable associated with a one-unit change in the specific independent variable, assuming all other variables are held constant.
-Partial Regression Coefficient Estimator:
+% The total regression coefficient estimator measures the relationship between a dependent variable and an independent variable while considering the combined influence of all other independent variables in the model. It quantifies the change in the dependent variable associated with a one-unit change in the specific independent variable, assuming all other variables are held constant.
+% Partial Regression Coefficient Estimator:
 
-The partial regression coefficient estimator quantifies the relationship between a dependent variable and a specific independent variable while controlling for the effects of all other independent variables in the model. It isolates the unique impact of that particular independent variable on the dependent variable.
-Sequential Regression Coefficient Estimator:
+% The partial regression coefficient estimator quantifies the relationship between a dependent variable and a specific independent variable while controlling for the effects of all other independent variables in the model. It isolates the unique impact of that particular independent variable on the dependent variable.
+% Sequential Regression Coefficient Estimator:
 
-The sequential regression coefficient estimator involves estimating regression coefficients step by step, typically by adding or removing variables from the model based on selection criteria. It iteratively adjusts the coefficients as variables are added or removed, aiming to find the best subset of predictors.
-When Can They Be the Same:
+% The sequential regression coefficient estimator involves estimating regression coefficients step by step, typically by adding or removing variables from the model based on selection criteria. It iteratively adjusts the coefficients as variables are added or removed, aiming to find the best subset of predictors.
+% When Can They Be the Same:
 
-The total regression coefficient estimator, partial regression coefficient estimator, and sequential regression coefficient estimator can be the same under certain condition:
+% The total regression coefficient estimator, partial regression coefficient estimator, and sequential regression coefficient estimator can be the same under certain condition:
 
-Simple Linear Regression:
+% Simple Linear Regression:
 
-When you are dealing with a simple linear regression model (i.e., there is only one independent variable), all three estimators will be the same. This is because there are no other independent variables to control for or select from, and the total, partial, and sequential estimators will all measure the relationship between the single independent variable and the dependent variable in the same way.
+% When you are dealing with a simple linear regression model (i.e., there is only one independent variable), all three estimators will be the same. This is because there are no other independent variables to control for or select from, and the total, partial, and sequential estimators will all measure the relationship between the single independent variable and the dependent variable in the same way.
     
   \end{solution}
 
@@ -162,7 +162,7 @@ Show that
         y_{hij} = \beta_{h}+r_{hj}+ U_{hi}+z_{hij}, h = 1,\ldots,g, i=1,\ldots,n_h, j=1,\ldots,m,
       \end{aligned}
     \end{equation*}
-    where \(\beta_h\) is the main effect for the \(h\)\th treatment, and \(r_{hj}\) is the interaction effect between the \(h\)-th treatment and the \(j\)-th time with \(\sum_{j=1}^{m}r_{hj} = 0 ,\forall h\).
+    where \(\beta_h\) is the main effect for the \(h\)-th treatment, and \(r_{hj}\) is the interaction effect between the \(h\)-th treatment and the \(j\)-th time with \(\sum_{j=1}^{m}r_{hj} = 0 ,\forall h\).
 
     For the hypothesis \(H_0:\beta_1 = \cdots\beta_g\)
 find the F statistics \(F = \frac{MBTSS_1}{MRSS_1}\) of the ANOVA table.

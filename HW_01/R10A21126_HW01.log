@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.7.1)  2 OCT 2023 22:23
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.7.1)  5 OCT 2023 13:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1288,11 +1288,11 @@ Package biblatex Info: Reference section=0 on input line 5.
 Package biblatex Info: Reference segment=0 on input line 5.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 8.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 8.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -1300,14 +1300,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
  []
 
+
+Package tcolorbox Warning: Discard zero height first box part due to break problems (possible loss of zero height content) on input line 117.
+
 [1
 
-] [2]
+]
 Underfull \hbox (badness 10000) in paragraph at lines 174--175
 
  []
 
-[3] 
+[2] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./R10A21126_HW01.aux)
 Package rerunfilecheck Info: File `R10A21126_HW01.out' has not changed.
@@ -1317,12 +1320,12 @@ Package logreq Info: Writing requests to 'R10A21126_HW01.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 44307 strings out of 476683
- 953371 string characters out of 5804048
- 1873018 words of memory out of 5000000
- 63882 multiletter control sequences out of 15000+600000
+ 44298 strings out of 476683
+ 953154 string characters out of 5804048
+ 1871018 words of memory out of 5000000
+ 63873 multiletter control sequences out of 15000+600000
  516421 words of font info for 59 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  104i,12n,107p,683b,3846s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on R10A21126_HW01.pdf (3 pages).
+Output written on R10A21126_HW01.pdf (2 pages).
