@@ -54,15 +54,101 @@
     with
     \begin{equation*}
       \begin{aligned}
-        S_{i,j} = \sum_{i=1}^{n}\sum_{j=1}^{m_i} k_h(t-t_{ij})(t-t_{ij})^j.
+        S_{n,j} = \sum_{i=1}^{n}\sum_{j=1}^{m_i} k_h(t-t_{ij})(t-t_{ij})^j.
       \end{aligned}
     \end{equation*}
   \end{Problem}
 
 
-
+  
 
   \begin{solution}\,\\
+
+  \begin{equation*}
+    \begin{aligned}
+      Q &= \sum_{i=1}^{n}\sum_{j=1}^{m_i}  (Y_{ij}-\sum_{j=0}^{k_i}\frac{g^{(j)}(t)}{j!}(t_{ij}-t)^{j})^2k_{h}(t-t_{ij}) \\
+      &= \sum_{i=1}^{n}\sum_{j=1}^{m_i} (Y_{ij}^2-\beta_0^2-2\beta_0Y_{ij}+\beta_1^2(t_{ij}-t)^2-2\beta_1Y_{ij}(t_{ij}-t)+2\beta_0\beta_1(t_{ij}-t))k_h(t-t_{ij})
+    \end{aligned}
+  \end{equation*}
+
+  \begin{equation*}
+    \begin{aligned}
+      \frac{\partial Q}{\partial\beta_0} = \sum_{i=1}^{n}\sum_{j=1}^{m_i} (-2Y_{ij}-2\beta_0+2\beta_1(t_{ij}-t))k_h(t-t_{ij})\overset{\text{set}}{=} 0\\
+      \frac{\partial Q}{\partial\beta_1} = \sum_{i=1}^{n}\sum_{j=1}^{m_i} (-2Y_{ij}(t_{ij}-t)+2\beta_1(t_{ij}-t)^2 +2\beta_0(t_{ij}-t))\overset{\text{set}}{=} 0
+    \end{aligned}
+  \end{equation*}
+
+  \begin{equation*}
+    \begin{aligned}
+      \begin{pmatrix}
+        S_{n,0} & S_{n,1}\\
+        S_{n,1} & S_{n,2}
+      \end{pmatrix}
+    \begin{pmatrix}
+      \tilde{\beta}_0\\
+      \tilde{\beta}_1
+    \end{pmatrix} 
+    & =\\
+      \begin{pmatrix}
+        \sum\sum k_h(t-t_{ij}) & \sum\sum k_h(t-t_{ij})\\
+        \sum\sum k_h(t-t_{ij})(t_{ij}-t) &  \sum\sum k_h(t-t_{ij})(t_{ij}-t)^2
+      \end{pmatrix}
+    \begin{pmatrix}
+      \tilde{\beta}_0\\
+      \tilde{\beta}_1
+    \end{pmatrix}
+    & =     
+    \begin{pmatrix}
+      \sum\sum Y_{ij}k_h(t-t_{ij})\\
+      \sum\sum Y_{ij}k_h(t-t_{ij})(t_{ij}-t))
+    \end{pmatrix}
+    \end{aligned}
+  \end{equation*}
+
+  \begin{equation*}
+    \begin{aligned}
+      \begin{pmatrix}
+        \tilde{\beta}_0\\
+        \tilde{\beta}_1
+      \end{pmatrix}
+      & =       
+      \begin{pmatrix}
+        S_{n,0} & S_{n,1}\\
+        S_{n,1} & S_{n,2}
+      \end{pmatrix}^{-1}
+      \begin{pmatrix}
+        \sum\sum k_h(t-t_{ij})Y_{ij}
+        \\
+        \sum\sum k_h(t-t_{ij})(t_{ij}-t)Y_{ij}
+      \end{pmatrix}\\
+      & = \frac{1}{S_{n,0}S_{n,2}-S_{n,1}^2}
+      \begin{pmatrix}
+        S_{n,2} & -S_{n,1}\\
+        -S_{n,1} & S_{n,0}
+      \end{pmatrix}
+      \begin{pmatrix}
+        \sum\sum k_h(t-t_{ij})Y_{ij}
+        \\
+        \sum\sum k_h(t-t_{ij})(t_{ij}-t))Y_{ij}
+      \end{pmatrix}\\
+    \end{aligned}
+  \end{equation*}
+
+
+  Thus,
+
+  \begin{equation*}
+    \begin{aligned}
+      \tilde{\beta}_0 & = \frac{S_{n,2}\sum\sum k_h(t-t_{ij})Y_{ij}-S_{n,1}\sum\sum k_h(t-t_{ij})(t_{ij}-t)Y_{ij}}{S_{n,0}S_{n,2}-S_{n,1}^2}\\
+      % & = \frac{S_{n,2}\sum\sum k_h(t-t_{ij})Y_{ij}-S_{n,1}\sum\sum k_h(t-t_{ij})(t_{ij}-t)Y_{ij}}{S_{n,0}S_{n,2}-S_{n,1}^2}\\
+      & = \frac{\sum\sum k_h(t-t_{ij})(S_{n,2}-S_{n,1}(t_{ij}-t))Y_{ij}}{\sum\sum k_h(t-t_{ij})\sum\sum k_h(t-t_{ij})(t_{ij}-t)^2- \sum\sum k_h(t-t_{ij})(t_{ij}-t)\sum\sum k_h(t-t_{ij})(t_{ij}-t)}\\
+      & = \frac{\sum\sum k_h(t-t_{ij})\{S_{n,2}+(t-t_{ij})S_{n,1}\}Y_{ij}}{\sum\sum k_h(t-t_{ij})\sum\sum k_h(t-t_{ij})(t_{ij}-t)^2 + \sum\sum k_h(t-t_{ij})(t-t_{ij})\sum\sum k_h(t-t_{ij})(t_{ij}-t)}\\
+      & = \frac{\sum\sum k_h(t-t_{ij})\{S_{n,2}+(t-t_{ij})S_{n,1}\}Y_{ij}}{\sum\sum k_h(t-t_{ij})\{S_{n,2}+(t-t_{ij})S_{n,1}\}}\\
+      & = \frac{\sum\sum \omega (t,t_{ij})Y_{ij}}{\sum\sum \omega (t,t_{ij})}\\
+    \end{aligned}
+  \end{equation*}
+
+
 
 
   \end{solution}
@@ -75,27 +161,18 @@
       \item Partial regression coefficient estimator
       \item Sequential regression coefficient estimator
     \end{enumerate}
-    and when can they be the same
+    and when can they be the same.
   \end{Problem} 
 
   \begin{solution}
+
+    The total regression coefficient estimator refers to the coefficients estimated in a regression model when you consider all the predictor variables simultaneously to predict the outcome variable.
+
+    The partial regression coefficient estimator measures the expected change in the dependent variable associated with a one-unit change in an independent variable holding the other independent variables constant.
     
-% Total Regression Coefficient Estimator:
+    Sequential regression coefficients refer to coefficients estimated in a stepwise regression procedure, which selects variables in a sequence based on certain criteria.
 
-% The total regression coefficient estimator measures the relationship between a dependent variable and an independent variable while considering the combined influence of all other independent variables in the model. It quantifies the change in the dependent variable associated with a one-unit change in the specific independent variable, assuming all other variables are held constant.
-% Partial Regression Coefficient Estimator:
-
-% The partial regression coefficient estimator quantifies the relationship between a dependent variable and a specific independent variable while controlling for the effects of all other independent variables in the model. It isolates the unique impact of that particular independent variable on the dependent variable.
-% Sequential Regression Coefficient Estimator:
-
-% The sequential regression coefficient estimator involves estimating regression coefficients step by step, typically by adding or removing variables from the model based on selection criteria. It iteratively adjusts the coefficients as variables are added or removed, aiming to find the best subset of predictors.
-% When Can They Be the Same:
-
-% The total regression coefficient estimator, partial regression coefficient estimator, and sequential regression coefficient estimator can be the same under certain condition:
-
-% Simple Linear Regression:
-
-% When you are dealing with a simple linear regression model (i.e., there is only one independent variable), all three estimators will be the same. This is because there are no other independent variables to control for or select from, and the total, partial, and sequential estimators will all measure the relationship between the single independent variable and the dependent variable in the same way.
+    The three estimators are the same in the simple linear regression model because there is only one dependent variable to be considered, thus the three estimators measure the relationship between the single independent variable and the dependent variable in the same way.
     
   \end{solution}
 
@@ -116,18 +193,172 @@ Show that
 
   \end{Problem} 
 
+  \begin{solution}
 
+    \begin{equation*}
+      \begin{aligned}
+        \Var[\varepsilon_{i,j}] &= \E[\varepsilon_{i,j}\varepsilon_{i,j} ]\\
+        &= \E[(\rho \varepsilon_{i,j-1}+Z_{i,j})(\rho \varepsilon_{i,j-1}+Z_{i,j})]\\
+        &=\E[\rho^2 \varepsilon_{i,j-1}^2 + 2\rho \varepsilon_{i,j-1}Z_{i,j} + Z_{i,j}^2]\\
+        &=(1-\rho^2)\Var[\varepsilon_{i,j}] + 0 + \Var[Z_{i,j}]
+      \end{aligned}
+    \end{equation*}    
+    
+    \begin{equation*}
+      \begin{aligned}
+        \Var[\varepsilon_{i,j}] = \frac{\Var[Z_{i,j}]}{1-\rho^2} = \sigma^2
+      \end{aligned}
+    \end{equation*}
+
+    \begin{equation*}
+      \begin{aligned}
+        \Cov[\varepsilon_{i,j},\varepsilon_{i,j-k}] &= \Cov[\rho \varepsilon_{i,j-1}+Z_{i,j},\varepsilon_{i,j-k}]\\
+        & =\Cov[\rho \varepsilon_{i,j-1},\varepsilon_{i,j-k}]+\Cov[Z_{i,j},\varepsilon_{i,j-k}]\\
+        & =\Cov[\rho \varepsilon_{i,j-1},\varepsilon_{i,j-k}] + 0\\
+        & =\Cov[\rho^2 \varepsilon_{i,j-2} +\rho Z_{i,j-1},\varepsilon_{i,j-k}]\\
+        & =\Cov[\rho^2 \varepsilon_{i,j-2},\varepsilon_{i,j-k}]\\
+        &\vdots\\
+        &=\Cov[\rho^k \varepsilon_{i,j-k},\varepsilon_{i,j-k}]\\
+        &=\rho^k\Var[\varepsilon_{i,j-k}]\\
+        &=\rho^k\sigma^2
+      \end{aligned}
+    \end{equation*}
+
+
+  \end{solution}
 
   \begin{Problem}[]{Cross-Sectional Data}
     For Cross-Sectional Data
     \begin{equation*}
       \begin{aligned}
-        Y_i = X_i^T\beta +\varepsilon_i, \varepsilon \overset{\text{iid}}{\sim } (0,\sigma^2),
+        Y = \X^T\beta + e, e \overset{\text{iid}}{\sim } (0,\sigma^2\mathbf{I}_n),
       \end{aligned}
     \end{equation*}
     prove that the least square estimator \(\hat{\beta} = (X^TX)^{-1}X^TY\) is the best linear unbiased estimator (BLUE) of \(\beta\).
     
       \end{Problem} 
+
+    \begin{solution}
+
+      To prove that the least square estimator \(\hat{\beta} = (X^TX)^{-1}X^TY\) is the best linear unbiased estimator (BLUE) of \(\beta\), is to show that
+      \begin{enumerate}[label=(\alph*)]
+        \item \(\E[\hat{\beta}|X] = \beta\),
+        \item \(\Var[\tilde{\beta}|\X]-\Var[\hat{\beta}|\X]\succeq 0\),
+      \end{enumerate}
+      where \(\tilde{\beta} = A'X\) is an arbitrary linearly unbiased estimator for \(\beta\)
+
+
+
+
+
+      Please show that under the assumption
+      \begin{equation}
+        \begin{aligned}
+          \E[e|X] &= 0&&\text{No serial correlation}\\
+          \E[ee'|\X]&=\sigma^2\mathbf{I}_n&&\text{Conditional homoskedasticity}
+        \end{aligned}
+      \end{equation}
+      we have
+      \begin{equation}
+        \begin{aligned}
+          \Var[\tilde{\beta}|\X]-\Var[\hat{\beta}|\X] =\sigma^2\A'\M\A.
+        \end{aligned}
+      \end{equation}
+
+
+
+
+
+
+
+
+
+
+      Define
+      \begin{equation}
+        \begin{aligned}
+          \A^{*\prime}:= (\X'\X)^{-1}\X'
+        \end{aligned}
+      \end{equation}
+    The Least Square estimator 
+      \begin{equation}
+        \begin{aligned}
+          \hat{\beta} &:= (\X'\X)^{-1}(\X'Y)\\
+          &=\A^{*\prime}\Y
+        \end{aligned}
+      \end{equation}
+      is the Best Linearly Unbiased Estimator (BLUE) for \(\beta\):
+      \begin{equation}
+        \begin{aligned}
+          \Var[\tilde{\beta}|\X]\geq\Var[\hat{\beta}|\X]
+        \end{aligned}
+      \end{equation}
+    where \(\tilde{\beta}\) is an arbitary linearly unbiased estimator for \(\beta\)
+    \begin{equation}
+      \begin{aligned}
+        \tilde{\beta}=\A^{\prime}\Y
+      \end{aligned}
+    \end{equation}
+    with
+    \begin{equation}
+      \begin{aligned}
+        \E[\tilde{\beta}|\X]&=\E[\A^{\prime}\Y|\X]\\
+        &=\E[\A^{\prime}(\X\beta+e)|\X]\\
+        &=\A^{\prime}\X\beta\\
+        &=\beta,
+      \end{aligned}
+    \end{equation}
+    which implies that
+    \begin{equation}
+      \begin{aligned}
+        \A^{\prime}\X&=\mathbf{I}_k.
+      \end{aligned}
+    \end{equation}
+    If \(\A = \A^*\), we have \((\X'\X)^{-1}\X'\X = \mathbf{I}_k\).
+    
+    \begin{equation}
+      \begin{aligned}
+        \Var[\tilde{\beta}|\X]&=\E[(\tilde{\beta}-\E[\tilde{\beta}|\X])(\tilde{\beta}-\E[\tilde{\beta}|\X])'|\X]\\
+        &=\E[(\tilde{\beta}-\beta)(\tilde{\beta}-\beta)'|\X]\\
+      \end{aligned}
+    \end{equation}
+    \begin{equation}
+      \begin{aligned}
+        \Var[\tilde{\beta}|\X]&=\Var[\A^{\prime}\Y|\X]\\
+        &=\Var[\A^{\prime}e|\X]\\
+        &=\A^{\prime}\Var[e|\X]\A\\
+        &=\A^{\prime}\E[ee'|\X]\A\\
+        &=\A^{\prime}\sigma^2\mathbf{I}_n\A\\
+        &=\sigma^2\A^{\prime}\A
+      \end{aligned}
+    \end{equation}
+    \begin{equation}
+      \begin{aligned}
+        \Var[\hat{\beta}|\X]&=\Var[\A^{*\prime}\Y|\X]\\
+        &=\Var[\A^{*\prime}e|\X]\\
+        &=\A^{*\prime}\Var[e|\X]\A^*\\
+        &=\A^{*\prime}\E[ee'|\X]\A^*\\
+        &=\A^{*\prime}\sigma^2\mathbf{I}_n\A^*\\
+        &=\sigma^2\A^{*\prime}\A^*
+      \end{aligned}
+    \end{equation}
+    \begin{equation}
+      \begin{aligned}
+        \Var[\tilde{\beta}|\X]-\Var[\hat{\beta}|\X]&=\sigma^2\A^{\prime}\A-\sigma^2\A^{*\prime}\A^*\\
+        &=\sigma^2(\A^{\prime}\A-\A^{*\prime}\A^*)\\
+        &=\sigma^2(\A^{\prime}\A-(\X'\X)^{-1}\X'((\X'\X)^{-1}\X')')\\
+        &=\sigma^2(\A^{\prime}\A-(\X'\X)^{-1}\X'\X(\X'\X)^{-1})\\
+        &=\sigma^2(\A^{\prime}\A-(\X'\X)^{-1})\\
+        &=\sigma^2(\A'\A-\mathbf{I}_k(\X'\X)^{-1}\mathbf{I}_k)\\
+        &=\sigma^2(\A'\A-\A'\X(\X'\X)^{-1}\X'\A)\\
+        &=\sigma^2(\A'[\mathbf{I}_n-\X(\X'\X)^{-1}\X']\A)\\
+        &=\sigma^2\A'\M\A
+      \end{aligned}
+    \end{equation}
+
+
+
+    \end{solution}
     
   \begin{Problem}[]{}
 
