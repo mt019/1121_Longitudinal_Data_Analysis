@@ -226,123 +226,118 @@ Show that
 
 
   \end{solution}
+\pagebreak
+
+% Q4
 
   \begin{Problem}[]{Cross-Sectional Data}
     For Cross-Sectional Data
     \begin{equation*}
       \begin{aligned}
-        Y = \X^T\beta + e, e \overset{\text{iid}}{\sim } (0,\sigma^2\mathbf{I}_n),
+        Y = \X'\beta + e, e \overset{\text{iid}}{\sim } (0,\sigma^2\mathbf{I}_n),
       \end{aligned}
     \end{equation*}
-    prove that the least square estimator \(\hat{\beta} = (X^TX)^{-1}X^TY\) is the best linear unbiased estimator (BLUE) of \(\beta\).
+    prove that the least square estimator \(\hat{\beta} = (\X'\X)^{-1}\X'Y\) is the best linear unbiased estimator (BLUE) of \(\beta\).
     
       \end{Problem} 
 
     \begin{solution}
 
-      To prove that the least square estimator \(\hat{\beta} = (X^TX)^{-1}X^TY\) is the best linear unbiased estimator (BLUE) of \(\beta\), is to show that
+      To prove that the least square estimator \(\hat{\beta} = (\X'\X)^{-1}\X'Y\) is the best linear unbiased estimator (BLUE) of \(\beta\), is to show that
       \begin{enumerate}[label=(\alph*)]
-        \item \(\E[\hat{\beta}|X] = \beta\),
+        \item \(\E[\hat{\beta}|\X] = \beta\),
         \item \(\Var[\tilde{\beta}|\X]-\Var[\hat{\beta}|\X]\succeq 0\),
       \end{enumerate}
-      where \(\tilde{\beta} = A'X\) is an arbitrary linearly unbiased estimator for \(\beta\)
+      where \(\tilde{\beta} = \A'\X\) is an arbitrary linearly unbiased estimator for \(\beta\).
 
+      \dotfill
 
-
-
-
-      Please show that under the assumption
-      \begin{equation}
-        \begin{aligned}
-          \E[e|X] &= 0&&\text{No serial correlation}\\
-          \E[ee'|\X]&=\sigma^2\mathbf{I}_n&&\text{Conditional homoskedasticity}
-        \end{aligned}
-      \end{equation}
-      we have
-      \begin{equation}
-        \begin{aligned}
-          \Var[\tilde{\beta}|\X]-\Var[\hat{\beta}|\X] =\sigma^2\A'\M\A.
-        \end{aligned}
-      \end{equation}
-
-
-
-
-
-
-
-
+      % Please show that under the assumption
+      % \begin{equation*}
+      %   \begin{aligned}
+      %     \E[e|X] &= 0&&\text{No serial correlation}\\
+      %     \E[ee'|\X]&=\sigma^2\mathbf{I}_n&&\text{Conditional homoskedasticity}
+      %   \end{aligned}
+      % \end{equation*}
+      % we have
+      % \begin{equation*}
+      %   \begin{aligned}
+      %     \Var[\tilde{\beta}|\X]-\Var[\hat{\beta}|\X] =\sigma^2\A'\M\A.
+      %   \end{aligned}
+      % \end{equation*}
 
 
       Define
-      \begin{equation}
+      \begin{equation*}
         \begin{aligned}
-          \A^{*\prime}:= (\X'\X)^{-1}\X'
+          \A^{*\prime}:= (\X'\X)^{-1}\X'.
         \end{aligned}
-      \end{equation}
+      \end{equation*}
     The Least Square estimator 
-      \begin{equation}
+      \begin{equation*}
         \begin{aligned}
           \hat{\beta} &:= (\X'\X)^{-1}(\X'Y)\\
-          &=\A^{*\prime}\Y
+          &=\A^{*\prime}Y.
         \end{aligned}
-      \end{equation}
-      is the Best Linearly Unbiased Estimator (BLUE) for \(\beta\):
-      \begin{equation}
-        \begin{aligned}
-          \Var[\tilde{\beta}|\X]\geq\Var[\hat{\beta}|\X]
-        \end{aligned}
-      \end{equation}
-    where \(\tilde{\beta}\) is an arbitary linearly unbiased estimator for \(\beta\)
-    \begin{equation}
+      \end{equation*}
+      % is the Best Linearly Unbiased Estimator (BLUE) for \(\beta\):
+      % \begin{equation*}
+      %   \begin{aligned}
+      %     \Var[\tilde{\beta}|\X]\geq\Var[\hat{\beta}|\X]
+      %   \end{aligned}
+      % \end{equation*}
+
+
+    Let \(\tilde{\beta}\) be an arbitrary linearly unbiased estimator for \(\beta\)
+    \begin{equation*}
       \begin{aligned}
-        \tilde{\beta}=\A^{\prime}\Y
+        \tilde{\beta}=\A^{\prime}Y,
       \end{aligned}
-    \end{equation}
+    \end{equation*}
     with
-    \begin{equation}
+    \begin{equation*}
       \begin{aligned}
-        \E[\tilde{\beta}|\X]&=\E[\A^{\prime}\Y|\X]\\
+        \E[\tilde{\beta}|\X]&=\E[\A^{\prime}Y|\X]\\
         &=\E[\A^{\prime}(\X\beta+e)|\X]\\
         &=\A^{\prime}\X\beta\\
         &=\beta,
       \end{aligned}
-    \end{equation}
-    which implies that
-    \begin{equation}
+    \end{equation*}
+    which requires that
+    \begin{equation*}
       \begin{aligned}
         \A^{\prime}\X&=\mathbf{I}_k.
       \end{aligned}
-    \end{equation}
-    If \(\A = \A^*\), we have \((\X'\X)^{-1}\X'\X = \mathbf{I}_k\).
+    \end{equation*}
+    If \(\A = \A^*\), we have \((\X'\X)^{-1}\X'\X = \mathbf{I}_k\). Thus the LSE \(\hat{\beta}\) is unbiased.
     
-    \begin{equation}
+    \begin{equation*}
       \begin{aligned}
         \Var[\tilde{\beta}|\X]&=\E[(\tilde{\beta}-\E[\tilde{\beta}|\X])(\tilde{\beta}-\E[\tilde{\beta}|\X])'|\X]\\
         &=\E[(\tilde{\beta}-\beta)(\tilde{\beta}-\beta)'|\X]\\
       \end{aligned}
-    \end{equation}
-    \begin{equation}
+    \end{equation*}
+    \begin{equation*}
       \begin{aligned}
-        \Var[\tilde{\beta}|\X]&=\Var[\A^{\prime}\Y|\X]\\
+        \Var[\tilde{\beta}|\X]&=\Var[\A^{\prime}Y|\X]\\
         &=\Var[\A^{\prime}e|\X]\\
         &=\A^{\prime}\Var[e|\X]\A\\
-        &=\A^{\prime}\E[ee'|\X]\A\\
+        % &=\A^{\prime}\E[ee'|\X]\A\\
         &=\A^{\prime}\sigma^2\mathbf{I}_n\A\\
         &=\sigma^2\A^{\prime}\A
       \end{aligned}
-    \end{equation}
-    \begin{equation}
+    \end{equation*}
+    \begin{equation*}
       \begin{aligned}
-        \Var[\hat{\beta}|\X]&=\Var[\A^{*\prime}\Y|\X]\\
+        \Var[\hat{\beta}|\X]&=\Var[\A^{*\prime}Y|\X]\\
         &=\Var[\A^{*\prime}e|\X]\\
         &=\A^{*\prime}\Var[e|\X]\A^*\\
         &=\A^{*\prime}\E[ee'|\X]\A^*\\
         &=\A^{*\prime}\sigma^2\mathbf{I}_n\A^*\\
         &=\sigma^2\A^{*\prime}\A^*
       \end{aligned}
-    \end{equation}
-    \begin{equation}
+    \end{equation*}
+    \begin{equation*}
       \begin{aligned}
         \Var[\tilde{\beta}|\X]-\Var[\hat{\beta}|\X]&=\sigma^2\A^{\prime}\A-\sigma^2\A^{*\prime}\A^*\\
         &=\sigma^2(\A^{\prime}\A-\A^{*\prime}\A^*)\\
@@ -352,9 +347,70 @@ Show that
         &=\sigma^2(\A'\A-\mathbf{I}_k(\X'\X)^{-1}\mathbf{I}_k)\\
         &=\sigma^2(\A'\A-\A'\X(\X'\X)^{-1}\X'\A)\\
         &=\sigma^2(\A'[\mathbf{I}_n-\X(\X'\X)^{-1}\X']\A)\\
-        &=\sigma^2\A'\M\A
+        &=\sigma^2\A'\M\A.
       \end{aligned}
-    \end{equation}
+    \end{equation*}
+    For any nonzero vector \(\lambda\), we have
+    \begin{equation*}
+      \begin{aligned}
+        \lambda' (\Var[\tilde{\beta}|\X]-\Var[\hat{\beta}|\X]) \lambda 
+        &=  \sigma^2 \lambda' \A'\M\A \lambda\\
+        &= \sigma^2 \lambda' \A'\M\M\A \lambda\\
+        &= \sigma^2(\M\A \lambda)' (\M\A \lambda)\geq 0,
+      \end{aligned}
+    \end{equation*}
+    implying that \(\Var[\tilde{\beta}|\X]-\Var[\hat{\beta}|\X]\) is positive semi-definite.
+
+    Therefore, we can conclude that the least square estimator \(\hat{\beta} = (\X'\X)^{-1}\X'Y\) is the best linear unbiased estimator (BLUE) of \(\beta\).
+
+
+
+    \begin{mybox}{}
+      Projection Matrix:
+      \[\mathbf{P}:=\X{(\X'\X)}^{-1}\X'\]
+      Orthogonal Projection Matrix:
+      \[\M:=\mathbf{I}_n-\mathbf{P} =\mathbf{I}_n- \X{(\X'\X)}^{-1}\X'\]
+      We can show that $\mathbf{P}$ and $\mathbf{M}$ are both symmetric and idempotent. That is 
+      \begin{align*}
+          \mathbf{P}' &= \mathbf{P}\\
+          \mathbf{P}\mathbf{P} &= \mathbf{P}\\
+          \M' &= \M\\
+          \M\M &= \M
+      \end{align*}
+
+      \dotfill
+    \begin{multicols*}{2}
+      \begin{align*}
+        \mathbf{P}' &=[\X{(\X'\X)}^{-1}\X']'\\
+        & = [\X']'[\X{(\X'\X)}^{-1}]'\\
+        & = \X[{(\X'\X)}^{-1}]'[\X]'\\
+        & = \X{[(\X'\X)']}^{-1}[\X]'\\
+        & = \X{[\X'\X]}^{-1}[\X]'\\
+        &= \mathbf{P} \quad\text{symmetric}
+\\[6pt]
+        \mathbf{P}\mathbf{P} &=\underset{\X}{\underbrace{\mathbf{P}\X}}{(\X'\X)}^{-1}\X'\\
+        &=\X{(\X'\X)}^{-1}\X'
+        % \quad\text{Property of a projection matrix}
+        \\
+        &= \mathbf{P}\quad\text{idempotent}
+      \end{align*}
+
+      \begin{align*}
+        \M' &=[\mathbf{I}_n-\mathbf{P}]'\\
+        & = [\mathbf{I}_n]'-[\mathbf{P}]'\\
+        & = \mathbf{I}_n-\mathbf{P}\\
+        & = \M\quad\text{symmetric}
+\\[6pt]
+        \M\M &=[\mathbf{I}_n-\mathbf{P}][\mathbf{I}_n-\mathbf{P}]\\
+        & = [\mathbf{I}_n-\mathbf{P}]\mathbf{I}_n-[\mathbf{I}_n-\mathbf{P}]\mathbf{P}\\
+        &=\mathbf{I}_n-\mathbf{P}-\mathbf{P}+\mathbf{P}\\
+        &=\mathbf{I}_n-\mathbf{P}\\
+        &=\M \quad\text{idempotent}
+    \end{align*}
+
+  \end{multicols*}
+
+  \end{mybox}
 
 
 
@@ -363,28 +419,77 @@ Show that
   \begin{Problem}[]{}
 
     GLM: \(Y = X\beta +\varepsilon \), where \(\varepsilon \sim(0,\sigma^2V)\).
-    Let \(A = I-X(X^TX)^{-1}X^T\) and \(B\) be the \(N\times (N-(p-1))\) matrix such that \(BB^T = A\) and \(B^TB = I_{N-(p-1)}\).
+    Let \(A = I-X(X^{T}X)^{-1}X^{T}\) and \(B\) be the \(N\times (N-(p+1))\) matrix such that \(BB^{T} = A\) and \(B^{T}B = I_{N-(p+1)}\).
 
-    For any fixed \(V\), the MLE of \(\beta\) is \(\hat{\beta}(V) = GY\), with \(G = (X^TV^{-1}X)^{-1}X^TV^{-1}\)
+    For any fixed \(V\), the MLE of \(\beta\) is \(\hat{\beta}(V) = GY\), with \(G = (X^{T}V^{-1}X)^{-1}X^{T}V^{-1}\)
     Show that
     \begin{equation*}
       \begin{aligned}
-        |GG^T-GBB^TG^T|^{\frac{1}{2}} = |X^TX|^{-\frac{1}{2}}
+        |GG^{T}-GBB^{T}G^{T}|^{\frac{1}{2}} = |X^{T}X|^{-\frac{1}{2}}
       \end{aligned}
     \end{equation*}
     
       \end{Problem} 
+  
+  \begin{solution}\,\\
 
+    \begin{equation*}
+      \begin{aligned}
+        GG^{T}-GBB^{T}G^{T}
+        &= GG^{T}-GAG^{T}\\
+        &= GG^{T}-G[I-X(X^{T}X)^{-1}X^{T}]G^{T}\\
+        &= GG^{T}-GG^{T} + GX(X^{T}X)^{-1}X^{T}G^{T}\\
+        &= GX(X^{T}X)^{-1}X^{T}G^{T}
+      \end{aligned}
+    \end{equation*}
+    \begin{equation*}
+      \begin{aligned}
+        |GG^{T}-GBB^{T}G^{T}|^{\frac{1}{2}} 
+        &= |GX(X^{T}X)^{-1}X^{T}G^{T}|^{\frac{1}{2}} \\
+        &= |G|^{\frac{1}{2}} |X(X^{T}X)^{-1}X^{T}|^{\frac{1}{2}} |G^{T}|^{\frac{1}{2}} \\
+        &= |G||X(X^{T}X)^{-1}X^{T}|^{\frac{1}{2}} \\
+        &= |(X^{T}V^{-1}X)^{-1}X^{T}V^{-1}|  |X|^{\frac{1}{2}}|(X^{T}X)^{-1}|^{\frac{1}{2}}|X^{T}|^{\frac{1}{2}}\\
+        &=\frac{1}{|X^{T}V^{-1}X|}|X^{T}V^{-1}||X|^{\frac{1}{2}}|(X^{T}X)^{-1}|^{\frac{1}{2}}|X^{T}|^{\frac{1}{2}}\\
+        &=|(X^{T}X)^{-1}|^{\frac{1}{2}}\\
+        &=|X^{T}X|^{-\frac{1}{2}}
+      \end{aligned}
+    \end{equation*}
+  \end{solution}
+    
 
           
-  \begin{Problem}[]{Serial rorrelation plus mesurement error}
-    Mesurement error: \(\varepsilon \sim (0,\sigma^2 H+\tau^2I_N)\).
+  \begin{Problem}[]{Serial correlation plus mesurement error}
+
+    When \(\varepsilon(t) \) is stationary, the covariance function or variogram :
+    \begin{equation*}
+      \begin{aligned}
+        r(u) = \frac{1}{2}\E[(\varepsilon(t)-\varepsilon(t-u))^2].
+      \end{aligned}
+    \end{equation*}
+
+Sources of random variation in longitudinal data:
+
+    Serial correlation + Mesurement error mesurement error: \(\varepsilon \sim (0,\sigma^2 H+\tau^2I_N)\).
 
     Show that the corresponding variogram is \(r(u) = \tau^2+\sigma^2(1-\rho(u))\) for \(u\geq 0\), with \(r(0) = \tau^2>0\).
 
     
       \end{Problem} 
 
+
+      \begin{solution}\,
+        \begin{equation*}
+          \begin{aligned}
+            r(u) 
+            &= \frac{1}{2}\E[(\varepsilon(t)-\varepsilon(t-u))^2]\\
+            &= \frac{1}{2}\E[\varepsilon(t)^2] +\frac{1}{2}\E[\varepsilon(t-u)^2]-\E[\varepsilon(t)\varepsilon(t-u)]\\
+            &= \sigma^2+\tau^2 -\sigma^2\rho(u)\\
+            &= \sigma^2(1-\rho(u))+\tau^2,
+          \end{aligned}
+        \end{equation*}
+        where \(\rho(0) = 1\).
+
+      \end{solution}
 
   \begin{Problem}[]{Repeated Measures}
 
@@ -396,13 +501,59 @@ Show that
     where \(\beta_h\) is the main effect for the \(h\)-th treatment, and \(r_{hj}\) is the interaction effect between the \(h\)-th treatment and the \(j\)-th time with \(\sum_{j=1}^{m}r_{hj} = 0 ,\forall h\).
 
     For the hypothesis \(H_0:\beta_1 = \cdots\beta_g\)
-find the F statistics \(F = \frac{MBTSS_1}{MRSS_1}\) of the ANOVA table.
+find the F statistics of the ANOVA table.
 
     
   \end{Problem} 
 
   
-  \begin{solution}\,\\
+  \begin{solution}\,
+
+    \begin{table}[htbp]
+      % \centering
+      \caption{ANOVA Table}
+      \hspace{-1cm}
+      \begin{tabular}{lllc}
+          \toprule
+          \textbf{Source of Variation} & \textbf{Sum of Squares (SS)} & \textbf{Degrees of Freedom (df)} & \textbf{Mean Square (MS)} \\
+          \midrule
+          Between Treatments & SSB = \(\sum_{h=1}^{g}(n_h m)(\bar{y}_{h\cdot\cdot}-\bar{y}_{\cdot\cdot\cdot})^2\) & df$_{\text{between}}$  = \(g-1\) & MSB = SSB/df$_{\text{between}}$ \\
+          Within Treatments & SSW = \(\sum_{h=1}^{g}\sum_{i=1}^{n_h}m(\bar{y}_{hi\cdot}-\bar{y}_{h\cdot\cdot})^2\) & df$_{\text{within}}$  = \(\sum_{h=1}^{g}n_h -g\) & MSW = SSW/df$_{\text{within}}$ \\
+          Total & SST = \(\sum_{h=1}^{g}\sum_{i=1}^{n_h}m(\bar{y}_{hi\cdot}-\bar{y}_{\cdot\cdot\cdot})^2\)  & df$_{\text{total}}$ = \(\sum_{h=1}^{g}n_h -1\) & \\
+          \bottomrule
+      \end{tabular}
+  \end{table}
+  
+  \begin{table}[htbp]
+      \centering
+      \caption{F-statistic}
+      \begin{tabular}{c}
+          \textbf{F-statistic} \\
+          \midrule
+          F = MSB/MSW \\
+          \bottomrule
+      \end{tabular}
+  \end{table}
+  
+
+% \begin{landscape}
+%   \begin{table}
+%       \centering
+%       \caption{ANOVA Table}
+%       \small % Adjust the font size to make the table smaller
+%       \begin{adjustbox}{width=1.3\textwidth} % Adjust the width of the table
+%       \begin{tabular}{lcccc}
+%           \toprule
+%           \textbf{Source of Variation} & \textbf{Sum of Squares (SS)} & \textbf{Degrees of Freedom (df)} & \textbf{Mean Square (MS)} & \textbf{F-statistic} \\
+%           \midrule
+%           Between Treatments & SSB & df$_{\text{between}}$ & MSB = SSB/df$_{\text{between}}$ & F = MSB/MSW \\
+%           Within Treatments & SSW & df$_{\text{within}}$ & MSW = SSW/df$_{\text{within}}$ & \\
+%           Total & SST & df$_{\text{total}}$ & & \\
+%           \bottomrule
+%       \end{tabular}
+%       \end{adjustbox}
+%   \end{table}
+%   \end{landscape}
 
 
   \end{solution}
