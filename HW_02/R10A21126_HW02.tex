@@ -33,14 +33,17 @@
 \begin{document}
 
 
-\begin{mybox}{}
-  Kernel estimator: 
-  \begin{equation*}
-    \begin{aligned}
-      \omega(u,v)\triangleq \frac{1}{h}k(\frac{u-v}{h})
-    \end{aligned}
-  \end{equation*}
-  with \(h>0\).
+\begin{mybox}{Exponential Family}
+  % \section{}
+  \begin{itemize}
+      \item Suppose $Y_1, \ldots, Y_n$ are independent random variables.
+      \item Let $f(y_i; \theta_i, \phi)$ be the Probability Mass Function (PMF) or Probability Density Function (PDF) of $Y_i$, where $\phi$ is a scale parameter.
+      \item If we can write
+      \[
+      f(y_i; \theta_i, \phi) = \exp\left(y_i \theta_i - b(\theta_i) \frac{1}{a(\phi)} + c(y_i, \phi)\right),
+      \]
+      then we call the PMF or the PDF $f(y_i; \theta_i, \phi)$ an exponential family.
+  \end{itemize}
   
 
 
@@ -53,17 +56,145 @@
   \begin{Problem}[]{}
     Find the form of GLM for the following distributions, and show the resonable link function:
     \begin{enumerate}
+      \item Normal distributions
+      \item Inverse Gaussian
       \item Binomial distribution
       \item Poisson distribution
-      \item Gamma distribution (location shift)
-      \item Normal distributions
-      \item Beta (重新參數化)
-      \item Inverse Gaussian
+      \item Gamma distribution
+      \item Beta 
+      % (重新參數化)
     \end{enumerate}
     
   \end{Problem}
 
+
+  \begin{mybox}{Normal Distribution}
+  % \section{Normal Distribution}
+Assume $Y_i \sim \mathcal{N}(\mu_i, \sigma^2)$. Then, $E(Y_i) = \mu_i$ and $\sigma$ is a scale parameter. The Probability Density Function (PDF) is given by
+\[
+\frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{(y_i - \mu_i)^2}{2\sigma^2}} = \exp\left\{\frac{y_i\mu_i - \mu_i^2/2}{\sigma^2} - \left(\frac{1}{2}\log(2\pi\sigma^2) - \frac{y_i^2}{2\sigma^2}\right)\right\}.
+\]
+
+Thus, use 
+
+\begin{itemize}
+  \item $\theta_i = \mu_i$,
+  \item $b(\theta_i) = \frac{\theta_i^2}{2}$,
+  \item $\phi = \sigma^2$, 
+  \item $a(\phi) = \phi$,
+  \item $c(y_i, \phi) = -\frac{1}{2}\log(2\pi\phi) - \frac{y_i^2}{2\phi}$.
+\end{itemize}
+
+
+\end{mybox}
+\pagebreak
+
+
+\begin{mybox}{Inverse Gaussian Distribution}
+  Let us rewrite the probability density function (pdf) of the Inverse Gaussian distribution with parameters $\mu_i$ and $\lambda$:
+  \[
+  f(y_i; \mu_i, \lambda) = \left(\frac{\lambda}{2\pi y_i^3}\right)^{1/2}\exp\left\{-\frac{\lambda(y_i - \mu_i)^2}{2\mu_i^2 y_i}\right\}, \quad y > 0
+  \]
   
+  in the following form:
+  \[
+  \begin{aligned}
+  f(y_i; \mu_i, \lambda) &= \exp\left\{-\frac{\lambda(y_i - \mu_i)^2}{2\mu_i^2 y_i} + \frac{1}{2}\ln\left(\frac{\lambda}{2\pi y_i^3}\right)\right\} \\
+  &=\exp\left\{\frac{-\frac{1}{2\mu_i^2}y_i+\frac{1}{\mu_i}}{\frac{1}{\lambda}}+\left(\frac{1}{2}\ln \frac{\lambda}{2\pi y_i^3}-\frac{\lambda}{2y_i}\right) \right\}
+  \end{aligned}
+  \]
+  
+  Now, let's identify the exponential family components:
+  \begin{itemize}
+      \item Canonical parameter: $\theta_i = -\frac{1}{2\mu_i^2}$
+      \item $b(\theta_i) = -\frac{1}{\mu_i} = -(-2\theta_i)^{\frac{1}{2}} $
+      \item $\phi = \lambda$
+      \item \(a(\phi) = \frac{1}{\phi}\)
+      \item \(c(y_i,\phi) = \frac{1}{2}\ln\frac{\phi}{2\pi y_i^{3}}-\frac{\phi}{2y_i}\)
+  \end{itemize}
+  
+  Thus, the Inverse Gaussian distribution can be shown to be a member of the exponential family.
+
+\end{mybox}
+  
+  
+\begin{mybox}{Binomial Distribution}
+  % \section{}
+Assume $Y_i \sim \text{Bin}(n_i, p_i)$. Then, $E(Y_i) = n_i p_i$. The Probability Mass Function (PMF) is given by
+\[
+\binom{n_i}{y_i} p_i^{y_i} (1 - p_i)^{n_i - y_i} = \exp\left\{y_i \log \left(\frac{p_i}{1 - p_i}\right) + n_i \log(1 - p_i) - \log \binom{n_i}{y_i}\right\}.
+\]
+
+Thus, 
+\begin{itemize}
+  \item $\theta_i = \log\left(\frac{p_i}{1 - p_i}\right)$, 
+  \item $b(\theta_i) = n_i \log(1 + e^{\theta_i})$, 
+  \item $\phi = 1$, $a(\phi) = 1$,
+  \item $c(y, \phi) = -\log \binom{n_i}{y_i}$.
+\end{itemize}
+
+
+\end{mybox}
+
+\pagebreak
+  
+\begin{mybox}{Poisson Distribution}
+  % \section{}
+Assume $Y_i \sim \text{Poisson}(\lambda_i)$. Then, $E(Y_i) = \lambda_i$. The Probability Mass Function (PMF) is given by
+\[
+\frac{\lambda_i^{y_i}e^{-\lambda_i}}{y_i!} = \exp\left\{y_i\log(\lambda_i) - \lambda_i - \log(y_i!)\right\}.
+\]
+
+Thus, 
+\begin{itemize}
+  \item $\theta_i = \log(\lambda_i)$, 
+  \item $b(\theta_i) = e^{\theta_i}$, 
+  \item $\phi = 1$, $a(\phi) = 1$, 
+  \item $c(y_i, \phi) = -\log(y_i!)$.
+\end{itemize}
+
+
+\end{mybox}
+
+  
+\begin{mybox}{Gamma Distribution}
+  % \section{}
+Assume $x_i \sim \Gamma(\alpha, \beta_i)$, where $\beta_i$ is unknown. Then, $E(x_i) = \frac{\alpha}{\beta_i}$. The Probability Mass Function (PMF) is given by
+\[
+\frac{\beta_i^\alpha x_i^{\alpha-1} e^{-\beta_i x_i}}{\Gamma(\alpha)} = \exp\left\{\alpha\log x_i + \alpha\log(\beta_i) - \log(\Gamma(\alpha)) - \log(x_i) - \beta_i x_i\right\}.
+\]
+
+Assuming $\alpha$ is known, if we choose $y_i = x_i$, then 
+\begin{itemize}
+  \item $\theta_i = -\beta_i$ ($\theta_i < 0$), 
+  \item $b(\theta_i) = -\alpha\log(-\theta_i)$, 
+  \item $\phi = 1$, and $a(\phi) = 1$.
+\end{itemize}
+
+Remark: We can also choose 
+$y_i = -x_i$ and $\theta_i = \beta_i$. In this case, $b(\theta_i) = -\alpha\log(\theta_i)$.
+
+\end{mybox}
+
+% \begin{mybox}{Beta Distribution}
+% % \section{}
+% Assume $x_i \sim \text{Beta}(\alpha, \beta_i)$, where $\beta_i$ is unknown. Then, the expected value of $x_i$ is $E(x_i) = \frac{\alpha}{\alpha + \beta_i}$. The Probability Mass Function (PMF) is given by
+
+% \begin{equation*}
+%   \begin{aligned}
+% &\frac{\Gamma(\alpha + \beta_i)}{\Gamma(\alpha)\Gamma(\beta_i)} x_i^{\alpha - 1}(1 - x_i)^{\beta_i - 1}\\ 
+% = &\exp\left\{\log(\Gamma(\alpha + \beta_i)) - \log(\Gamma(\alpha)) - \log(\Gamma(\beta_i)) + (\alpha - 1)\log(x_i) + (\beta_i - 1)\log(1 - x_i)\right\}.
+% \end{aligned}
+% \end{equation*}
+
+% Assuming $\alpha$ is known, if we choose $y_i = x_i$, then $\theta_i = \beta_i$, $b(\theta_i) = -\log(\theta_i)$, $\phi = 1$, and $a(\phi) = 1$.
+
+% Remark: We can also choose $y_i = 1 - x_i$ and $\theta_i = \alpha$. In this case, $b(\theta_i) = -\log(\theta_i)$.
+% \end{mybox}
+
+
+\pagebreak
+
   \begin{Problem}[]{}
   Paper Summarization
     
@@ -77,58 +208,36 @@
 - **Sampling properties of SIR**: The output of SIR provides root n consistent estimates for the e.d.r. directions under a design condition on the distribution of x⁴[4]. The eigenvalues of the covariance matrix can be used to assess the number of components in the model and the effectiveness of SIR.
 - **Simulation results**: SIR is demonstrated to be effective in reducing the dimension of x from 10 to 2 for a data set with 400 observations. The spin-plot of y against the projected variables obtained by SIR mimics the spin-plot of y against the true directions very well⁵[5]. A chi-squared statistic is proposed to test whether a direction found by SIR is spurious⁶[6].
 
+
+\pagebreak
 \begin{Problem}[]{}
   Describe
   \begin{enumerate}
-    \item how to conduct  maximum likelihood  for the random effects model
+    \item how to conduct the EM (Expectation-Maximization) algorithm
     \item how to conduct  MCMC
   \end{enumerate}
     
   \end{Problem}
+  Denoting
+  \[ Q(q|q_0, x) = \mathbb{E}_{q_0} \left[ \log L_c(q|x,Z) \right], \]
+  the EM algorithm indeed proceeds "iteratively" by maximizing \(Q(q|q_0, x)\) at each iteration, and, if \(q^{\hat{(1)}}\) is the value of \(q\) maximizing \(Q(q|q_0, x)\), by replacing \(q_0\) by the updated value \(q^{\hat{(1)}}\). In this manner, a sequence of estimators \(\{q^{\hat{(j)}}\}_j\) is obtained, where
+  \[ Q(q^{\hat{(j)}}|q^{\hat{(j-1)}}) \]
+
+  Pick a starting value \(q^{\hat{(0)}}\) and set \(m = 0\).
+Repeat
+\begin{enumerate}
+  \item Compute (the E-step) \[ Q(q|q^{\hat{(m)}, x}) = \mathbb{E}_{q^{\hat{(m)}}} \left[ \log L_c(q|x,Z) \right], \]where the expectation is with respect to \(k(z|q^{\hat{(m)}, x})\).
+  \item Maximize \(Q(q|q^{\hat{(m)}, x})\) in \(q\) and take (the M-step)   \[ q^{\hat{(m+1)}} = \arg\max_q Q(q|q^{\hat{(m)}, x}) \] and set \(m = m+1\).
+\end{enumerate}
+
+until a fixed point is reached; i.e., \(q^{\hat{(m+1)}} = q^{\hat{(m)}}\).
+
   
-  Maximum Likelihood for the Random Effects Model:
 
-Maximum Likelihood Estimation (MLE) is a method used to estimate the parameters of a statistical model, and it can be applied to random effects models. In a random effects model, you typically have two levels of variation: random effects (which are specific to each group or cluster) and fixed effects (which are common across all groups). Here's how you can conduct MLE for a random effects model:
+\dotfill
 
-a. Model Specification: Start by specifying the random effects model, which includes the fixed effects and random effects components. For example, in a linear mixed-effects model, you may have:
+Gibbs Sampling of MCMC (Markov Chain Monte Carlo)
 
-\[Y_ij = β_0 + β_1*X_ij + u_i + ε_ij\]
-
-
-\(Y_ij\) is the observed response for the jth observation in the ith group.
-
-\(β_0\) and \(β_1 \)are fixed effect coefficients.
-
-\(u_i\) represents the random effect specific to group i.
-
-\(ε_ij\) is the residual error.
-
-
-b. Likelihood Function: Construct the likelihood function, which describes how likely the observed data is given the model parameters. In a random effects model, this includes both fixed and random effect parameters. The likelihood function is often assumed to follow a specific distribution, such as the normal distribution for the random effects and residuals.
-
-c. Maximize the Likelihood: The goal is to find parameter estimates (β's and the variance components for the random effects and residuals) that maximize the likelihood function. This involves iterative optimization techniques, such as the EM (Expectation-Maximization) algorithm or specialized software like the lme4 package in R for mixed-effects models.
-
-d. Estimation of Random Effects: Once the fixed effects parameters are estimated, you can obtain estimates of the random effects for each group. The random effects capture the group-specific deviations from the fixed effects.
-
-e. Inference: After obtaining parameter estimates, you can perform statistical inference, such as hypothesis tests or confidence intervals, to assess the significance of fixed effects and variances of random effects.
-
-Markov Chain Monte Carlo (MCMC):
-
-Markov Chain Monte Carlo is a statistical method used to estimate the posterior distribution of model parameters in Bayesian statistics. MCMC is particularly useful when you cannot directly compute the posterior distribution analytically, which is often the case in complex models. Here's how you can conduct MCMC:
-
-a. Model Specification: Start by specifying the Bayesian model, which includes the likelihood function (describing data likelihood) and the prior distribution (describing your beliefs about the parameters before seeing data).
-
-b. Initialization: Choose initial values for all model parameters.
-
-c. MCMC Algorithm: Run the MCMC algorithm, such as the Metropolis-Hastings or Gibbs sampler, to sample from the joint posterior distribution of the parameters. In each iteration, you propose new parameter values based on the current values and accept or reject them according to a specific acceptance rule (e.g., Metropolis-Hastings acceptance ratio).
-
-d. Burn-in Period: Discard a certain number of initial samples (burn-in) to allow the Markov chain to converge to the stationary distribution.
-
-e. Sampling: After the burn-in period, collect samples from the Markov chain at regular intervals. These samples represent draws from the posterior distribution of the model parameters.
-
-f. Inference: Use the obtained samples to make inferences about the model parameters. You can compute posterior means, medians, credible intervals, and perform various analyses based on the posterior samples.
-
-MCMC is a powerful technique for estimating complex models, especially in Bayesian statistics. It allows you to quantify uncertainty about model parameters and make probabilistic statements about your inferences.
 
 
 \begin{Problem}[]{}
