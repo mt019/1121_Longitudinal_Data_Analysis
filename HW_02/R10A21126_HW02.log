@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.8.25)  25 OCT 2023 00:26
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.8.25)  25 OCT 2023 10:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1398,26 +1398,46 @@ Package biblatex Info: Reference section=0 on input line 33.
 Package biblatex Info: Reference segment=0 on input line 33.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 39.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
 (d:/MaakApp/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 39.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
  (d:/MaakApp/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 ] [2] [3]
-Missing character: There is no ⁴ (U+2074) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ⁵ (U+2075) in font [lmroman10-regular]:mapping=tex-text;!
-Missing character: There is no ⁶ (U+2076) in font [lmroman10-regular]:mapping=tex-text;!
-[4] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 326--328
+
+Package fontspec Info: Could not resolve font "FangSong/BI" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "FangSong/B" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "FangSong/I" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
+(fontspec)             with options [Script={CJK}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
+ [4] [5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 339--341
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--338
+Underfull \hbox (badness 10000) in paragraph at lines 350--353
 
  []
 
@@ -1429,20 +1449,14 @@ Package rerunfilecheck Info: File `R10A21126_HW02.out' has not changed.
 Package logreq Info: Writing requests to 'R10A21126_HW02.run.xml'.
 \openout1 = `R10A21126_HW02.run.xml'.
 
- )
-(\end occurred inside a group at level 3)
-
-### simple group (level 3) entered at line 216 ({)
-### simple group (level 2) entered at line 216 ({)
-### simple group (level 1) entered at line 216 ({)
-### bottom level 
+ ) 
 Here is how much of TeX's memory you used:
- 45303 strings out of 475848
- 968270 string characters out of 5801585
- 1810434 words of memory out of 5000000
- 65686 multiletter control sequences out of 15000+600000
- 473401 words of font info for 56 fonts, out of 8000000 for 9000
+ 45395 strings out of 475848
+ 971365 string characters out of 5801585
+ 1810436 words of memory out of 5000000
+ 65753 multiletter control sequences out of 15000+600000
+ 476581 words of font info for 78 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 104i,17n,107p,683b,3960s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,17n,107p,683b,3848s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on R10A21126_HW02.pdf (10 pages).
