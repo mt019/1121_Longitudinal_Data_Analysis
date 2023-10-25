@@ -33,329 +33,159 @@
 \begin{document}
 
 
-\begin{mybox}{Exponential Family}
-  % \section{}
-  \begin{itemize}
-      \item Suppose $Y_1, \ldots, Y_n$ are independent random variables.
-      \item Let $f(y_i; \theta_i, \phi)$ be the Probability Mass Function (PMF) or Probability Density Function (PDF) of $Y_i$, where $\phi$ is a scale parameter.
-      \item If we can write
-      \[
-      f(y_i; \theta_i, \phi) = \exp\left(y_i \theta_i - b(\theta_i) \frac{1}{a(\phi)} + c(y_i, \phi)\right),
-      \]
-      then we call the PMF or the PDF $f(y_i; \theta_i, \phi)$ an exponential family.
-  \end{itemize}
-  
+\begin{mybox}{}
 
 
 \end{mybox}
+
 
 
 % Q1
 
 
-  \begin{Problem}[]{}
-    Find the form of GLM for the following distributions, and show the resonable link function:
-    \begin{enumerate}
-      \item Normal distributions
-      \item Inverse Gaussian
-      \item Binomial distribution
-      \item Poisson distribution
-      \item Gamma distribution
-      \item Beta 
-      % (重新參數化)
-    \end{enumerate}
+\begin{Problem}[]{Inversion Theorems}
+  Show the one-to-one relationship between the probability distribution function and the characteristic function. Express the probability distribution function as a function of the characteristic function.
+
+\end{Problem}
+
+
+\begin{Problem}[]{}
+  Explain why the moment generation function does not exist when a certain moment is absent. Provide an explanation for the absence of a moment in the context of the logistic distribution.
+\end{Problem}
+
+\begin{Problem}[]{}
+  Logistic distribution 有對稱性。
+
+  説明：其他model沒有對稱性
+\end{Problem}
+
+% \begin{Problem}[]{}
+%   Logistic distribution
+
+%   \(Y\in\{0,1\}\)
+
     
-  \end{Problem}
-
-
-  \begin{mybox}{Normal Distribution}
-  % \section{Normal Distribution}
-Assume $Y_i \sim \mathcal{N}(\mu_i, \sigma^2)$. Then, $E(Y_i) = \mu_i$ and $\sigma$ is a scale parameter. The Probability Density Function (PDF) is given by
-\[
-\frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{(y_i - \mu_i)^2}{2\sigma^2}} = \exp\left\{\frac{y_i\mu_i - \mu_i^2/2}{\sigma^2} - \left(\frac{1}{2}\log(2\pi\sigma^2) - \frac{y_i^2}{2\sigma^2}\right)\right\}.
-\]
-
-Thus, use 
-
-\begin{itemize}
-  \item $\theta_i = \mu_i$,
-  \item $b(\theta_i) = \frac{\theta_i^2}{2}$,
-  \item $\phi = \sigma^2$, 
-  \item $a(\phi) = \phi$,
-  \item $c(y_i, \phi) = -\frac{1}{2}\log(2\pi\phi) - \frac{y_i^2}{2\phi}$.
-\end{itemize}
-
-\[E[Y_{ij}\,|\, x_{ij}] = h(x_{ij}^T\beta) = x_{ij}^T\beta\]
-
-
-\end{mybox}
-\pagebreak
-
-
-\begin{mybox}{Inverse Gaussian Distribution}
-  Let us rewrite the probability density function (pdf) of the Inverse Gaussian distribution with parameters $\mu_i$ and $\lambda$:
-  \[
-  f(y_i; \mu_i, \lambda) = \left(\frac{\lambda}{2\pi y_i^3}\right)^{1/2}\exp\left\{-\frac{\lambda(y_i - \mu_i)^2}{2\mu_i^2 y_i}\right\}, \quad y > 0
-  \]
-  
-  in the following form:
-  \[
-  \begin{aligned}
-  f(y_i; \mu_i, \lambda) &= \exp\left\{-\frac{\lambda(y_i - \mu_i)^2}{2\mu_i^2 y_i} + \frac{1}{2}\ln\left(\frac{\lambda}{2\pi y_i^3}\right)\right\} \\
-  &=\exp\left\{\frac{-\frac{1}{2\mu_i^2}y_i+\frac{1}{\mu_i}}{\frac{1}{\lambda}}+\left(\frac{1}{2}\ln \frac{\lambda}{2\pi y_i^3}-\frac{\lambda}{2y_i}\right) \right\}
-  \end{aligned}
-  \]
-  
-  Now, let's identify the exponential family components:
-  \begin{itemize}
-      \item Canonical parameter: $\theta_i = -\frac{1}{2\mu_i^2}$
-      \item $b(\theta_i) = -\frac{1}{\mu_i} = -(-2\theta_i)^{\frac{1}{2}} $
-      \item $\phi = \lambda$
-      \item \(a(\phi) = \frac{1}{\phi}\)
-      \item \(c(y_i,\phi) = \frac{1}{2}\ln\frac{\phi}{2\pi y_i^{3}}-\frac{\phi}{2y_i}\)
-  \end{itemize}
-  
-  Thus, the Inverse Gaussian distribution can be shown to be a member of the exponential family.
-
-  \[E[Y_{ij}\,|\, x_{ij}] = h(x_{ij}^T\beta) = \exp(x_{ij}^T\beta)>0\]
-
-\end{mybox}
-  
-  
-\begin{mybox}{Binomial Distribution}
-  % \section{}
-Assume $Y_i \sim \text{Bin}(n_i, p_i)$. Then, $E(Y_i) = n_i p_i$. The Probability Mass Function (PMF) is given by
-\[
-\binom{n_i}{y_i} p_i^{y_i} (1 - p_i)^{n_i - y_i} = \exp\left\{y_i \log \left(\frac{p_i}{1 - p_i}\right) + n_i \log(1 - p_i) - \log \binom{n_i}{y_i}\right\}.
-\]
-
-Thus, 
-\begin{itemize}
-  \item $\theta_i = \log\left(\frac{p_i}{1 - p_i}\right)$, 
-  \item $b(\theta_i) = n_i \log(1 + e^{\theta_i})$, 
-  \item $\phi = 1$, $a(\phi) = 1$,
-  \item $c(y, \phi) = -\log \binom{n_i}{y_i}$.
-\end{itemize}
-
-\[E[Y_{ij}\,|\, x_{ij}] = h(x_{ij}^T\beta) = n \frac{\exp(x_{ij}^T\beta)}{1+\exp(x_{ij}^T\beta)}\in (0,n)\]
-
-\end{mybox}
-
-\pagebreak
-  
-\begin{mybox}{Poisson Distribution}
-  % \section{}
-Assume $Y_i \sim \text{Poisson}(\lambda_i)$. Then, $E(Y_i) = \lambda_i$. The Probability Mass Function (PMF) is given by
-\[
-\frac{\lambda_i^{y_i}e^{-\lambda_i}}{y_i!} = \exp\left\{y_i\log(\lambda_i) - \lambda_i - \log(y_i!)\right\}.
-\]
-
-Thus, 
-\begin{itemize}
-  \item $\theta_i = \log(\lambda_i)$, 
-  \item $b(\theta_i) = e^{\theta_i}$, 
-  \item $\phi = 1$, $a(\phi) = 1$, 
-  \item $c(y_i, \phi) = -\log(y_i!)$.
-\end{itemize}
-
-\[E[Y_{ij}\,|\, x_{ij}] = h(x_{ij}^T\beta) = \exp(x_{ij}^T\beta)>0\]
-
-
-\end{mybox}
-
-  
-\begin{mybox}{Gamma Distribution}
-  % \section{}
-Assume $x_i \sim \Gamma(\alpha, \beta_i)$, where $\beta_i$ is unknown. Then, $E(x_i) = \frac{\alpha}{\beta_i}$. The Probability Mass Function (PMF) is given by
-\[
-\frac{\beta_i^\alpha x_i^{\alpha-1} e^{-\beta_i x_i}}{\Gamma(\alpha)} = \exp\left\{\alpha\log x_i + \alpha\log(\beta_i) - \log(\Gamma(\alpha)) - \log(x_i) - \beta_i x_i\right\}.
-\]
-
-Assuming $\alpha$ is known, if we choose $y_i = x_i$, then 
-\begin{itemize}
-  \item $\theta_i = -\beta_i$ ($\theta_i < 0$), 
-  \item $b(\theta_i) = -\alpha\log(-\theta_i)$, 
-  \item $\phi = 1$, and $a(\phi) = 1$.
-\end{itemize}
-
-Remark: We can also choose 
-$y_i = -x_i$ and $\theta_i = \beta_i$. In this case, $b(\theta_i) = -\alpha\log(\theta_i)$.
-
-\[E[Y_{ij}\,|\, x_{ij}] = h(x_{ij}^T\beta) = \exp(x_{ij}^T\beta)>0\]
-
-
-\end{mybox}
-
-% \begin{mybox}{Beta Distribution}
-% % \section{}
-% Assume $x_i \sim \text{Beta}(\alpha, \beta_i)$, where $\beta_i$ is unknown. Then, the expected value of $x_i$ is $E(x_i) = \frac{\alpha}{\alpha + \beta_i}$. The Probability Mass Function (PMF) is given by
+% \begin{equation*}
+%   \begin{aligned}
+%    F_0(v) = \dfrac{\exp(-v)}{1+\exp(-v)}
+%   \end{aligned}
+% \end{equation*}
 
 % \begin{equation*}
 %   \begin{aligned}
-% &\frac{\Gamma(\alpha + \beta_i)}{\Gamma(\alpha)\Gamma(\beta_i)} x_i^{\alpha - 1}(1 - x_i)^{\beta_i - 1}\\ 
-% = &\exp\left\{\log(\Gamma(\alpha + \beta_i)) - \log(\Gamma(\alpha)) - \log(\Gamma(\beta_i)) + (\alpha - 1)\log(x_i) + (\beta_i - 1)\log(1 - x_i)\right\}.
-% \end{aligned}
+%     P(Y=1|X=x) = \dfrac{\exp(\beta_0^T z)}{1+\exp(\beta_0^T z)}\overset{\bigtriangleup }{=}F_0(\beta_0^T z)
+%   \end{aligned}
 % \end{equation*}
 
-% Assuming $\alpha$ is known, if we choose $y_i = x_i$, then $\theta_i = \beta_i$, $b(\theta_i) = -\log(\theta_i)$, $\phi = 1$, and $a(\phi) = 1$.
+% The standard Logistic distribution is symmetric about the origin but not about its mean. 
 
-% Remark: We can also choose $y_i = 1 - x_i$ and $\theta_i = \alpha$. In this case, $b(\theta_i) = -\log(\theta_i)$.
-% \end{mybox}
+% The probability density function (PDF) for the standard Logistic distribution is given by:
+
+% \[ f(v) = \dfrac{e^{-v}}{(1+e^{-v})^2} \]
+
+% To demonstrate its symmetry, let's evaluate the PDF at \(v\) and \(-v\):
+
+% \[ f(v) = \dfrac{e^{-v}}{(1+e^{-v})^2} \]
+
+% \[ f(-v) = \dfrac{e^{v}}{(1+e^{v})^2} \]
+
+% % As you can see, \(f(v)\) and \(f(-v)\) are not equal, indicating that the standard Logistic distribution is not symmetric about its mean. It is symmetric about the origin (0), where \(v = 0\), but not around its mean, which is also 0 for the standard Logistic distribution.
 
 
-\pagebreak
+% \end{Problem}
 
-  \begin{Problem}[]{}
-  Paper Summarization
-    
-  \end{Problem}
-
-  The part 1 of this page talks about:
-
-- **Sliced inverse regression (SIR)**: A novel data-analytic tool for reducing the dimension of the input variable x without fitting any parametric or nonparametric model¹[1]. It explores the inverse view of regression, where x is regressed against y, and uses a simple step function to estimate the inverse regression curve²[2].
-- **Effective dimension reduction (e.d.r.) space**: The linear space generated by the unknown row vectors {3k (k = 1, ..., K) in the model y = f({3lx, ..., {3Kx, e), where f is an arbitrary unknown function. The goal is to estimate this space, which captures all the information about y from x.
-- **Inverse regression curve**: The curve E(x I y) that connects the conditional mean of x given y as y varies. Under certain conditions, this curve falls into the e.d.r. space. A principal component analysis on the covariance matrix of the estimated inverse regression curve can locate its main orientation, yielding the estimates for e.d.r. directions³[3].
-- **Sampling properties of SIR**: The output of SIR provides root n consistent estimates for the e.d.r. directions under a design condition on the distribution of x⁴[4]. The eigenvalues of the covariance matrix can be used to assess the number of components in the model and the effectiveness of SIR.
-- **Simulation results**: SIR is demonstrated to be effective in reducing the dimension of x from 10 to 2 for a data set with 400 observations. The spin-plot of y against the projected variables obtained by SIR mimics the spin-plot of y against the true directions very well⁵[5]. A chi-squared statistic is proposed to test whether a direction found by SIR is spurious⁶[6].
 
 \pagebreak
 
-  \begin{Problem}[]{}
-    Binary response (\(Y_{ij}=0/1\))
+\begin{Problem}[]{}
+  (b.1) Log-linear model: 
+  
+  \[P(Y=y)=C\left(\theta_1, \theta_2\right) \exp \left(Y^T \theta_1+W^T \theta_2\right),\] 
+  
+  where 
 
-    Logistic regression model:
-\begin{enumerate}
-  \item \(\E[Y_{ij}\,|\,x_{ij}] = h(x_{ij}^T\beta) = \frac{\exp(x_{ij}^T\beta)}{1+\exp(x_{ij}^T\beta)}\)
-  \item \(\Var[Y_{ij}\,|\,x_{ij}] = \E[Y_{ij}\,|\,x_{ij}](1-\E[Y_{ij}\,|\,x_{ij}])\)
-  \item \(\Cor[Y_{ij},Y_{ik}\,|\,x_{ij},x_{ik}]= \alpha\) 
-  \item odd ratio: \(OR(Y_{ij},Y_{ik}) = \frac{P(Y_{ij} = 1,Y_{ik} = 1)P(Y_{ij} = 0,Y_{ik} = 0)}{P(Y_{ij} = 1,Y_{ik} = 0)P(Y_{ij} = 0,Y_{ik} = 1)}\)
-\end{enumerate}
-    
-  \end{Problem}
+  \begin{itemize}
+    \item \(W=\left(Y_1 Y_2, Y_1 Y_3, \cdots, Y_{m-1} Y_m, \cdots, Y_1 Y_2 \cdots Y_m\right)^T, \)
+    \item \(\theta_1=\left(\theta_1^{(1)}, \cdots, \theta_m^{(1)}\right)\)
+    \item \(\theta_2=\left(\theta_{12}^{(2)}, \cdots, \theta_{m-1 m}^{(2)}, \cdots, \theta_{12 \cdots m}^{(m)}\right)\)
+    \item \(C(\theta_1, \theta_2)\) is a function of \(\theta_1\) and \(\theta_2\) that normalizes the p.d.f. to integrate to one.
 
-  % Under the assumption that \(\)
+  \end{itemize}
+
+
+Transformation: 
+
+\[\left(\theta_1, \theta_2\right) \rightarrow\left(\mu, \theta_2\right), \mu=\left(\mu_1, \ldots, \mu_m\right) \triangleq \mu\left(\theta_1, \theta_2\right).\]
+
+Model assumption: 
+
+\[\operatorname{logit}\left(\mu_j\right)=X_j^T \beta.\]
+
+The score equation for $\beta$ under this parameterization takes the GEE form:
+
+
+\[\left(\frac{\partial \mu}{\partial \beta}\right)^T[V(Y)]^{-1}(Y-\mu)=0,\] 
+
+where  
+
+\[\frac{\partial \mu}{\partial \beta}=\left(\frac{\partial \mu_1}{\partial \beta}, \ldots, \frac{\partial \mu_m}{\partial \beta}\right)^T.\]
+
+
+\textbf{Remark: }
+
+The conditional odds ratios are not easily interpreted when the association among responses is itself a focus of the study.
+
+\textbf{Properties: }
+
+1. From 
+
+\[M_Y(t)=E\left[e^{t^T Y}\right]=\sum_y C\left(\theta_1, \theta_2\right) \exp \left(y^T\left(t+\theta_1\right)+w^T \theta_2\right)=\frac{C\left(\theta_1, \theta_2\right)}{C\left(\theta_1+t, \theta_2\right)},\] 
+
+one has
+
+\begin{itemize}
+  \item \[\mu=\left.\frac{\partial M_Y(t)}{\partial t}\right|_{t=0}=-\dfrac{\frac{\partial}{\partial \theta_1} C\left(\theta_1, \theta_2\right)}{C\left(\theta_1, \theta_2\right)},\]
+  \item \[E\left[Y Y^T\right]=\left.\dfrac{\partial^2 M_Y(t)}{\partial t \partial t^T}\right|_{t=0}=-\frac{\frac{\partial^2}{\partial \theta_1 \partial \theta_1^T} C\left(\theta_1, \theta_2\right)}{C\left(\theta_1, \theta_2\right)}+2 \mu \mu^T,\]
+  \item \[V(Y)=-\dfrac{\frac{\partial^2}{\partial \theta_1 \partial \theta_1^T} C\left(\theta_1, \theta_2\right)}{C\left(\theta_1, \theta_2\right)}+\mu \mu^T.\]
+\end{itemize}
+
+2. Let 
+
+\[l(\theta_1,\theta_2) = \ln P(Y=y) = \ln \{C(\theta_1,\theta_2)+(Y^T\theta_1 +W^T \theta_2)\}.\]
+
+We can derive that
+
+\[\dfrac{\partial l\left(\theta_1, \theta_2\right)}{\partial \theta_1}=\dfrac{\frac{\partial}{\partial \theta_1} C\left(\theta_1, \theta_2\right)}{C\left(\theta_1, \theta_2\right)}+Y=(Y-\mu),\]
+
+ and hence,
+ 
+$$
+\frac{\partial l\left(\theta_1, \theta_2\right)}{\partial \beta}=\left(\frac{\partial \mu}{\partial \beta}\right)^T \frac{\partial \theta_1}{\partial \mu}\left(\frac{\partial l\left(\theta_1, \theta_2\right)}{\partial \theta_1}\right)=\left(\frac{\partial \mu}{\partial \beta}\right)^T\left(\frac{\partial \mu}{\partial \theta_1}\right)^{-1}(Y-\mu)=\left(\frac{\partial \mu}{\partial \beta}\right)^T[V(Y)]^{-1}(Y-\mu) .
+$$
+\end{Problem}
+
+\begin{Problem}[]{Show  \textbf{orthonormal}}
+Let $P_{[1]}(Y=y)=\prod_{j=1}^m \mu_j^{y_j}\left(1-\mu_j\right)^{1-y_j}, g(y)=P(Y=y) / P_{[1]}(Y=y)$, and $V$ be a vector space of real-valued functions $f$ on $Y_1\left(2^m\right.$ possible values of $\left.y\right)$. 
+
+Here, $V$ is regarded as an inner-product space with
+
+\[ <f_1, f_2>\triangleq E_{P_{[1]}}\left[f_1 f_2\right]=\sum_{y \in Y_1} f_1(y) f_2(y) P_{[1]}(y).\]
+
+It follows easily that the set of functions $S=\left\{1, r_1, \ldots, r_m ; r_1 r_2, \ldots, r_{m-1} r_m ; \ldots, r_1 r_2 \cdots r_m\right\}$ on $Y_1$ is \textbf{orthonormal} and, thus, is a basis in $V_{\times}$Since $g(y)$ is a function on $Y_1$, there exists a unique representation as a linear combination of functions in $S$, namely,
+$$
+\begin{aligned}
+& g(y)=\sum_{f \in S}<g, f>f . \\
+& \because<g, f>=\sum_{y \in Y_1} g(y) f(y) P_{[1]}(y)=\sum_{y \in Y_1} f(y) P(Y=y)=E_P[f] \,\forall f, \text { and } \\
+& E_P[1]=1, E_P\left[r_j\right]=0, E_P\left[r_j r_k\right]=\rho_{j k}, \cdots, \text { and } E_P\left[r_1 \cdots r_m\right]=\rho_{12 \cdots m} . \\
+& \therefore g(y)=\left(1+\sum_{j<k} \rho_{j k} r_j r_k+\sum_{j<k<l} \rho_{j k l} r_j r_k r_l+\cdots+\rho_{12 \cdots m} r_1 r_2 \cdots r_m\right) .
+\end{aligned}
+$$
+\end{Problem}
 
 \begin{equation*}
   \begin{aligned}
-    \alpha = \Cor[Y_{ij},Y_{ik}\,|\,x_{ij},x_{ij}] 
-    &= \frac{\E[(Y_{ij}-\E[Y_{ij}\,|\,x_{ij}])(Y_{ik}-\E[Y_{ik}\,|\,x_{ik}])]}{\sigma_{Y_{ij}\,|\,x_{ij}}\sigma_{Y_{ik}\,|\,x_{ik}}}\\
-    &=\frac{\E[(Y_{ij}-\E[Y_{ij}\,|\,x_{ij}])(Y_{ik}-\E[Y_{ik}\,|\,x_{ik}])]}{\sqrt{\Var[Y_{ij}\,|\,x_{ij}]}\sqrt{\Var[Y_{ik}\,|\,x_{ik}] }}\\
-    &=\frac{\E[(Y_{ij}-\E[Y_{ij}\,|\,x_{ij}])(Y_{ik}-\E[Y_{ik}\,|\,x_{ik}])]}{\sqrt{\E[Y_{ij}\,|\,x_{ij}](1-\E[Y_{ij}\,|\,x_{ij}])}\sqrt{\E[Y_{ik}\,|\,x_{ik}](1-\E[Y_{ik}\,|\,x_{ik}])}}\\
-    &=\frac{\E[Y_{ij}Y_{ik}-Y_{ij}h(x_{ik}^T\beta)-Y_{ik}h(x_{ik}^T\beta)+h(x_{ij}^T\beta)h(x_{ik}^T\beta)]}{\sqrt{h(x_{ij}^T\beta)(1-h(x_{ij}^T\beta))}\sqrt{h(x_{ik}^T\beta)(1-h(x_{ik}^T\beta))}}\\
-    &=\frac{\E[Y_{ij}Y_{ik}]-h(x_{ij}^T\beta)h(x_{ik}^T\beta)}{\sqrt{h(x_{ij}^T\beta)(1-h(x_{ij}^T\beta))}\sqrt{h(x_{ik}^T\beta)(1-h(x_{ik}^T\beta))}}\\
-    &=\frac{P(Y_{ij} = 1,Y_{ik} = 1)-h(x_{ij}^T\beta)h(x_{ik}^T\beta)}{\sqrt{h(x_{ij}^T\beta)(1-h(x_{ij}^T\beta))}\sqrt{h(x_{ik}^T\beta)(1-h(x_{ik}^T\beta))}}\in[0,1]
   \end{aligned}
 \end{equation*}
-\dotfill
-
-
-\begin{equation*}
-  \begin{aligned}
-    \gamma = OR(Y_{ij},Y_{ik}) &= \frac{P(Y_{ij} = 1,Y_{ik} = 1)P(Y_{ij} = 0,Y_{ik} = 0)}{P(Y_{ij} = 1,Y_{ik} = 0)P(Y_{ij} = 0,Y_{ik} = 1)}\\
-    &= \frac{P_{ij,ik}[1-(h(x_{ij}^T\beta)-P_{ij,ik})-(h(x_{ik}^T\beta)-P_{ij,ik})-P_{ij,ik}]}{[h(x_{ij}^T\beta) -P_{ij,ik}][h(x_{ik}^T\beta)-P_{ij,ik}]}\\
-    % P_{ij,ik} = P(Y_{ij} = 1,Y_{ik} = 1) &= \frac{\gamma P(Y_{ij} = 1,Y_{ik} = 0)P(Y_{ij} = 0,Y_{ik} = 1)}{P(Y_{ij} = 0,Y_{ik} = 0)}\\
-    % & = \frac{\gamma P(Y_{ij} = 1,Y_{ik} = 0)P(Y_{ij} = 0,Y_{ik} = 1)}{P(Y_{ij} = 0,Y_{ik} = 0)}\\
-    % & = \frac{\gamma }{}
-  \end{aligned}
-\end{equation*}
-
-Solve for \(P_{ij,ik}\)
-  using \(\gamma\) and \(h(\cdot)\).
-
-\pagebreak
-\begin{Problem}[]{}
-  Describe
-  \begin{enumerate}
-    \item how to conduct the EM (Expectation-Maximization) algorithm
-    \item how to conduct  MCMC
-  \end{enumerate}
-    
-  \end{Problem}
-  Denoting
-  \[ Q(q|q_0, x) = \mathbb{E}_{q_0} \left[ \log L_c(q|x,Z) \right], \]
-  the EM algorithm indeed proceeds "iteratively" by maximizing \(Q(q|q_0, x)\) at each iteration, and, if \(q^{\hat{(1)}}\) is the value of \(q\) maximizing \(Q(q|q_0, x)\), by replacing \(q_0\) by the updated value \(q^{\hat{(1)}}\). In this manner, a sequence of estimators \(\{q^{\hat{(j)}}\}_j\) is obtained, where
-  \[ Q(q^{\hat{(j)}}|q^{\hat{(j-1)}}) \]
-
-  Pick a starting value \(q^{\hat{(0)}}\) and set \(m = 0\).
-Repeat
-\begin{enumerate}
-  \item Compute (the E-step) \[ Q(q|q^{\hat{(m)}, x}) = \mathbb{E}_{q^{\hat{(m)}}} \left[ \log L_c(q|x,Z) \right], \]where the expectation is with respect to \(k(z|q^{\hat{(m)}, x})\).
-  \item Maximize \(Q(q|q^{\hat{(m)}, x})\) in \(q\) and take (the M-step)   \[ q^{\hat{(m+1)}} = \arg\max_q Q(q|q^{\hat{(m)}, x}) \] and set \(m = m+1\).
-\end{enumerate}
-
-until a fixed point is reached; i.e., \(q^{\hat{(m+1)}} = q^{\hat{(m)}}\).
-
-  
-
-\dotfill
-
-Gibbs Sampling of MCMC (Markov Chain Monte Carlo)
-
-
-
-Consider $f\left(y_{i j} \mid u_{i}, \beta\right)=e^{\left(\frac{y_{i j} \theta_{i j}-\psi\left(\theta_{i j}\right)}{a(\phi)}-c\left(y_{i j} ; \phi\right)\right)}$ 
-
-with $g\left(u_{i} \mid G\right)=(2 \pi)^{\frac{-q}{2}}|G|^{\frac{-1}{2}} e^{\frac{-u_{i}^{T} G^{-1} u_{i}}{2}}$, and $h\left(\mu_{i j}\right)=x_{i j}^{T} \beta+z_{i j}^{T} u_{i}$.
-
-The likelihood function of $(\beta, G)$ is
-
-\[L(\beta, G\,|\,  \underset{\sim}{y})\propto \prod_{i=1}^n\prod_{j=1}^{m_i}f(y_{ij}\,|\,u_i,\beta)|G|^{-1/2}\exp\{\frac{u_i^TG^{-1}u_i}{2}\}du_i. \]
-
-% ![](https://cdn.mathpix.com/cropped/2023_10_23_545ee9d39b59250db51fg-6.jpg?height=117&width=1071&top_left_y=2437&top_left_x=298)
-
-In a Bayesian approach to analyzing the random effects $\operatorname{GLM}$, the parameters $(\beta, G)$ are random variables and are treated symmetrically with the longitudinal measurements and unobserved latent variables. Thus, the random effects GLM is an example of a hierarchical Bayes model.
-
-Assumptions: $[\beta \mid G, U, \underset{\sim}{y}]=[\beta \mid U, \underset{\sim}{y}],[G \mid \beta, U, \underset{\sim}{y}]=[G \mid U]$ and $[U \mid \beta, G, \underset{\sim}{y}]$.
-
-1. Assume that $\beta$ has a flat prior function. Then,
-
-$\left[\beta \mid U^{(k)}, \underset{\sim}{y}\right] \propto \prod_{i=1}^{n} \prod_{j=1}^{m_{i}} f\left(y_{i j} \mid U_{i}^{(k)}, \beta\right) \approx N\left(\beta^{(k)}, V_{\beta}^{(k)}\right)$, as $n \rightarrow \infty$, where $\beta^{(k)}$ is the maximum likelihood estimator and $V_{\beta}^{(k)}$ is the inverse of the Fisher information.
-
-Adjustment for smaller samples - "Rejection sampling" (Ripley, 1987)
-
-Let $f\left(\beta \mid U^{(k)}, \underset{\sim}{y}\right)$ and $\phi\left(\beta \mid \beta^{(k)}, V_{\beta}^{(k)}\right)$ denote separately the true density and Gaussian density. Choose a constant $c \geq 1$ such that $c \phi\left(\beta \mid \beta^{(k)}, V_{\beta}^{(k)}\right) \geq f\left(\beta \mid U^{(k)}, \underset{\sim}{y}\right)$.
-
-Step1: Generate $\beta^{*} \sim \phi\left(\beta \mid \beta^{(k)}, V_{\beta}^{(k)}\right)$ and $u \sim U(0,1)$.
-
-Step2: If $\frac{f\left(\beta^{*} \mid b^{(k)}, \underset{\sim}{y}\right)}{c \phi\left(\beta^{*} \mid \beta^{(k)}, V_{\beta}^{(k)}\right)}<u, \beta^{(k+1)}=\beta^{*}$. Otherwise, the process returns to Step1.
-
-2. $\left[G \mid U^{(k)}\right]$
-
-Assume that $\pi(G) \propto|G|^{-1}$ : non-informative prior (see Box and Tiao, 1973). 
-
-Then, $\left[G \mid U^{(k)}\right] \sim \operatorname{Inverted}$ Wishart $\left(S^{(k)}, n-q+1\right)$, where $S^{(k)}=\sum_{i=1}^{n} U_{i}^{(k)} U_{i}^{(k)^{T}}$
-\\
-
-Remark
-
-If $\mathrm{A} \sim \mathrm{Wishart}\left(\Sigma_{p \times p}, n\right)$, the p.d.f of $\mathrm{A} $ is $f_{\mathrm{A}}(\mathrm{A}) \propto|\mathrm{A}|^{\frac{-1}{2}(n-p-1)} e^{\frac{-1}{2} tr \Sigma^{-1} \mathrm{A}}$. 
-
-It implies that $\mathrm{B}=\mathrm{A}^{-1} \sim \operatorname{Inverted}$ Wishart $\left(\Sigma^{-1}, n\right)$ with p.d.f. $f_{\mathrm{B}}(\mathrm{B}) \propto|\mathrm{B}|^{\frac{-1}{2}(n+p+1)} e^{\frac{-1}{2} t r \Sigma^{-1} \mathrm{~B}^{-1}}$. 
-
-Thus, \[\pi\left(G \mid U^{(k)}\right) \propto|G|^{\frac{-1}{2}(n+2)} e^{\frac{-1}{2} \operatorname{tr}\left(S^{(k)} G^{-1}\right)},\] 
-i.e. $\left[G \mid U^{(k)}\right] \sim \operatorname{Inverted~Wishart}\left(S^{(k)}, n-q+1\right)$.
-\\
-
-3. $\left[U \mid \beta^{(k)}, G^{(k)}, y\right]$
-
-Using 
-\[f\left(U_{i} \mid \hat{\beta}^{(k)}, G^{(k)},\underset{\sim}{y_{i}}\right) \propto f\left(\underset{\sim}{y_{i}} \mid U_{i}, \hat{\beta}^{(k)}\right) g\left(U_{i} \mid G^{(k)}\right) \triangleq f_{n}\left(U_{i} \mid \hat{\beta}^{(k)}, G^{(k)},\underset{\sim}{y_{i}}\right),\] 
-we can find the mode and curvature of $f_{n}\left(U_{i} \mid \hat{\beta}^{(k)}, G^{(k)},\underset{\sim}{y_{i}}\right)$, which matches a Gaussian density.
-
-Using the surrogate response \[Z_{i}^{*}=X_{i} \beta+D_{i} U_{i}+\operatorname{Diag}\left(h^{\prime}\left(\mu_{i}\right)\right)\left(y_{i}-\mu_{i}\right),\] 
-
-the maximum value of $f_{n}\left(U_{i} \mid \hat{\beta}^{(k)}, G^{(k)}, \underset{\sim}{y_{i}}\right)$ occurs at 
-\[U_{i}=\left(D_{i}^{T} Q_{i}^{-1} D_{i}+G^{(k)^{-1}}\right)^{-1} D_{i}^{T} Q_{i}^{-1}\left(Z_{i}^{*}-X_{i} \beta^{(k)}\right)=G^{(k)} D_{i}\left(D_{i} G^{(k)} D_{i}^{T}+Q_{i}\right)^{-1}\left(Z_{i}^{*}-X_{i} \hat{\beta}^{(k)}\right)\]
-and its curvature is $V_{i}=\left(D_{i}^{T} Q_{i}^{-1} D_{i}+G^{(k)^{-1}}\right)^{-1}$. Similar to the method in (3), $U_{i}^{(k)}$ can be obtained.
-
-\pagebreak
-\begin{Problem}[]{}
-  Theorem 3.1. 
-  
-  Under the regularity conditions, $n^{\frac{-1}{2}}\left[\left(\begin{array}{l}\hat{\beta} \\ \hat{\alpha}\end{array}\right)-\left(\begin{array}{l}\beta \\ \alpha\end{array}\right)\right] \stackrel{d}{\rightarrow} N(0, \Sigma)$, where $\Sigma$ can be estimated by $\left(\frac{1}{n} \sum_{i=1}^{n} C_{i}^{T} B_{i}^{-1} D_{i}\right)^{-1}\left(\frac{1}{n} \sum_{i=1}^{n} C_{i}^{T} B_{i}^{-1} V_{0 i} D_{i} B_{i}^{-1} C_{i}\right)\left(\frac{1}{n} \sum_{i=1}^{n} D_{i}^{T} B_{i}^{-1} C_{i}\right)^{-1}$,
-
-  where $C_{i}=\left(\begin{array}{cc}\frac{\partial \mu_{i}}{\partial \beta} & 0 \\ 0 & \frac{\partial \eta_{i}}{\partial \alpha}\end{array}\right), B_{i}=\left(\begin{array}{cc}\operatorname{Var}\left(Y_{i}\right) & 0 \\ 0 & H_{i}\end{array}\right), D_{i}=\left(\begin{array}{cc}\frac{\partial \mu_{i}}{\partial \beta} & \frac{\partial \mu_{i}}{\partial \alpha} \\ \frac{\partial \eta_{i}}{\partial \beta} & \frac{\partial \eta_{i}}{\partial \alpha}\end{array}\right)$, and $V_{0 i}=\left(\begin{array}{c}y_{i}-\mu_{i} \\ \omega_{i}-\eta_{i}\end{array}\right)^{\otimes 2}$.
-  \end{Problem}
-  
 
 \end{document}
+
