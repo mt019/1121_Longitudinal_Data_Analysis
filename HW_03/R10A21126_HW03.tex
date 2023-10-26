@@ -48,10 +48,37 @@
 
 \end{Problem}
 
+\section*{Inversion Formula}
+
+There is a one-to-one correspondence between cumulative distribution functions and characteristic functions, so it is possible to find one of these functions if we know the other. The formula in the definition of the characteristic function allows us to compute $\phi$ when we know the distribution function $F$ (or density $f$). If, on the other hand, we know the characteristic function $\phi$ and want to find the corresponding distribution function, then one of the following inversion theorems can be used.
+
+\textbf{Theorem:} If the characteristic function $\phi_X$ of a random variable $X$ is integrable, then $F_X$ is absolutely continuous, and therefore $X$ has a probability density function. In the univariate case (i.e., when $X$ is scalar-valued), the density function is given by:
+
+\[
+f_{X}(x)=F_{X}'(x)=\frac{1}{2\pi}\int_{\mathbf{R}}e^{-itx}\varphi_{X}(t)\,dt.
+\]
+
+In the multivariate case, it is:
+
+\[
+f_{X}(x)=\frac{1}{(2\pi)^{n}}\int_{\mathbf{R}^{n}}e^{-i(t\cdot x)}\varphi_{X}(t)\lambda (dt),
+\]
+
+where $t\cdot x$ is the dot product.
+
+The density function is the Radon–Nikodym derivative of the distribution $\mu_X$ with respect to the Lebesgue measure $\lambda$:
+
+\[
+f_{X}(x)=\frac{d\mu_{X}}{d\lambda}(x).
+\]
+
+
 
 \begin{Problem}[]{}
   Explain why the moment generation function does not exist when a certain moment is absent. Provide an explanation for the absence of a moment in the context of the logistic distribution.
 \end{Problem}
+
+\pagebreak
 
 \begin{Problem}[]{}
   Logistic distribution 有對稱性。
