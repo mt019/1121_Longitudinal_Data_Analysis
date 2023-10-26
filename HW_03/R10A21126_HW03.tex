@@ -59,6 +59,40 @@
   説明：其他model沒有對稱性
 \end{Problem}
 
+As a set of independent binary regressions, to arrive at the multinomial logit model, one can imagine, for $K$ possible outcomes, running $K-1$ independent binary logistic regression models, in which one outcome is chosen as a "pivot" and then the other $K-1$ outcomes are separately regressed against the pivot outcome. If outcome $K$ (the last outcome) is chosen as the pivot, the $K-1$ regression equations are:
+
+\begin{equation}
+\ln\left(\frac{\Pr(Y_i=k)}{\Pr(Y_i=K)}\right) = \boldsymbol{\beta}_k \cdot \mathbf{X}_i, \quad k < K.
+\end{equation}
+
+This formulation is also known as the Additive Log Ratio transform, commonly used in compositional data analysis. In other applications, it's referred to as "relative risk" [7].
+
+If we exponentiate both sides and solve for the probabilities, we get:
+
+\begin{equation}
+\Pr(Y_i=k) = \Pr(Y_i=K) \cdot e^{\boldsymbol{\beta}_k \cdot \mathbf{X}_i}, \quad k < K.
+\end{equation}
+
+Using the fact that all $K$ of the probabilities must sum to one, we find:
+
+\begin{equation}
+\Pr(Y_i=K) = 1 - \sum_{j=1}^{K-1} \Pr(Y_i=j) = 1 - \sum_{j=1}^{K-1} \Pr(Y_i=K) \cdot e^{\boldsymbol{\beta}_j \cdot \mathbf{X}_i} \Rightarrow \Pr(Y_i=K) = \frac{1}{1 + \sum_{j=1}^{K-1} e^{\boldsymbol{\beta}_j \cdot \mathbf{X}_i}}.
+\end{equation}
+
+We can use this to find the other probabilities:
+
+\begin{equation}
+\Pr(Y_i=k) = \frac{e^{\boldsymbol{\beta}_k \cdot \mathbf{X}_i}}{1 + \sum_{j=1}^{K-1} e^{\boldsymbol{\beta}_j \cdot \mathbf{X}_i}}, \quad k < K.
+\end{equation}
+
+\begin{equation}
+  \Pr(Y_i=l) = \frac{\Id(l = K)+\Id(l\neq K)e^{\boldsymbol{\beta}_l \cdot \mathbf{X}_i}}{1 + \sum_{j\neq K} e^{\boldsymbol{\beta}_j \cdot \mathbf{X}_i}}, l = 1,2,\cdots,K.
+  \end{equation}
+
+The fact that we run multiple regressions reveals why the model relies on the assumption of independence of irrelevant alternatives described above.
+
+
+
 % \begin{Problem}[]{}
 %   Logistic distribution
 
@@ -171,7 +205,8 @@ Here, $V$ is regarded as an inner-product space with
 
 \[ <f_1, f_2>\triangleq E_{P_{[1]}}\left[f_1 f_2\right]=\sum_{y \in Y_1} f_1(y) f_2(y) P_{[1]}(y).\]
 
-It follows easily that the set of functions $S=\left\{1, r_1, \ldots, r_m ; r_1 r_2, \ldots, r_{m-1} r_m ; \ldots, r_1 r_2 \cdots r_m\right\}$ on $Y_1$ is \textbf{orthonormal} and, thus, is a basis in $V_{\times}$Since $g(y)$ is a function on $Y_1$, there exists a unique representation as a linear combination of functions in $S$, namely,
+It follows easily that the set of functions $S=\left\{1, r_1, \ldots, r_m ; r_1 r_2, \ldots, r_{m-1} r_m ; \ldots, r_1 r_2 \cdots r_m\right\}$ on $Y_1$ is \textbf{orthonormal} and, thus, is a basis in $V$.
+ Since $g(y)$ is a function on $Y_1$, there exists a unique representation as a linear combination of functions in $S$, namely,
 $$
 \begin{aligned}
 & g(y)=\sum_{f \in S}<g, f>f . \\
@@ -181,6 +216,21 @@ $$
 \end{aligned}
 $$
 \end{Problem}
+
+\pagebreak
+
+Paper Summary
+
+
+Here is a summary of this paper:
+
+\begin{itemize}
+  \item \textbf{Research Problem}: The paper addresses the challenge of analyzing longitudinal data on disease markers in AIDS cohort studies, which involves censoring, truncation, and correlation issues.
+  \item \textbf{Methodology}: The paper proposes a likelihood-based approach that models the joint distribution of the disease markers, the time of infection, and the time to AIDS using parametric models. The paper also handles the censoring and truncation problems using standard survival analysis techniques and provides a method for predicting the time to AIDS given a series of disease marker measurements.
+  \item \textbf{Data and Application}: The paper applies the proposed method to the Toronto AIDS cohort study, which consists of 159 homosexual males who were infected with HIV or seroconverted during follow-up. The paper analyzes the longitudinal data on T4 counts and T4/T8 ratio as disease markers and compares three models with different assumptions about the infection time.
+  \item \textbf{Results and Conclusion}: The paper finds that there is a significant association between the rate of decline of T4 counts or T4/T8 ratio and the time to AIDS, and that the scaled incubation time may be a more natural scale for viewing the progression of HIV infection. The paper also shows that the disease marker information improves the prediction of the time to AIDS. The paper concludes that the proposed method is useful for understanding the natural history of AIDS and developing treatment strategies.
+\end{itemize}
+
 
 \begin{equation*}
   \begin{aligned}
