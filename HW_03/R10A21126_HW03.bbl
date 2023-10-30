@@ -1,0 +1,113 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{Casella2002}{book}{}
+      \name{author}{2}{}{%
+        {{hash=c7abc90e14f2761d9325ee092fda0de7}{%
+           family={Casella},
+           familyi={C\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+        {{hash=819beb5f4220e56c3afce0e6c63847a1}{%
+           family={Berger},
+           familyi={B\bibinitperiod},
+           given={Roger\bibnamedelima L.},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Australia ; Pacific Grove, CA}%
+      }
+      \list{publisher}{1}{%
+        {Thomson Learning}%
+      }
+      \strng{namehash}{c6df33453b0c6fbb42492656a87f4723}
+      \strng{fullhash}{c6df33453b0c6fbb42492656a87f4723}
+      \strng{bibnamehash}{c6df33453b0c6fbb42492656a87f4723}
+      \strng{authorbibnamehash}{c6df33453b0c6fbb42492656a87f4723}
+      \strng{authornamehash}{c6df33453b0c6fbb42492656a87f4723}
+      \strng{authorfullhash}{c6df33453b0c6fbb42492656a87f4723}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \true{singletitle}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd ed}
+      \field{isbn}{978-0-534-24312-8}
+      \field{langid}{english}
+      \field{pagetotal}{660}
+      \field{title}{Statistical Inference}
+      \field{year}{2002}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Pawitan1993}{article}{}
+      \name{author}{2}{}{%
+        {{hash=2f754b8386eaccd215c5ae87adce5fa1}{%
+           family={Pawitan},
+           familyi={P\bibinitperiod},
+           given={Yudi},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=5d92924d8f336516d74957afd4871c3a}{%
+           family={Self},
+           familyi={S\bibinitperiod},
+           given={Steve},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{74e50707f28aa4d07955df027813275f}
+      \strng{fullhash}{74e50707f28aa4d07955df027813275f}
+      \strng{bibnamehash}{74e50707f28aa4d07955df027813275f}
+      \strng{authorbibnamehash}{74e50707f28aa4d07955df027813275f}
+      \strng{authornamehash}{74e50707f28aa4d07955df027813275f}
+      \strng{authorfullhash}{74e50707f28aa4d07955df027813275f}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \true{singletitle}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0162-1459, 1537-274X}
+      \field{journaltitle}{Journal of the American Statistical Association}
+      \field{langid}{english}
+      \field{month}{9}
+      \field{number}{423}
+      \field{shortjournal}{Journal of the American Statistical Association}
+      \field{title}{Modeling Disease Marker Processes in AIDS}
+      \field{urlday}{29}
+      \field{urlmonth}{10}
+      \field{urlyear}{2023}
+      \field{volume}{88}
+      \field{year}{1993}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{719\bibrangedash 726}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1080/01621459.1993.10476332
+      \endverb
+      \verb{urlraw}
+      \verb http://www.tandfonline.com/doi/abs/10.1080/01621459.1993.10476332
+      \endverb
+      \verb{url}
+      \verb http://www.tandfonline.com/doi/abs/10.1080/01621459.1993.10476332
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

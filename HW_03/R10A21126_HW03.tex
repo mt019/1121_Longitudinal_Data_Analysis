@@ -33,10 +33,10 @@
 \begin{document}
 
 
-\begin{mybox}{}
+% \begin{mybox}{}
 
 
-\end{mybox}
+% \end{mybox}
 
 
 
@@ -48,11 +48,11 @@
 
 \end{Problem}
 
-\section*{Inversion Formula}
+\textbf{Inversion Formula}\footnote{Wikipedia contributors, "Characteristic function (probability theory)," Wikipedia, The Free Encyclopedia, \url{https://en.wikipedia.org/w/index.php?title=Characteristic_function_(probability_theory)} (accessed October 27, 2023).}
 
 There is a one-to-one correspondence between cumulative distribution functions and characteristic functions, so it is possible to find one of these functions if we know the other. The formula in the definition of the characteristic function allows us to compute $\phi$ when we know the distribution function $F$ (or density $f$). If, on the other hand, we know the characteristic function $\phi$ and want to find the corresponding distribution function, then one of the following inversion theorems can be used.
 
-\textbf{Theorem:} If the characteristic function $\phi_X$ of a random variable $X$ is integrable, then $F_X$ is absolutely continuous, and therefore $X$ has a probability density function. In the univariate case (i.e., when $X$ is scalar-valued), the density function is given by:
+\textbf{Theorem}: If the characteristic function $\phi_X$ of a random variable $X$ is integrable, then $F_X$ is absolutely continuous, and therefore $X$ has a probability density function. In the univariate case (i.e., when $X$ is scalar-valued), the density function is given by:
 
 \[
 f_{X}(x)=F_{X}'(x)=\frac{1}{2\pi}\int_{\mathbf{R}}e^{-itx}\varphi_{X}(t)\,dt.
@@ -66,95 +66,270 @@ f_{X}(x)=\frac{1}{(2\pi)^{n}}\int_{\mathbf{R}^{n}}e^{-i(t\cdot x)}\varphi_{X}(t)
 
 where $t\cdot x$ is the dot product.
 
-The density function is the Radon–Nikodym derivative of the distribution $\mu_X$ with respect to the Lebesgue measure $\lambda$:
-
-\[
-f_{X}(x)=\frac{d\mu_{X}}{d\lambda}(x).
-\]
-
-
-
-\begin{Problem}[]{}
-  Explain why the moment generation function does not exist when a certain moment is absent. Provide an explanation for the absence of a moment in the context of the logistic distribution.
-\end{Problem}
 
 \pagebreak
 
 \begin{Problem}[]{}
-  Logistic distribution 有對稱性。
+  Explain why the moment generation function does not exist when a certain moment is absent. 
+  
+  Show the absence of moments in the context of 
+  \begin{enumerate}
+    \item Cauchy distribution
+    \item t distribution
+    \item logistic distribution.
+  \end{enumerate}
 
-  説明：其他model沒有對稱性
+
 \end{Problem}
+
+\begin{mybox}{}
+
+  \textbf{Definition 2.3.6:}\footcite[][62]{Casella2002}
+    Let \(X\) be a random variable with cumulative distribution function \(F_X\). The moment generating function (mgf) of \(X\) (or \(F_X\)), denoted by \(M_X(t)\), is defined as
+    
+    \[
+    M_X(t) = \mathbb{E}(e^{tX}),
+    \]
+    
+    provided that the expectation exists for \(t\) in some neighborhood of 0. In other words, there exists a positive value \(h > 0\) such that, for all \(t\) in \(-h < t < h\), \(\mathbb{E}(e^{tX})\) exists. If the expectation does not exist in a neighborhood of 0, we say that the moment generating function does not exist.
+
+    More explicitly, we can write the moment generating function (mgf) of \(X\) as:
+
+\[
+M_X(t) = \int e^{tx} f_X(x) \, dx \quad \text{if } X \text{ is continuous,}
+\]
+
+or
+
+\[
+M_X(t) = \sum e^{tx} p(X = x) \quad \text{if } X \text{ is discrete.}
+\]
+
+    \dotfill
+
+    \textbf{Theorem 2.3.7:}
+      If \(X\) has the moment generating function \(M_X(t)\), then
+      
+      \[
+      \mathbb{E}(X^n) = \left. \frac{d^n}{dt^n} M_X(t) \right|_{t=0},
+      \]
+      
+      where we define \(\left. \frac{d^n}{dt^n} M_X(t) \right|_{t=0} = M^{(n)}_X(0)\). That is, the nth moment is equal to the nth derivative of \(M_X(t)\) evaluated at \(t = 0\).
+      
+
+\end{mybox}
+
+Thus, the absence of a certain moment implies that the moment generation function does not exist. 
+
+\begin{mybox}{Proof of Theorem 2.3.7}
+
+  \begin{proof}\footcite[][62-63]{Casella2002}
+  Assuming that we can differentiate under the integral sign, we have
+  
+  \[
+  \begin{aligned}
+  \frac{d}{dt} M_X(t) &= \frac{d}{dt} \int e^{tx} f_X(x) \, dx \\
+  &= \int \frac{d}{dt} (e^{tx}) f_X(x) \, dx \\
+  &= \int (x e^{tx}) f_X(x) \, dx \\
+  &= \mathbb{E}(Xe^{tX}).
+  \end{aligned}
+  \]
+  
+  Thus, for \(n = 1\),
+  
+  \[
+  \frac{d^n}{dt^n} M_X(t)\Big|_{t=0} = \mathbb{E}(Xe^{tX})\Big|_{t=0} = \mathbb{E}(X).
+  \]
+  
+  Proceeding in an analogous manner, we can establish that
+  
+  \[
+  \frac{d^n}{dt^n} M_X(t)\Big|_{t=0} = \mathbb{E}(X^n e^{tX})\Big|_{t=0}= \mathbb{E}(X^n).
+  \]
+  \end{proof}
+  
+\end{mybox}
+
+\dotfill
+
+% \pagebreak
+
+% \begin{mybox}{}
+
+
+%   \textbf{Definition 3.14:}\footnote{Wackerly, D.D., Mendenhall, W. and Scheaffer, R.L. (2008) Mathematical Statistics with Applications. 7th Edition, Thomson Learning, Inc., USA.p139.} The moment-generating function \(m(t)\) for a random variable \(Y\) is defined to be
+%   \[
+%   m(t) = E(e^{tY}).
+%   \]
+%   We say that a moment-generating function for \(Y\) exists if there exists a positive constant \(b\) such that \(m(t)\) is finite for \(|t| \leq b\).
+  
+
+% \end{mybox}
+
+A (standard) Cauchy random variable has the following probability density function (PDF):
+
+% PDF:
+\[
+f(x) = \frac{1}{\pi \left(1 + x^2\right)}, \quad x \in \mathbb{R}.
+\]
+
+The mean of the Cauchy distribution does not exist: 
+\footcite[][56]{Casella2002}
+
+% \[
+%  \mathbb{E}[X] = \infty = \int_{-\infty}^{\infty}  \frac{1}{\pi} \frac{|x|}{1 + x^2} \, dx.
+% \]
+
+For any positive number \(M\), 
+
+\[\int_{0}^{M} \frac{x}{1+x^2}\,dx = \left.\frac{\log (1+x^2)}{2}\right\vert_0^{M} = \frac{\log (1+M^2)}{2}.\]
+
+Thus, 
+
+% \[\E[X] = \int_{-\infty}^{\infty} \frac{|x|}{\pi}\frac{1}{1+x^2} \, dx = \frac{2}{\pi}\int_{0}^{\infty} \frac{x}{1+x^2}\,dx =\lim_{M\to\infty}\frac{2}{\pi}\int_{0}^{M} \frac{x}{1+x^2}\,dx = \frac{1}{\pi}\lim_{M\to\infty} \log (1+M^2) = \infty.\]
+
+\begin{align*}
+  \E[X] = \int_{-\infty}^{\infty} \frac{|x|}{\pi}\frac{1}{1+x^2} \, dx 
+  = \frac{2}{\pi}\int_{0}^{\infty} \frac{x}{1+x^2}\,dx 
+  &= \lim_{M\to\infty}\frac{2}{\pi}\int_{0}^{M} \frac{x}{1+x^2}\,dx \\
+  &= \frac{1}{\pi}\lim_{M\to\infty} \log (1+M^2) = \infty.
+  \end{align*}
+  
+
+Since \(\mathbb{E}[X] = \infty\), it follows that no moments of the Cauchy distribution exist, or in other words, all absolute moments equal \(\infty\). In particular, the moment-generating function does not exist. 
+\footcite[][108]{Casella2002}
+
+% The moment generating function is defined as:
+% \[
+% M_X(t) = \frac{1}{\pi} \int_{-\infty}^{\infty} \frac{e^{tx}}{1+x^2} \, dx.
+% \]
+
+% On the interval \((0,\infty)\), we have \(e^{tx} > x\), hence
+% \[
+% \int_{0}^{\infty} \frac{e^{tx}}{1+x^2} \, dx > \int_{0}^{\infty} \frac{x}{1+x^2} \, dx = \infty,
+% \]
+% thus the moment generating function does not exist.
+% \footcite[][108]{Casella2002}
+
+% The integral of \(x^n\) with respect to the Cauchy PDF does not converge for any positive integer value of \(n\), indicating that Cauchy random variables have no finite integer moments. 
+% This is a characteristic feature of the Cauchy distribution.
+
+\dotfill
+
+The probability density function (PDF) for Student's t distribution is given by:
+
+\[
+f(t) = \frac{\Gamma\left(\frac{p+1}{2}\right)}{\sqrt{p\pi}\Gamma\left(\frac{p}{2}\right)} \left(1 + \frac{t^2}{p}\right)^{-\left(\frac{p+1}{2}\right)}
+\]
+
+Where:
+
+\begin{align*}
+x & \text{ is the random variable,}\\
+p & \text{ is the degrees of freedom,}\\
+\Gamma(\cdot) & \text{ is the gamma function.}
+\end{align*}
+
+
+The absence of moments in the Student's $t$-distribution is related to the degrees of freedom ($p$). If there are \(p\) degrees of freedom, there are only \(p-1\) moments. \footcite[][224]{Casella2002}
+
+\dotfill
+
+Let $X$ be a continuous random variable which satisfies the logistic distribution:
+\[X \sim \text{Logistic}(\mu, s)\]
+for some $\mu \in \mathbb{R}$, $s \in \mathbb{R}^+$. 
+
+Then the moment generating function $M_X$ of $X$ is given by:
+\[M_X(t) = 
+\begin{cases}
+\exp(\mu t)B\left(1 - st, 1 + st\right) &  |t| < \frac{1}{s} \\
+\text{does not exist} &\text{o.w.} 
+\end{cases}
+\]
+
+where $B$ denotes the beta function.
+
+There is no absence of a moment in the logistic distribution.
+
+% \pagebreak
+
+\pagebreak
+
+\begin{Problem}[]{}
+  
+
+  Show that Logistic regression has the property of 對稱性 and other models have no property of 對稱性.
+\end{Problem}
+
+\begin{mybox}{}
 
 As a set of independent binary regressions, to arrive at the multinomial logit model, one can imagine, for $K$ possible outcomes, running $K-1$ independent binary logistic regression models, in which one outcome is chosen as a "pivot" and then the other $K-1$ outcomes are separately regressed against the pivot outcome. If outcome $K$ (the last outcome) is chosen as the pivot, the $K-1$ regression equations are:
 
-\begin{equation}
+\begin{equation*}
 \ln\left(\frac{\Pr(Y_i=k)}{\Pr(Y_i=K)}\right) = \boldsymbol{\beta}_k \cdot \mathbf{X}_i, \quad k < K.
-\end{equation}
+\end{equation*}
 
 This formulation is also known as the Additive Log Ratio transform, commonly used in compositional data analysis. In other applications, it's referred to as "relative risk".
 
 If we exponentiate both sides and solve for the probabilities, we get:
 
-\begin{equation}
+\begin{equation*}
 \Pr(Y_i=k) = \Pr(Y_i=K) \cdot e^{\boldsymbol{\beta}_k \cdot \mathbf{X}_i}, \quad k < K.
-\end{equation}
+\end{equation*}
 
 Using the fact that all $K$ of the probabilities must sum to one, we find:
 
-\begin{equation}
+\begin{equation*}
 \Pr(Y_i=K) = 1 - \sum_{j=1}^{K-1} \Pr(Y_i=j) = 1 - \sum_{j=1}^{K-1} \Pr(Y_i=K) \cdot e^{\boldsymbol{\beta}_j \cdot \mathbf{X}_i} \Rightarrow \Pr(Y_i=K) = \frac{1}{1 + \sum_{j=1}^{K-1} e^{\boldsymbol{\beta}_j \cdot \mathbf{X}_i}}.
-\end{equation}
+\end{equation*}
 
 We can use this to find the other probabilities:
 
-\begin{equation}
+\begin{equation*}
 \Pr(Y_i=k) = \frac{e^{\boldsymbol{\beta}_k \cdot \mathbf{X}_i}}{1 + \sum_{j=1}^{K-1} e^{\boldsymbol{\beta}_j \cdot \mathbf{X}_i}}, \quad k < K.
-\end{equation}
+\end{equation*}
+
+\begin{equation*}
+  \Pr(Y_i=l) = \frac{\Id(l = K)+\Id(l\neq K)e^{\boldsymbol{\beta}_l \cdot \mathbf{X}_i}}{1 + \sum_{j\neq K} e^{\boldsymbol{\beta}_j \cdot \mathbf{X}_i}}, \quad l = 1,2,\cdots,K.
+  \end{equation*}
+
+% The fact that we run multiple regressions reveals why the model relies on the assumption of independence of irrelevant alternatives described above.
+\end{mybox}
+
+% \dotfill
 
 \begin{equation}
-  \Pr(Y_i=l) = \frac{\Id(l = K)+\Id(l\neq K)e^{\boldsymbol{\beta}_l \cdot \mathbf{X}_i}}{1 + \sum_{j\neq K} e^{\boldsymbol{\beta}_j \cdot \mathbf{X}_i}}, l = 1,2,\cdots,K.
+  \ln\left(\frac{\Pr(Y_i=l)}{\Pr(Y_i=K)}\right) = \boldsymbol{\beta}_l^{(K)} \cdot \mathbf{X}_i, \quad l \neq K.
   \end{equation}
 
-The fact that we run multiple regressions reveals why the model relies on the assumption of independence of irrelevant alternatives described above.
+  \begin{equation}
+    \ln\left(\frac{\Pr(Y_i=l)}{\Pr(Y_i=J)}\right) = \boldsymbol{\beta}_l^{(J)} \cdot \mathbf{X}_i, \quad l \neq J.
+    \end{equation}
 
+(1)-(2)
 
+\begin{equation*}
+  \ln\left(\frac{\Pr(Y_i=l)}{\Pr(Y_i=K)}\right)-\ln\left(\frac{\Pr(Y_i=l)}{\Pr(Y_i=J)}\right) = \ln\left(\frac{\Pr(Y_i=J)}{\Pr(Y_i=K)}\right) =(\boldsymbol{\beta}_l^{(K)}-\boldsymbol{\beta}_l^{(J)}) \cdot \mathbf{X}_i =\boldsymbol{\beta}_J^{(K)} \cdot \mathbf{X}_i  , \quad K \neq J.
+  \end{equation*}
 
-% \begin{Problem}[]{}
-%   Logistic distribution
+  \begin{equation*}
+\boldsymbol{\beta}_l^{(J)} = \boldsymbol{\beta}_l^{(K)} - \boldsymbol{\beta}_J^{(K)}  , \quad K \neq J.
+    \end{equation*}
 
-%   \(Y\in\{0,1\}\)
+  \begin{equation*}
+    \boldsymbol{\beta}_l^{(J)} = \boldsymbol{\beta}_l^{(K')} - \boldsymbol{\beta}_J^{(K')}  , \quad K' \neq J.
+        \end{equation*}
 
+On the other hand, for an arbitrary function 
+
+\begin{equation*}
+  g\left(\frac{\Pr(Y_i=l)}{\Pr(Y_i=K)}\right) = \boldsymbol{\beta}_l^{(K)} \cdot \mathbf{X}_i,
+\end{equation*}
+
+the property holds only if \(g(\cdot) = \ln(\cdot)\).
+
+Therefore, we can conclude that the property holds if and only if in the logistic regression model.
     
-% \begin{equation*}
-%   \begin{aligned}
-%    F_0(v) = \dfrac{\exp(-v)}{1+\exp(-v)}
-%   \end{aligned}
-% \end{equation*}
-
-% \begin{equation*}
-%   \begin{aligned}
-%     P(Y=1|X=x) = \dfrac{\exp(\beta_0^T z)}{1+\exp(\beta_0^T z)}\overset{\bigtriangleup }{=}F_0(\beta_0^T z)
-%   \end{aligned}
-% \end{equation*}
-
-% The standard Logistic distribution is symmetric about the origin but not about its mean. 
-
-% The probability density function (PDF) for the standard Logistic distribution is given by:
-
-% \[ f(v) = \dfrac{e^{-v}}{(1+e^{-v})^2} \]
-
-% To demonstrate its symmetry, let's evaluate the PDF at \(v\) and \(-v\):
-
-% \[ f(v) = \dfrac{e^{-v}}{(1+e^{-v})^2} \]
-
-% \[ f(-v) = \dfrac{e^{v}}{(1+e^{v})^2} \]
-
-% % As you can see, \(f(v)\) and \(f(-v)\) are not equal, indicating that the standard Logistic distribution is not symmetric about its mean. It is symmetric about the origin (0), where \(v = 0\), but not around its mean, which is also 0 for the standard Logistic distribution.
-
-
-% \end{Problem}
-
 
 \pagebreak
 
@@ -225,14 +400,70 @@ $$
 $$
 \end{Problem}
 
+% \begin{equation*}
+%   \begin{aligned}
+%     \frac{\partial l\left(\theta_1, \theta_2\right)}{\partial \beta}
+%     % = \frac{\partial }{\partial \beta} \ln P(Y=y) &= \ln \{C(\theta_1,\theta_2)+(Y^T\theta_1 +W^T \theta_2)\}\\
+%     = \left(\frac{\partial \mu}{\partial \beta}\right)^T \frac{\partial \theta_1}{\partial \mu}\left(\frac{\partial l\left(\theta_1, \theta_2\right)}{\partial \theta_1}\right) \quad \text{By chain rule}\\
+%   \end{aligned}
+% \end{equation*}
+
+
+% \begin{mybox}{}
+
+Validate the final expression:
+
+\[  \mu=-\dfrac{\frac{\partial}{\partial \theta_1} C\left(\theta_1, \theta_2\right)}{C\left(\theta_1, \theta_2\right)}.\]
+
+
+\begin{equation*}
+  \begin{aligned}
+    \frac{\partial \mu}{\partial \theta_1} 
+    & = \frac{\partial}{\partial \theta_1}\left\{-\dfrac{\frac{\partial}{\partial \theta_1} C\left(\theta_1, \theta_2\right)}{C\left(\theta_1, \theta_2\right)}\right\}\\
+    & =-\frac{C\left(\theta_1, \theta_2\right)\dfrac{\partial^2}{\partial \theta_1 \partial \theta_1^T} C\left(\theta_1, \theta_2\right)-\dfrac{\partial}{\partial \theta_1} C\left(\theta_1, \theta_2\right)\left[\dfrac{\partial}{\partial \theta_1} C\left(\theta_1, \theta_2\right)\right]^T}{C\left(\theta_1, \theta_2\right)^2}\\
+    &= -\dfrac{\dfrac{\partial^2}{\partial \theta_1 \partial \theta_1^T} C\left(\theta_1, \theta_2\right)}{C\left(\theta_1, \theta_2\right)}+\mu \mu^T\\
+    &= V(Y).
+  \end{aligned}
+\end{equation*}
+% \end{mybox}
+
+
+\begin{equation*}
+  \begin{aligned}
+  \end{aligned}
+\end{equation*}
+
+\pagebreak
 \begin{Problem}[]{Show  \textbf{orthonormal}}
+
+  (b.2) The Bahadur representation:
+
+  Let
+$$
+\begin{aligned}
+& r_j=\frac{Y_j-\mu_j}{\sqrt{\mu_j\left(1-\mu_j\right)}}, j=1, \cdots, m, \\
+&\rho_{j k}=E\left[r_j r_k\right], \rho_{j k l}=E\left[r_j r_k r_l\right], \cdots, \rho_{12 \cdots m}=E\left[r_1 r_2 \cdots r_m\right] \\
+& P(Y=y)=\prod_{j=1}^m \mu_j^{y_j}\left(1-\mu_j\right)^{1-y_j}\left(1+\sum_{j<k} \rho_{j k} r_j r_k+\sum_{j<k<l} \rho_{j k l} r_j r_k r_l+\cdots+\rho_{12 \cdots m} r_1 r_2 \cdots r_m\right) . 
+\end{aligned}
+$$
+
+
+\textbf{ Remark. }
+
+% Remark.
+1. the joint probability density function is expressed in terms of the marginal means, pairwise correlations, and higher moments of the standardized variables $r_j$.
+
+2 . The correlations among binary responses are constrained in complicated ways by the marginal means.
+
+\dotfill
+
 Let $P_{[1]}(Y=y)=\prod_{j=1}^m \mu_j^{y_j}\left(1-\mu_j\right)^{1-y_j}, g(y)=P(Y=y) / P_{[1]}(Y=y)$, and $V$ be a vector space of real-valued functions $f$ on $Y_1\left(2^m\right.$ possible values of $\left.y\right)$. 
 
 Here, $V$ is regarded as an inner-product space with
 
 \[ <f_1, f_2>\triangleq E_{P_{[1]}}\left[f_1 f_2\right]=\sum_{y \in Y_1} f_1(y) f_2(y) P_{[1]}(y).\]
 
-It follows easily that the set of functions $S=\left\{1, r_1, \ldots, r_m ; r_1 r_2, \ldots, r_{m-1} r_m ; \ldots, r_1 r_2 \cdots r_m\right\}$ on $Y_1$ is \textbf{orthonormal} and, thus, is a basis in $V$.
+It follows easily that the set of functions $S=\left\{1, r_1, \ldots, r_m ; r_1 r_2, \ldots, r_{m-1} r_m , \ldots, r_1 r_2 \cdots r_m\right\}$ on $Y_1$ is \textbf{orthonormal} and, thus, is a basis in $V$.
  Since $g(y)$ is a function on $Y_1$, there exists a unique representation as a linear combination of functions in $S$, namely,
 $$
 \begin{aligned}
@@ -244,18 +475,141 @@ $$
 $$
 \end{Problem}
 
+
+Let \(S\) be defined as the set of functions such that:
+\[
+S=\left\{r_1^{a_1} r_2^{a_2} \cdots r_m^{a_m} \,|\,a_i \in \{0,1\}, \text{ for } i = 1, \ldots, m\right\},
+\]
+
+where \(s_a\) and \(s_b\) are elements of \(S\):
+\[
+\begin{aligned}
+s_a &= r_1^{a_1} r_2^{a_2} \cdots r_m^{a_m} \in S, \\
+s_b &= r_1^{b_1} r_2^{b_2} \cdots r_m^{b_m} \in S.
+\end{aligned}
+\]
+ To show \(S\) is orthonormal, is to show that:
+
+\begin{equation*}
+  \begin{aligned}
+    <s_a,s_b> &= 1, \text{ if } s_a = s_b,\\
+    <s_a,s_b> &= 0, \text{ if } s_a \neq s_b.\\
+  \end{aligned}
+\end{equation*}
+
+% and each normalized:
+
+% \begin{equation*}
+%   \begin{aligned}
+%     \sum_{y \in Y_1} s_a^2 P_{[1]}(y) = 1.
+%   \end{aligned}
+% \end{equation*}
+
+\dotfill
+
+\begin{mybox}{}
+
+  \begin{equation*}
+    \begin{aligned}
+      r_j&=\frac{Y_j-\mu_j}{\sqrt{\mu_j\left(1-\mu_j\right)}}\overset{iid}{\sim} N(0,1)\\
+      \E[r_j] &= 0\\
+      \Var[r_j] &= 1\\
+      \E[r_j^2] &= 1\\
+    \end{aligned}
+  \end{equation*}
+  \end{mybox}
+
+(1)
+
+Show that each is normalized:
+
+\begin{equation*}
+  \begin{aligned}
+    <s_a,s_a> &=  E_{P_{[1]}}\left[s_a s_a\right]=\sum_{y \in Y_1} s_a(y) s_a(y) P_{[1]}(y)\\
+    &=\E[r_1^{2a_1} r_2^{2a_2} \cdots r_m^{2a_m}]\\
+    &= \E[\prod_{i = 1}^{m} [r_i^2]^{a_i}], \\
+    &= \prod_{i = 1}^{m}\E[ [r_i^2]^{a_i}], \quad a_i\in \{0,1\}\\
+    &= 1.
+  \end{aligned}
+\end{equation*}
+
+(2)
+
+
+Show orthogonal:
+
+For \(s_a\neq s_b\),
+ \(\exists i\) s.t, \(a_i \neq b_i, \implies a_i+b_i =1\), thus
+
+\begin{equation*}
+  \begin{aligned}
+    <s_a,s_b> &=  E_{P_{[1]}}\left[s_a s_b\right]=\sum_{y \in Y_1} s_a(y) s_b(y) P_{[1]}(y)\\
+    &=\E[r_1^{a_1+b_1} r_2^{a_2+b_2} \cdots r_i^{a_i+b_i}\cdots r_m^{a_m+b_m}]\\
+    &= \prod_{i\in \{i|a_i\neq b_i\} }\E[ r_i]\prod_{i\in \{i|a_i= b_i\} }\E[ [r_i^2]^{a_i}], \quad a_i\in \{0,1\}\\
+    &= 0.
+  \end{aligned}
+\end{equation*}
+
+
+
+
+\begin{equation*}
+  \begin{aligned}
+    % r_j=\frac{Y_j-\mu_j}{\sqrt{\mu_j\left(1-\mu_j\right)}}
+  \end{aligned}
+\end{equation*}
+
 \pagebreak
 
-% Paper Summary
+% \begin{mybox}{Censoring and Truncation}
+
+% In survival analysis, "censoring" and "truncation" are two distinct concepts that both relate to incomplete information about the times to events, but they have different meanings and implications.
+
+% \begin{enumerate}
+%   \item Censoring:
+%   \begin{itemize}
+%     \item Censoring refers to the presence of incomplete data in survival analysis, typically due to individuals who have not experienced the event of interest by the end of the study period or for other reasons cannot be observed until the event occurs.
+%     \item Censoring typically occurs in two forms: right censoring and left censoring. Right censoring occurs when the observed data provides only a lower limit on an individual's survival time (e.g., someone is still alive at the end of the study, but we do not know when they will experience the event). Left censoring occurs when the observed data provides only an upper limit on survival time (e.g., someone has survived for a certain period before the study, but we do not know when the event occurred prior to the study).
+%     \item Censoring data needs to be appropriately handled in survival analysis, often using methods like Kaplan-Meier survival curves or Cox proportional hazards models.
+%   \end{itemize}
+  
+%   \item Truncation:
+%   \begin{itemize}
+%     \item Truncation refers to limitations in sample selection, which can result in certain individuals not being included in the study or only a subset of individuals entering the study. This can occur when the study only includes individuals who meet specific criteria or belong to a particular group, potentially leading to a sample that does not represent the entire population.
+%     \item Truncation can introduce bias because the sample may not be representative of the entire population. In survival analysis, addressing truncation may involve considering the impact of selection bias to ensure the validity and generalizability of results.
+%   \end{itemize}
+
+%   In summary, censoring involves incomplete data where we don't have complete information about event times, while truncation relates to limitations in sample selection that can result in a non-representative sample. Both concepts are important to consider in survival analysis, and each requires distinct considerations and handling.
+  
+% \end{enumerate}
+
+% \end{mybox}
+
+
+Paper\Footcite{Pawitan1993} Summary
 
 
 
-% \begin{itemize}
-%   \item \textbf{Research Problem}: The paper addresses the challenge of analyzing longitudinal data on disease markers in AIDS cohort studies, which involves censoring, truncation, and correlation issues.
-%   \item \textbf{Methodology}: The paper proposes a likelihood-based approach that models the joint distribution of the disease markers, the time of infection, and the time to AIDS using parametric models. The paper also handles the censoring and truncation problems using standard survival analysis techniques and provides a method for predicting the time to AIDS given a series of disease marker measurements.
-%   \item \textbf{Data and Application}: The paper applies the proposed method to the Toronto AIDS cohort study, which consists of 159 homosexual males who were infected with HIV or seroconverted during follow-up. The paper analyzes the longitudinal data on T4 counts and T4/T8 ratio as disease markers and compares three models with different assumptions about the infection time.
-%   \item \textbf{Results and Conclusion}: The paper finds that there is a significant association between the rate of decline of T4 counts or T4/T8 ratio and the time to AIDS, and that the scaled incubation time may be a more natural scale for viewing the progression of HIV infection. The paper also shows that the disease marker information improves the prediction of the time to AIDS. The paper concludes that the proposed method is useful for understanding the natural history of AIDS and developing treatment strategies.
-% \end{itemize}
+\begin{itemize}
+  \item \textbf{Research Problem}: Traditional cross-sectional analysis has its limitation. This paper addresses the challenge of analyzing longitudinal data on disease markers in AIDS, which involves problems of (left and right) censoring and (left) truncation.
+  \item \textbf{Methodology}: The paper proposes a likelihood-based approach that models the joint distribution of the disease markers (\(Z(t)\), such as T4 count and T4/T8 ratio), the time of infection, and the time to AIDS using parametric models. The paper also handles the censoring and truncation problems using standard survival analysis techniques and provides a method for predicting the time to AIDS given a series of disease marker measurements.
+  \item \textbf{Data and Application}: The paper applies the proposed method to the Toronto AIDS cohort study, which consists of 159 cases who were infected with HIV or seroconverted during the 5.5 years' follow-up. The paper analyzes the longitudinal data on T4 counts and T4/T8 ratio as disease markers and compares three models with different assumptions about the infection time.
+  \item \textbf{Results and Conclusion}: The paper finds that there is a significant association between the rate of decline of T4 counts or T4/T8 ratio and the time to AIDS, and that the scaled incubation time may be a more natural scale for viewing the progression of HIV infection. The paper also shows that the disease marker information improves the prediction of the time to AIDS. The paper concludes that the proposed method is useful for understanding the natural history of AIDS and developing treatment strategies.
+\end{itemize}
+
+% this study does not model the time to AIDS tD given a disease marker Z(t)1. Instead, it models Z(t) given tD and tI, the time of infection. The authors argue that this approach has some advantages, such as:
+
+% It allows them to study the progression of Z(t) over time and how it is associated with the time to AIDS.
+% It provides a flexible way to predict the time to AIDS using all of the marker data2.
+% It deals with the informative right censoring problem caused by AIDS occurrence.
+
+% The model in this paper is related to the Weibull regression model in the following ways:
+
+% The paper uses the Weibull regression model to describe the distributions of the infection time and the time to AIDS, as shown in equations (2) and (3).
+% The paper assumes that the infection time and the time to AIDS are independent, conditional on some covariates, and follows a parametric likelihood approach.
+% The paper compares the Weibull model with a more general generalized gamma family and finds no evidence against the Weibull assumption.
+
+% The relationship between this study and the random effects linear model is that the study uses a random effects linear model to describe the disease marker process. Specifically, the study models the disease marker Z(t) as a linear function of time since infection and time to AIDS, with random intercepts and slopes. The random effects capture the between-subject variability in the initial level and rate of change of the disease marker. The study assumes that the random effects follow a multivariate normal distribution and are independent of the infection time and the time to AIDS. The study estimates the parameters of the random effects model by maximum likelihood, taking into account the censoring and truncation in the data.
 
 
 \begin{equation*}

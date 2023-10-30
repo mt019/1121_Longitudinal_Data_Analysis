@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.8.25)  27 OCT 2023 15:49
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.8.25)  31 OCT 2023 01:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1391,25 +1391,48 @@ Package biblatex Info: Automatic encoding selection.
 \openout5 = `R10A21126_HW03.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'R10A21126_HW03.bbl' not found.
-
-No file R10A21126_HW03.bbl.
+Package biblatex Info: ... file 'R10A21126_HW03.bbl' found.
+ (./R10A21126_HW03.bbl)
 Package biblatex Info: Reference section=0 on input line 33.
 Package biblatex Info: Reference segment=0 on input line 33.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
-(d:/MaakApp/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
+ (d:/MaakApp/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
  (d:/MaakApp/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
 
-] [2] [3] [4] 
+Package fontspec Info: Could not resolve font "FangSong/BI" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "FangSong/B" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "FangSong/I" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
+(fontspec)             with options [Script={CJK}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
+ [1
+
+] [2] [3] [4] [5] [6] [7] [8] [9] [10] 
 AED: lastpage setting LastPage
-[5] (./R10A21126_HW03.aux)
+[11] (./R10A21126_HW03.aux)
 Package rerunfilecheck Info: File `R10A21126_HW03.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'R10A21126_HW03.run.xml'.
@@ -1417,12 +1440,12 @@ Package logreq Info: Writing requests to 'R10A21126_HW03.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45352 strings out of 475848
- 970689 string characters out of 5801585
- 1802430 words of memory out of 5000000
- 65721 multiletter control sequences out of 15000+600000
- 476190 words of font info for 69 fonts, out of 8000000 for 9000
+ 45623 strings out of 475848
+ 974551 string characters out of 5801585
+ 1801618 words of memory out of 5000000
+ 65960 multiletter control sequences out of 15000+600000
+ 479394 words of font info for 94 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 104i,11n,107p,683b,3848s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,12n,107p,754b,5364s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on R10A21126_HW03.pdf (5 pages).
+Output written on R10A21126_HW03.pdf (11 pages).
