@@ -1,15 +1,15 @@
-[1] Config.pm:306> INFO - This is Biber 2.18
-[1] Config.pm:309> INFO - Logfile is 'R10A21126_HW03.blg'
-[203] biber-MSWIN32:340> INFO - === 
-[262] Biber.pm:418> INFO - Reading 'R10A21126_HW03.bcf'
-[473] Biber.pm:978> INFO - Found 2 citekeys in bib section 0
-[499] Biber.pm:4401> INFO - Processing section 0
-[519] Biber.pm:4592> INFO - Looking for bibtex file 'R10A21126.bib' for section 0
-[586] bibtex.pm:1713> INFO - LaTeX decoding ...
-[602] bibtex.pm:1518> INFO - Found BibTeX data source 'R10A21126.bib'
-[717] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[717] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[717] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[718] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
-[730] bbl.pm:654> INFO - Writing 'R10A21126_HW03.bbl' with encoding 'UTF-8'
-[733] bbl.pm:757> INFO - Output to R10A21126_HW03.bbl
+[0] Config.pm:306> INFO - This is Biber 2.18
+[0] Config.pm:309> INFO - Logfile is 'R10A21126_HW03.blg'
+[140] biber-MSWIN32:340> INFO - === 
+[185] Biber.pm:418> INFO - Reading 'R10A21126_HW03.bcf'
+[368] Biber.pm:978> INFO - Found 4 citekeys in bib section 0
+[393] Biber.pm:4401> INFO - Processing section 0
+[417] Biber.pm:4592> INFO - Looking for bibtex file 'R10A21126.bib' for section 0
+[480] bibtex.pm:1713> INFO - LaTeX decoding ...
+[501] bibtex.pm:1518> INFO - Found BibTeX data source 'R10A21126.bib'
+[581] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[582] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[582] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[582] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[591] bbl.pm:654> INFO - Writing 'R10A21126_HW03.bbl' with encoding 'UTF-8'
+[593] bbl.pm:757> INFO - Output to R10A21126_HW03.bbl

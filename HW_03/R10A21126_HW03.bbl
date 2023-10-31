@@ -19,6 +19,35 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
+    \entry{Characteristic_function_wiki}{online}{}
+      \list{organization}{1}{%
+        {Wikipedia}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{annotation}{Page Version ID: 1178762588}
+      \field{day}{5}
+      \field{hour}{18}
+      \field{langid}{english}
+      \field{minute}{33}
+      \field{month}{10}
+      \field{second}{31}
+      \field{timezone}{Z}
+      \field{title}{Characteristic Function (Probability Theory)}
+      \field{urlday}{31}
+      \field{urlmonth}{10}
+      \field{urlyear}{2023}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Characteristic_function_(probability_theory)&oldid=1178762588
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Characteristic_function_(probability_theory)&oldid=1178762588
+      \endverb
+    \endentry
     \entry{Casella2002}{book}{}
       \name{author}{2}{}{%
         {{hash=c7abc90e14f2761d9325ee092fda0de7}{%
@@ -44,8 +73,8 @@
       \strng{authorbibnamehash}{c6df33453b0c6fbb42492656a87f4723}
       \strng{authornamehash}{c6df33453b0c6fbb42492656a87f4723}
       \strng{authorfullhash}{c6df33453b0c6fbb42492656a87f4723}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \true{singletitle}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
@@ -56,6 +85,22 @@
       \field{title}{Statistical Inference}
       \field{year}{2002}
       \field{dateera}{ce}
+    \endentry
+    \entry{logistic_MGF}{online}{}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{title}{Moment Generating Function of Logistic Distribution - ProofWiki}
+      \field{urlday}{31}
+      \field{urlmonth}{10}
+      \field{urlyear}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://proofwiki.org/wiki/Moment_Generating_Function_of_Logistic_Distribution
+      \endverb
+      \verb{url}
+      \verb https://proofwiki.org/wiki/Moment_Generating_Function_of_Logistic_Distribution
+      \endverb
     \endentry
     \entry{Pawitan1993}{article}{}
       \name{author}{2}{}{%
@@ -76,8 +121,8 @@
       \strng{authorbibnamehash}{74e50707f28aa4d07955df027813275f}
       \strng{authornamehash}{74e50707f28aa4d07955df027813275f}
       \strng{authorfullhash}{74e50707f28aa4d07955df027813275f}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \true{singletitle}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
