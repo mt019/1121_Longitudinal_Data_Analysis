@@ -1,0 +1,15 @@
+[1] Config.pm:306> INFO - This is Biber 2.18
+[1] Config.pm:309> INFO - Logfile is 'R10A21126_HW04.blg'
+[447] biber-MSWIN32:340> INFO - === 
+[604] Biber.pm:418> INFO - Reading 'R10A21126_HW04.bcf'
+[1168] Biber.pm:978> INFO - Found 2 citekeys in bib section 0
+[1253] Biber.pm:4401> INFO - Processing section 0
+[1319] Biber.pm:4592> INFO - Looking for bibtex file 'R10A21126.bib' for section 0
+[1507] bibtex.pm:1713> INFO - LaTeX decoding ...
+[1566] bibtex.pm:1518> INFO - Found BibTeX data source 'R10A21126.bib'
+[1771] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1794] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1795] Biber.pm:4221> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[1795] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[1833] bbl.pm:654> INFO - Writing 'R10A21126_HW04.bbl' with encoding 'UTF-8'
+[1839] bbl.pm:757> INFO - Output to R10A21126_HW04.bbl

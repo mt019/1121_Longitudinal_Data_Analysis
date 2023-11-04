@@ -1,0 +1,313 @@
+\documentclass[UTF8,a4paper,10pt]{article}
+
+\input{preamble.tex}
+
+% \begin{equation*}
+%   \begin{aligned}
+%   \end{aligned}
+% \end{equation*}
+
+% \begin{mybox}{}
+% \end{mybox}
+
+
+% \begin{Problem}[]{}
+% \end{Problem}
+
+% \begin{solution}\,
+% \end{solution}
+  
+
+% \begin{enumerate}[label=(\alph*)]
+% \end{enumerate} 
+
+% \setcounter{section}{3} 
+% \setcounter{theorem}{3}
+
+% \begin{theorem}\label{thm:3.4}
+%   If $E = \bigcup_{k} E_k$ is a countable union of sets, then $|E|_e \leq \sum_{k} |E_k|_e$.
+%   \end{theorem}
+
+%  \footcite[][42]{Wheeden_Zygmund_2015}
+
+\begin{document}
+
+
+% \begin{mybox}{}
+
+
+% \end{mybox}
+
+
+
+% Q1
+Random effects GLM
+
+\begin{itemize}
+  \item \(Y_{ij}\,|\,(x_{ij},u_i)'s \overset{indep.}{\sim}f_Y(y_{ij}\,|\,x_{ij},u_{i},\beta,\phi),j = 1,\ldots,m_i.\)
+  \item \(U_i\overset{iid}{\sim}f_{U}(u\,|\,G)\)
+\end{itemize}
+
+\begin{Problem}[]{Maximum likelihood estimation:}
+  
+  Assume further that $u_i \sim N_q(0, G)$.
+
+  Let $\delta=(\beta, G)$. The likelihood function of $\delta$ is
+  $$
+  \begin{aligned}
+  L(\delta \mid y) & =\prod_{i=1}^n \int\left(\prod_{j=1}^{m_i} f\left(y_{i j} \mid x_{i j}, u_i\right)\right) f_U\left(u_i \mid G\right) d u_i \\
+  & \propto \prod_{i=1}^n \int\left(\prod_{j=1}^{m_i} \exp \left(\beta^T x_{i j} y_{i j}+u_i^T d_{i j} y_{i j}-\psi\left(\theta_{i j}\right)\right)\right)|G|^{-\frac{1}{2}} \exp \left(\frac{-u_i^T G^{-1} u_i}{2}\right) d u_i .
+  \end{aligned}
+  $$
+  
+  The score function for $\beta$, based on the complete data $(y, U)$, is
+
+  \[S_\beta(\delta \mid \underset{\sim}{y}, U)=\sum_{i=1}^n \sum_{j=1}^{m_i} x_{i j}\left(y_{i j}-\mu_{i j}\left(u_i\right)\right)=0,\] 
+  
+  where 
+  
+  \[\mu_{i j}\left(u_i\right)=h^{-1}\left(x_{i j}{ }^T \beta+d_{i j}{ }^T u_i\right).\]
+
+
+Show that the score function for $G$ is 
+  
+  \[S_G(\delta \mid \underset{\sim}{y}, U)=\frac{1}{2}\left[G^{-1}\left(\sum_{i=1}^n u_i u_i^T\right) G^{-1}-n G^{-1}\right].\]
+
+  The observed score functions are then defined to be
+
+
+  $$
+  \left\{\begin{array}{l}
+  S_\beta(\delta \mid \underset{\sim}{y})=\sum_{i=1}^n \sum_{j=1}^{m_i} x_{i j}\left(y_{i j}-E\left[\mu_{i j}\left(u_i\right) \mid y_{i j}\right]\right) \\
+  S_G(\delta \mid \underset{\sim}{y})=\frac{1}{2}
+  \left[G^{-1} \left(\sum_{i=1}^n E\left[u_i u_i^\tau \mid y_{i j}\right]\right) G^{-1}-n G^{-1}\right]
+  \end{array} .\right.
+  $$
+  
+
+\end{Problem}
+
+\begin{align*}
+  L(\delta\mid y,U) 
+  &= \prod_{i=1}^n \left(\prod_{j=1}^{m_i} f\left(y_{i j} \mid x_{i j}, u_i\right)\right) f_U\left(u_i \mid G\right)\\
+  &\propto \prod_{i=1}^n \left(\prod_{j=1}^{m_i} \exp \left(\beta^T x_{i j} y_{i j}+u_i^T d_{i j} y_{i j}-\psi\left(\theta_{i j}\right)\right)\right)|G|^{-\frac{1}{2}} \exp \left(\frac{-u_i^T G^{-1} u_i}{2}\right).
+\end{align*}
+
+\begin{align*}
+  l(\delta\mid y,U) 
+  &= \ln L(\delta\mid y,U) \\
+  &\propto \sum_{i=1}^n 
+  \left\{
+    \left(\sum_{j=1}^{m_i} \exp \left(\beta^T x_{i j} y_{i j}+u_i^T d_{i j} y_{i j}-\psi\left(\theta_{i j}\right)\right)\right)
+    -\frac{1}{2}\ln\left(|G|\right)
+     -\left(\frac{u_i^T G^{-1} u_i}{2}\right)
+    \right\}
+\end{align*}
+
+\begin{align*}
+  S_{G}(\delta\mid y, U) = \frac{\partial l(\delta\mid y, U)}{\partial G} 
+  & = \frac{\partial }{\partial G} \sum_{i=1}^{n} \left\{-\frac{1}{2}\ln\left(|G|\right)
+  -\left(\frac{u_i^T G^{-1} u_i}{2}\right)\right\}\\
+  & \overset{*}{=} \sum_{i=1}^{n} \left\{-\frac{1}{2}G^{-1}+\frac{1}{2}u^T_iG^{-1}G^{-1} u_i \right\}\\
+  & =\frac{1}{2}\left[G^{-1}\left(\sum_{i=1}^n u_i u_i^T\right) G^{-1}-n G^{-1}\right].
+\end{align*}
+
+
+It can be shown that \(\frac{\partial }{\partial G}\ln(|G|) = (G^{-1})^T = G^{-1}\).
+% \pagebreak
+
+
+\begin{Problem}[]{Logistic regression for binary responses}
+
+  
+Consider $\log i t P\left(Y_{i j}=1 \mid U_i\right)=\beta_0+U_i+X_{i j}^T \beta$ : random intercept logistic model.
+
+
+Let $r_i=\beta_0+U_i$. The joint likelihood function for $\beta$ and $r_i$ is
+
+
+$$
+L\left(\beta, r_1, \cdots, r_n\right)=\prod_{i=1}^n \exp \left[r_i \sum_{j=1}^{m_i} y_{i j}+\left(\sum_{j=1}^{m_i} y_{i j} x_{i j}{ }^T\right) \beta-\sum_{j=1}^{m_i} \ln \left(1+\exp \left(r_i+x_{i j}{ }^T \beta\right)\right)\right] .
+$$
+
+The conditional likelihood, which is equivalent to that derived in stratified case-control studies, is 
+
+$$L_c(\beta)=\prod_{i=1}^n\left[\frac{\exp \left(\sum_{j=1}^{m_i} y_{i j} x_{i j}^T \beta\right)}{\sum_{\left\{\underset{\sim}{y_i}: \sum_{i=1}^{m_i} y_{i t}=t_{i 2}\right\}} \exp \left(\sum_{l=1}^{m_i} y_{i l} x_{i l}^T \beta\right)}\right].$$
+
+
+\dotfill
+
+Example: 
+
+
+$2 \times 2$ cross-over trial
+
+
+
+\vspace{10pt} % Add space above the table
+\begin{center}
+\begin{tabular}{r|cccc}
+  \tikz{\node[below left, inner sep=1pt] (def) {Group};%
+  \node[above right,inner sep=1pt] (abc) {Outcome};%
+  \draw (def.north west|-abc.north west) -- (def.south east-|abc.south east);} &$(1,1)$ & $(1,0)$ & $(0,1)$ & $(0,0)$ \\
+  \hline
+  placebo-treatment $(0,1)$ & $a_1$ & $b_1$ & $c_1$ & $d_1$ \\
+  treatment-placebo $(1,0)$ & $a_2$ & $b_2$ & $c_2$ & $d_2$ \\
+\end{tabular}
+\end{center}
+
+% \begin{tabular}{l|lccc}
+%   \tikz{\node[below left, inner sep=1pt] (def) {Group};%
+%       \node[above right,inner sep=1pt] (abc) {Outcome};%
+%       \draw (def.north west|-abc.north west) -- (def.south east-|abc.south east);} & $(1,1)$ & $(1,0)$ & $(0,1)$ & $(0,0)$ \\
+%   Group & $a_1$ & $b_1$ & $c_1$ & $d_1$ \\
+%   Placebo-Treatment $(0,1)$ & & & & \\
+%   Treatment-Placebo $(1,0)$ & & & & \\
+% \end{tabular}
+
+
+\dotfill
+
+Show that
+
+$$L_c(\beta)=\left(\frac{\exp \left(\beta_1\right)}{1+\exp \left(\beta_1\right)}\right)^{b_2+c_1}\left(\frac{1}{1+\exp \left(\beta_1\right)}\right)^{b_1+c_2}.$$
+
+
+\end{Problem}
+
+$\log i t P\left(Y_{i j}=1 \mid U_i\right)=\beta_0+U_i+X_{i j}\beta_1$,
+
+\(m_i=2\),
+\(x_{ij} = \begin{cases}
+  0 & \text{placebo}\\
+  1 & \text{treatment}
+\end{cases}\),
+\(y_{ij} = \begin{cases}
+  0 & \text{ineffective}\\
+  1 & \text{effective}
+\end{cases}\)
+
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5} % 设置行高为1.5倍
+  \begin{tabular}{|l|p{0.3\textwidth}|p{0.3\textwidth}|}
+
+  \hline
+  For $d_1+d_2$ & $\sum_{i=1}^{2} y_{i t} = t_{i 2} = 0$  & $\sum_{j=1}^{2} y_{i j} x_{i j} = 0$ \\
+  \hline
+  \multirow{2}{*}{For $b_1+b_2+c_1+c_2$} & \multirow{2}{*}{$\sum_{i=1}^{2} y_{i t} = t_{i 2} = 1$ } &  $\sum_{j=1}^{2} y_{i j} x_{i j} = 0$ for $b_1+c_2$  \\
+    &  &  $\sum_{j=1}^{2} y_{i j} x_{i j} = 1$ for $b_2+c_1$\\
+  \hline
+  For $a_1 + a_2$ & $\sum_{i=1}^{2} y_{i t} = t_{i 2} = 2$  & $\sum_{j=1}^{2} y_{i j} x_{i j} = 1$ \\
+  \hline
+  \end{tabular}
+
+  \end{table}
+
+
+\begin{align*}
+  L_c(\beta) &=\prod_{i=1}^n\left[\frac{\exp \left(\sum_{j=1}^{m_i} y_{i j} x_{i j}^T \beta\right)}{\sum_{\left\{\underset{\sim}{y_i}: \sum_{i=1}^{m_i} y_{i t}=t_{i 2}\right\}} \exp \left(\sum_{l=1}^{m_i} y_{i l} x_{i l}^T \beta\right)}\right]\\
+  &=\prod_{i=1}^n\left[\frac{\exp \left(\sum_{j=1}^{2} y_{i j} x_{i j} \beta_{1}\right)}{\sum_{\left\{\underset{\sim}{y_i}: \sum_{i=1}^{2} y_{i t}=t_{i 2}\right\}} \exp \left(\sum_{l=1}^{2} y_{i l} x_{i l} \beta_{1}\right)}\right]\\
+  & = \dfrac{\exp(\beta_{1})^{a_1+a_2+b_2+c_1}}{ \{\exp(\beta_{1})^{a_1+a_2}\} \{[1+\exp(\beta_{1})]^{b_1+b_2+c_1+c_2}\} \{[1]^{d_1+d_2}\}}\\
+  & = \dfrac{\exp(\beta_{1})^{b_2+c_1}}{ [1+\exp(\beta_{1})]^{b_1+b_2+c_1+c_2}}\\
+  & = \left(\frac{\exp \left(\beta_1\right)}{1+\exp \left(\beta_1\right)}\right)^{b_2+c_1}\left(\frac{1}{1+\exp \left(\beta_1\right)}\right)^{b_1+c_2}.
+\end{align*}
+
+% \pagebreak
+
+\begin{Problem}[]{Poisson-Gamma mixture}
+
+  Example:
+  \begin{itemize}
+    \item $Y_{i j}{ }^{\prime} s \mid u_i{ }\sim \operatorname{Poisson}\left(u_i\right).$
+    \item  $u_i \sim \operatorname{Gamma}(\alpha, \beta)$, where $\alpha \beta \triangleq \mu$ and $\alpha \beta^2 \triangleq \phi \mu^2$.
+  \end{itemize}
+
+  
+Show that $Y_{i j}$ is Negative-binomial with $E\left[Y_{i j}\right]=\mu$ and $V\left[Y_{i j}\right]=\mu+\phi \mu^2$.
+\end{Problem}
+\begin{align*}
+  p(y) &= \int_{0}^{\infty}\, p(y\mid u)p(u)\,du\\
+  & = \int_{0}^{\infty} \frac{u^{y}e^{-u}}{y!}\left[\frac{1}{\Gamma(\alpha)\beta^{\alpha}}\right]u^{\alpha-1}e^{-u/\beta}\,du\\
+  & =  \frac{1}{y!\Gamma(\alpha)\beta^{\alpha}} \int_{0}^{\infty}u^{y+\alpha-1}e^{-\frac{1+\beta}{\beta}u}\,du\\
+  & \overset{*}{=}  \frac{1}{y!\Gamma(\alpha)\beta^{\alpha}}\frac{\Gamma(y+\alpha)}{\left[\frac{1+\beta}{\beta}\right]^{y+\alpha}}\\
+  & = \frac{\Gamma(y+\alpha)}{y!\Gamma(\alpha)}\frac{\beta^y}{(1+\beta)^{y+\alpha}}\\
+  & = \frac{(y+\alpha-1)!}{y!(\alpha-1)!}\left[\frac{\beta}{1+\beta}\right]^{y}\left[\frac{1}{1+\beta}\right]^{\alpha}.
+\end{align*}
+Thus,
+\begin{align*}
+  y\sim   NB(\alpha,\frac{1}{1+\beta}),
+\end{align*}
+and
+\begin{align*}
+  \E[Y] &= \frac{\alpha\frac{\beta}{1+\beta}}{\frac{1}{1+\beta}} = \alpha\beta = \mu,\\
+  \Var[Y] & = \frac{\alpha\frac{\beta}{1+\beta}}{\left[\frac{1}{1+\beta}\right]^2} = \alpha\beta(1+\beta) = \alpha\beta+\alpha\beta^2 = \mu +\phi \mu^2.
+\end{align*}
+
+\begin{mybox}{Integration of expressions of the type \(f(t)e^{g(t)}\)}
+
+  \Footcite{wiki_gamma} 
+  The primary reason for the gamma function's usefulness in such contexts is the prevalence of expressions of the type 
+  \(f(t)e^{g(t)}\) which describe processes that decay exponentially in time or space. Integrals of such expressions can occasionally be solved in terms of the gamma function when no elementary solution exists. For example, if \(f\) is a power function and \(g\) is a linear function, a simple change of variables \(u:a\cdot t\)  gives the evaluation
+
+  \begin{align*}
+    \int_{0}^{\infty}t^{b}e^{-at}\,dt = \frac{1}{a^b}\int_{0}^{\infty}u^{b}e^{-u}\,d\left(\frac{u}{a}\right) = \frac{\Gamma(b+1)}{a^{b+1}}.
+  \end{align*}
+
+  \dotfill
+
+\begin{align*}
+  \int_{0}^{\infty}u^{y+\alpha-1}e^{-\left[\frac{1+\beta}{\beta}\right]u}\,du = \frac{\Gamma(y+\alpha)}{\left[\frac{1+\beta}{\beta}\right]^{y+\alpha}}.
+\end{align*}
+
+\end{mybox}
+
+\pagebreak
+
+
+Paper\Footcite{Pawitan1993} Summary
+
+
+
+\begin{itemize}
+  \item \textbf{Research Problem}: Traditional cross-sectional analysis has its limitation. This paper addresses the challenge of analyzing longitudinal data on disease markers in AIDS, which involves problems of (left and right) censoring and (left) truncation.
+  \item \textbf{Methodology}: The paper proposes a likelihood-based approach that models the joint distribution of the disease markers (\(Z(t)\), such as T4 count and T4/T8 ratio), the time of infection, and the time to AIDS using parametric models. The paper also handles the censoring and truncation problems using standard survival analysis techniques and provides a method for predicting the time to AIDS given a series of disease marker measurements.
+  \item \textbf{Data and Application}: The paper applies the proposed method to the Toronto AIDS cohort study, which consists of 159 cases who were infected with HIV or seroconverted during the 5.5 years' follow-up. The paper analyzes the longitudinal data on T4 counts and T4/T8 ratio as disease markers and compares three models with different assumptions about the infection time.
+  \item \textbf{Results and Conclusion}: The paper finds that there is a significant association between the rate of decline of T4 counts or T4/T8 ratio and the time to AIDS, and that the scaled incubation time may be a more natural scale for viewing the progression of HIV infection. The paper also shows that the disease marker information improves the prediction of the time to AIDS. The paper concludes that the proposed method is useful for understanding the natural history of AIDS and developing treatment strategies.
+\end{itemize}
+
+\dotfill
+
+The T4 count refers to the number of CD4 T cells, which are crucial for immune function. The T4/T8 ratio is the ratio of CD4 cells (T helper cells) to CD8 cells (regulatory T cells).
+
+Censoring and truncation are two types of incomplete data problems that occur in survival analysis. In this study, the authors deal with censoring and truncation of the infection time and the time to AIDS for the cohort members.
+
+\begin{itemize}
+  \item Left censoring: This happens when the infection time is unknown but known to be before a certain time. For example, if a person was seropositive at entry to the study, then their infection time is left censored by the entry time. Left censoring can also be interval censored, meaning that the infection time is known to be within a certain interval, such as between the first and last contact with the primary case.
+  \item Right censoring: This happens when the time to AIDS is unknown but known to be after a certain time. For example, if a person did not develop AIDS by the end of follow-up, then their time to AIDS is right censored by the last follow-up time. Right censoring can also be informative, meaning that the censoring time is related to the event of interest, such as AIDS occurrence or death.
+  \item Left truncation: This happens when the cohort members are selected based on a certain criterion that depends on the survival time. For example, if the cohort members are partners of males who had been diagnosed with AIDS at most one year prior to enrollment, then the cohort is left truncated by the beginning of the ascertainment period. Left truncation can cause bias in the estimation of the survival function and the hazard function.
+
+
+\end{itemize}
+
+
+This study dealt with censor and truncation by using the following methods:
+
+\begin{itemize}
+  \item For censoring, the study used standard survival analysis techniques to account for the unknown or partially known infection times and disease occurrence times. The study considered different patterns of censoring, such as left censoring, right censoring, and interval censoring, and derived different likelihood formulas for each pattern.
+  \item For truncation, the study divided the individual likelihood term by the probability of observing the disease occurring after the beginning of the ascertainment period, which was assumed to be January 1, 1978. The study also excluded 90 cases who did not seroconvert by the end of follow-up, assuming that they were noninfectible for various reasons.
+
+\end{itemize}
+
+
+
+
+\begin{equation*}
+  \begin{aligned}
+  \end{aligned}
+\end{equation*}
+
+
+\end{document}
+
