@@ -1,0 +1,189 @@
+\documentclass[UTF8,a4paper,10pt]{article}
+
+\input{preamble.tex}
+
+% \begin{equation*}
+%   \begin{aligned}
+%   \end{aligned}
+% \end{equation*}
+
+% \begin{mybox}{}
+% \end{mybox}
+
+
+% \begin{Problem}[]{}
+% \end{Problem}
+
+% \begin{solution}\,
+% \end{solution}
+  
+
+% \begin{enumerate}[label=(\alph*)]
+% \end{enumerate} 
+
+% \setcounter{section}{3} 
+% \setcounter{theorem}{3}
+
+% \begin{theorem}\label{thm:3.4}
+%   If $E = \bigcup_{k} E_k$ is a countable union of sets, then $|E|_e \leq \sum_{k} |E_k|_e$.
+%   \end{theorem}
+
+%  \footcite[][42]{Wheeden_Zygmund_2015}
+
+\begin{document}
+
+
+% \begin{mybox}{}
+
+
+% \end{mybox}
+
+
+
+% Q1
+\section*{Transition Models}
+
+$t_{ij}^{\prime} s$ are assumed to be equally spaced.
+
+
+Let $H_i=\left\{y_k, k=1, \cdots, j-1\right\}$. 
+
+Consider \[f(y_{ij}\mid H_{ij},\alpha,\beta) = \exp\left\{\frac{y_{ij}-\psi(\theta_{ij})}{\phi}+c(y_{ij},\phi)\right\},\] where \(\psi(\theta_{ij})\) and \(c(y_{ij},\phi)\) are known functions. 
+
+One has 
+$$\mu_{ij}^c=E\left[y_{ij} \mid H_{ij}\right]=\psi^{\prime}\left(\theta_{ij}\right)$$ 
+and 
+$$V_{ij}^c=V\left[y_{ij} \mid H_{ij}\right]=\psi''\left(\theta_{ij}\right) \phi$$ 
+
+with
+
+\[h(\mu_{ij}^c) = x_{ij}^T\beta +\sum_{r=1}^{s}f_r(H_{ij};\alpha)\text{ for suitable functions }f_r(\cdot)'s\]
+and
+
+\[v_{ij}^c = v(\mu_{ij}^c)\phi.\]
+
+
+\begin{Problem}[]{Fitting transition models: (A markov model of order $q$ )}
+
+
+ 
+
+By
+\[L_i(y_{i1},\cdots,y_{im_i}) = f(y_{i1},\cdots,y_{iq})\prod_{j=q+1}^{m_i}f(y_{ij}\mid y_{i j-1},\cdots,y_{i j-q}), i = 1,\cdots,n,\]
+
+one can get the likelihood function 
+
+\[L(\alpha,\beta) = \prod_{i=1}^{n}f(y_{i1},\cdots,y_{iq})\prod_{j=q+1}^{m_i}f(y_{ij}\mid H_{ij},\alpha,\beta),\]
+where 
+
+\[H_{ij} = \{y_{i j-1},\cdots,y_{i j-q}\}.\]
+
+Since the term $f\left(y_a, \cdots, y_{k_\psi}\right)$ is always unavailable, the estimators of $(\alpha, \beta)$ are obtained via maximizing the conditional likelihood 
+
+$$\prod_{i=1}^{n} \prod_{j=q+1}^{m_i} f\left(y_{ij}\mid H_{ij}, \alpha, \beta\right).$$
+
+Let $\delta=(\alpha, \beta)$.
+
+Show that the log-conditional likelihood or conditional score function has the form
+
+\[S^c(\delta) = \sum_{i=1}^{n}\sum_{j = (q+1)}^{m_i}\frac{\partial \mu_{ij}^c}{\partial \delta}{v_{ij}^c}^{-1}(y_{ij}-\mu_{ij}^c).\]
+
+\end{Problem}
+
+\begin{Problem}[]{
+Ordered Categorical data}
+
+
+$Y$: ordinal response with categories labeled $1,2, \cdots, k$.
+
+
+Let $F(a \mid x)=P(Y \leq a \mid x)$, where $a=1, \cdots,(k-1), x=\left(x_1, \cdots, x,\right)^T$.
+
+Proportional odds model: $\logit F(a \mid x)=\theta_a+x^T \beta, a=1, \cdots,(k-1)$.
+
+Define $Y^*=\left(Y_1^*, \cdots, Y_{t-1}^*\right)$ with $Y_a^*=1_{(Y\leq a)}$. 
+
+Then, $\logit F(a \mid x)=\logit P\left(Y_a^*=1 \mid x\right)$.
+
+
+
+\begin{center}
+\begin{tabular}{c|cccccc}
+    
+    $Y$ & 1 & 2 & 3 & $\cdots$ & $k-1$ & $k$ \\
+    \hline$Y_1^*$ & 1 & 0 & 0 & $\cdots$ & 0 & 0 \\
+    $Y_2^*$ & 1 & 1 & 0 & $\cdots$ & 0 & 0 \\
+    $\vdots$ & $\vdots$ & $\vdots$ & & & & $\vdots$ \\
+    $Y_{k-1}^*$ & 1 & 1 & 1 & $\cdots$ & 1 & 0
+  \end{tabular}
+\end{center}
+
+
+\dotfill
+
+
+Example:
+
+
+Assume that $\logit P\left(Y_j \leq b \mid Y_{i j-1}=a\right)=\theta_\alpha+x_i{ }^T \beta_\alpha, a, b=1, \cdots,(k-1)$. It can be derived that
+
+
+
+\end{Problem}
+
+
+
+
+\begin{Problem}[]{Log-linear transition models for count data}
+
+
+ 
+$Y_{ij} \mid\left(H_{ij}, x_{ij}\right) \sim$ Poissom $\left(\mu^c_{ij}\right)$.
+
+\dotfill
+
+Model 1. Wong (1986) proposed that $$\mu_{ij}^c=\exp \left(x_{ij}^T\beta\right) \{1+\exp \left(-\alpha_0-\alpha_1 y_{i\,j-1}\right)\},$$ 
+
+$\alpha_0, \alpha_1>0$, where $\beta$ is the influence of $x_{ij}$ as $y_{i\,j-1}=0$.
+
+---
+
+Remark. When $y_{i\,j-1}>0, \mu_{ij}^c$ decreases as $y_{i\,j-1}$ increases. A negative association is implied between the prior and current responses.
+
+\dotfill
+
+Model 2. $\mu_{ij}^c=\exp \left(x_{ij}^T\beta+\alpha y_{i\,j-1}\right)$.
+
+---
+
+Properties: 
+\begin{enumerate}
+  \item $\mu_{ij}^c$ increases as an exponential function of time as $\alpha>0$.
+  \item When $\exp \left(x_{ij}^T \beta\right)=\mu$ and $\alpha<0$, it leads to a stationary process.
+\end{enumerate}
+
+
+\dotfill
+
+
+Moded 3. $$\mu_{ij}=\exp \left(x_{ij}{ }^T \beta+\alpha\left\{\ln \left(y_{i\,j-1}^*\right)-x_{i\,j-1}^T \beta\right\}\right),$$ 
+
+where $y_{i\,j-1}^*=\max \left\{y_{i\,j-1}, d\right\}, 0<d<1$.
+
+---
+
+Property: $\left\{\begin{array}{l}\alpha=0 \text { : it reduces to an oedinary log-tinear model. } \\ \alpha<0 \text { : negative correlation between } y_{i\,j-1} \text { and } y_{ij} \\ 
+  \alpha>0 \text { : positive correlation between } y_{i\,j-1} \text { and } y_{ij}\end{array}\right.$
+
+
+\end{Problem}
+
+
+\begin{equation*}
+  \begin{aligned}
+  \end{aligned}
+\end{equation*}
+
+
+\end{document}
+
