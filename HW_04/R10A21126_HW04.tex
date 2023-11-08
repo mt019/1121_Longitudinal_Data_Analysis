@@ -271,34 +271,33 @@ Paper\Footcite{Pawitan1993} Summary
 
 
 \begin{itemize}
-  \item \textbf{Research Problem}: Traditional cross-sectional analysis has its limitation. This paper addresses the challenge of analyzing longitudinal data on disease markers in AIDS, which involves problems of (left and right) censoring and (left) truncation.
-  \item \textbf{Methodology}: The paper proposes a likelihood-based approach that models the joint distribution of the disease markers (\(Z(t)\), such as T4 count and T4/T8 ratio), the time of infection, and the time to AIDS using parametric models. The paper also handles the censoring and truncation problems using standard survival analysis techniques and provides a method for predicting the time to AIDS given a series of disease marker measurements.
+  \item \textbf{Research Problem}: Traditional cross-sectional analysis has its limitation. This paper addresses the challenge of analyzing longitudinal data on disease markers in AIDS, which involves problems of (left and right) censoring and (left) truncation
+  \footnote{Censoring and truncation are two types of incomplete data problems that occur in survival analysis. In this study, there are
+  % In this study, the authors deal with censoring and truncation of the infection time and the time to AIDS for the cohort members.
+  
+  \begin{itemize}
+    \item Left censoring: This happens when the infection time is unknown but known to be before a certain time. For example, if a person was seropositive at entry to the study, then his infection time is left censored by the entry time. Left censoring can also be interval censored, meaning that the infection time is known to be within a certain interval, such as between the first and last contact with the primary case.
+    \item Right censoring: This happens when the time to AIDS is unknown but known to be after a certain time. For example, if a person did not develop AIDS by the end of follow-up, then his time to AIDS is right censored by the last follow-up time. Right censoring can also be informative, meaning that the censoring time is related to the event of interest. Right censoring due to death may be informative.
+    \item Left truncation: This happens when the cohort members are selected based on a certain criterion that depends on the survival time. The dataset does not include individuals who developed the disease prior to the beginning of this study.
+    % For example, if the cohort members are partners of males who had been diagnosed with AIDS at most one year prior to enrollment, then the cohort is left truncated by the beginning of the ascertainment period. Left truncation can cause bias in the estimation of the survival function and the hazard function.
+  \end{itemize}
+  }.
+  \item \textbf{Methodology}: The paper proposes a likelihood-based approach that models the joint distribution of the disease markers (\(Z(t)\), such as T4 count and T4/T8 ratio
+  \footnote{The T4 count refers to the number of CD4 T cells, which are crucial for immune function. The T4/T8 ratio is the ratio of CD4 cells (T helper cells) to CD8 cells (regulatory T cells).}
+  ), the time of infection, and the time to AIDS using parametric models. The paper also handles the censoring and truncation problems using standard survival analysis techniques. The study considered different patterns of censoring, such as left censoring, right censoring, and interval censoring, and derived different likelihood formulas for each pattern. For truncation, the study divided the individual likelihood term by the probability of observing the disease occurring after the beginning of the ascertainment period \(B\). The study provides a method for predicting the time to AIDS given a series of disease marker measurements.
   \item \textbf{Data and Application}: The paper applies the proposed method to the Toronto AIDS cohort study, which consists of 159 cases who were infected with HIV or seroconverted during the 5.5 years' follow-up. The paper analyzes the longitudinal data on T4 counts and T4/T8 ratio as disease markers and compares three models with different assumptions about the infection time.
   \item \textbf{Results and Conclusion}: The paper finds that there is a significant association between the rate of decline of T4 counts or T4/T8 ratio and the time to AIDS, and that the scaled incubation time may be a more natural scale for viewing the progression of HIV infection. The paper also shows that the disease marker information improves the prediction of the time to AIDS. The paper concludes that the proposed method is useful for understanding the natural history of AIDS and developing treatment strategies.
 \end{itemize}
 
-\dotfill
+% \dotfill
 
-The T4 count refers to the number of CD4 T cells, which are crucial for immune function. The T4/T8 ratio is the ratio of CD4 cells (T helper cells) to CD8 cells (regulatory T cells).
+% This study dealt with censor and truncation by using the following methods:
 
-Censoring and truncation are two types of incomplete data problems that occur in survival analysis. In this study, the authors deal with censoring and truncation of the infection time and the time to AIDS for the cohort members.
+% \begin{itemize}
+%   \item For censoring, the study used standard survival analysis techniques to account for the unknown or partially known infection times and disease occurrence times. The study considered different patterns of censoring, such as left censoring, right censoring, and interval censoring, and derived different likelihood formulas for each pattern.
+%   \item For truncation, the study divided the individual likelihood term by the probability of observing the disease occurring after the beginning of the ascertainment period, which was assumed to be January 1, 1978. The study also excluded 90 cases who did not seroconvert by the end of follow-up, assuming that they were noninfectible for various reasons.
 
-\begin{itemize}
-  \item Left censoring: This happens when the infection time is unknown but known to be before a certain time. For example, if a person was seropositive at entry to the study, then their infection time is left censored by the entry time. Left censoring can also be interval censored, meaning that the infection time is known to be within a certain interval, such as between the first and last contact with the primary case.
-  \item Right censoring: This happens when the time to AIDS is unknown but known to be after a certain time. For example, if a person did not develop AIDS by the end of follow-up, then their time to AIDS is right censored by the last follow-up time. Right censoring can also be informative, meaning that the censoring time is related to the event of interest, such as AIDS occurrence or death.
-  \item Left truncation: This happens when the cohort members are selected based on a certain criterion that depends on the survival time. For example, if the cohort members are partners of males who had been diagnosed with AIDS at most one year prior to enrollment, then the cohort is left truncated by the beginning of the ascertainment period. Left truncation can cause bias in the estimation of the survival function and the hazard function.
-
-
-\end{itemize}
-
-
-This study dealt with censor and truncation by using the following methods:
-
-\begin{itemize}
-  \item For censoring, the study used standard survival analysis techniques to account for the unknown or partially known infection times and disease occurrence times. The study considered different patterns of censoring, such as left censoring, right censoring, and interval censoring, and derived different likelihood formulas for each pattern.
-  \item For truncation, the study divided the individual likelihood term by the probability of observing the disease occurring after the beginning of the ascertainment period, which was assumed to be January 1, 1978. The study also excluded 90 cases who did not seroconvert by the end of follow-up, assuming that they were noninfectible for various reasons.
-
-\end{itemize}
+% \end{itemize}
 
 
 

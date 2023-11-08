@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.8.25)  4 NOV 2023 17:10
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.8.25)  8 NOV 2023 09:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1444,9 +1444,9 @@ Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
 (fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
- [3] [4] [5] 
+ [3] [4] 
 AED: lastpage setting LastPage
-[6] (./R10A21126_HW04.aux)
+[5] (./R10A21126_HW04.aux)
 Package rerunfilecheck Info: File `R10A21126_HW04.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'R10A21126_HW04.run.xml'.
@@ -1454,12 +1454,12 @@ Package logreq Info: Writing requests to 'R10A21126_HW04.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45724 strings out of 475848
- 976479 string characters out of 5801585
+ 45727 strings out of 475848
+ 976558 string characters out of 5801585
  1815494 words of memory out of 5000000
- 66070 multiletter control sequences out of 15000+600000
- 476589 words of font info for 79 fonts, out of 8000000 for 9000
+ 66071 multiletter control sequences out of 15000+600000
+ 476597 words of font info for 80 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 104i,14n,107p,683b,5081s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,14n,107p,684b,5081s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on R10A21126_HW04.pdf (6 pages).
+Output written on R10A21126_HW04.pdf (5 pages).
