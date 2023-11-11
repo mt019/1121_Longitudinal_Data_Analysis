@@ -127,16 +127,16 @@ Then, $$\logit F(a \mid x)=\logit P\left(Y_a^*=1 \mid x\right).$$
 Example:
 
 
-Assume that $$\logit P\left(Y_j \leq b \mid Y_{i \, j-1}=a\right)=\theta_\alpha+x_i{ }^T \beta_\alpha, \quad a, b=1, \cdots,(k-1).$$ 
+Assume that $$\logit P\left(Y_j \leq b \mid Y_{i \, j-1}=a\right)=\theta_{ab}+x_i{ }^T \beta_{a}, \quad a, b=1, \cdots,(k-1).$$ 
 
 It can be derived that
 
-\[\logit P(Y_{ij}\leq b\mid Y_{i\,j-1}^* = y_{i\,j-1}^*) = \theta_b +\sum_{l=1 }^{k-1}\alpha_{ab}y_{i(j-1)l}^*+x_{ij}^T(\beta +\sum_{l=1}^{k-1}r_{l}y_{i(j-1)l}^*),\]
+\[\logit P(Y_{ij}\leq b\mid Y_{i\,j-1}^* = y_{i\,j-1}^*) = \theta_b +\sum_{l=1 }^{k-1}\alpha_{lb}y_{i(j-1)l}^*+x_{ij}^T(\beta +\sum_{l=1}^{k-1}r_{l}y_{i(j-1)l}^*),\]
 
 where
 $\left\{\begin{array}{l}
 \theta_{kb} = \theta_b,\\
-\alpha_{lb} = \theta_{lb}-\theta_{k+1\,b},\\
+\alpha_{lb} = \theta_{lb}-\theta_{l+1\,b},\\
 \beta_k = \beta,\\
 r_{l} = \beta_{l}-\beta_{l+1}
 \end{array}\right..$
@@ -144,6 +144,42 @@ r_{l} = \beta_{l}-\beta_{l+1}
 
 \end{Problem}
 
+\begin{align*}
+  % &\,
+  \logit P(Y_{ij}\leq b\mid Y_{i\,j-1}^* = y_{i\,j-1}^*) 
+  = \theta_b + & (\theta_{1b}-\theta_{2\,b})y_{i(j-1)1}^*\\
+  +&(\theta_{2b}-\theta_{3\,b})y_{i(j-1)2}^*\\
+  +&\cdots\\
+  +&(\theta_{ab}-\theta_{a+1\,b})y_{i(j-1)a}^*\\
+  +&(\theta_{a+1\,b}-\theta_{a+2\,b})y_{i(j-1)(a+1)}^*\\
+  +&\cdots\\
+  +&(\theta_{(k-1)b}-\theta_{k\,b})y_{i(j-1)(k-1)}^*\\
+  +x_{ij}^T\{
+    &\beta \\
+  +&(\beta_{1}-\beta_{2})y_{i(j-1)1}^*\\
+  +&(\beta_{2}-\beta_{3})y_{i(j-1)2}^*\\
+  +&\cdots\\
+  +&(\beta_{a}-\beta_{a+1})y_{i(j-1)a}^*\\
+  +&\cdots\\
+  +&(\beta_{k-1}-\beta_{k})y_{i(j-1)(k-1)}^*\},\\
+\end{align*}
+
+
+\begin{align*}
+  % &\,
+  \logit P(Y_{ij}\leq b\mid Y_{i \, j-1} = a) 
+  = \theta_b + & (\theta_{1b}-\theta_{2\,b})\\
+  +&(\theta_{2b}-\theta_{3\,b})\\
+  +&\cdots\\
+  +&(\theta_{ab}-\theta_{a+1\,b})\\
+  +x_{ij}^T\{
+    &\beta \\
+  +&(\beta_{1}-\beta_{2})\\
+  +&(\beta_{2}-\beta_{3})\\
+  +&\cdots\\
+  +&(\beta_{a}-\beta_{a+1}) \},\\
+  = \theta_b + & \theta_{1b} - \theta_{a+1\,b} + x_{ij}^T\{ \beta + \beta_{1} -\beta_{a+1} \}.
+\end{align*}
 
 \pagebreak
 
@@ -179,7 +215,18 @@ Properties:
 \dotfill
 
 
-Moded 3. $$\mu_{ij}=\exp \left(x_{ij}{ }^T \beta+\alpha\left\{\ln \left(y_{i\,j-1}^*\right)-x_{i\,j-1}^T \beta\right\}\right),$$ 
+
+
+
+\end{Problem}
+
+
+\pagebreak
+
+\begin{Problem}[]{   }
+
+
+   Moded 3. $$\mu_{ij}=\exp \left(x_{ij}{ }^T \beta+\alpha\left\{\ln \left(y_{i\,j-1}^*\right)-x_{i\,j-1}^T \beta\right\}\right),$$ 
 
 where $y_{i\,j-1}^*=\max \left\{y_{i\,j-1}, d\right\}, 0<d<1$.
 
@@ -188,9 +235,36 @@ where $y_{i\,j-1}^*=\max \left\{y_{i\,j-1}, d\right\}, 0<d<1$.
 Property: $\left\{\begin{array}{l}\alpha=0 \text { : it reduces to an oedinary log-tinear model. } \\ \alpha<0 \text { : negative correlation between } y_{i\,j-1} \text { and } y_{ij} \\ 
   \alpha>0 \text { : positive correlation between } y_{i\,j-1} \text { and } y_{ij}\end{array}\right.$
 
+  ---
 
-\end{Problem}
+  Application to a size-independent branching process:
 
+   \(\exp(x_{ij}^T\beta) = \mu\)
+
+   \begin{conditions}
+    y_{ij}     & :      &  the number of individuals in the \(i\)-th population at generation \(j\) \\
+    Z_{k}(y_{i\,j-1})     & :      &  the number of offspring for person \(k\) in generation \((j-1)\)
+    % S_{d} & \propto & damage level
+   \end{conditions}
+
+   For \(y_{i\,j-1}>0,\)
+   \[y_{ij} =\sum_{k=1}^{y_{i(j-1)}}Z_k(y_{i(j-1)}),\]
+where 
+\[Z_{k}\overset{iid}{\sim}Poisson\left(\left(\frac{\mu}{y_{i{j-1}}^*}\right)^{1-\alpha}\right).\]
+
+One can get 
+
+
+\[\mu_{ij}^c = \mu\cdot\left(\frac{y_{i(j-1)}}{\mu}\right)^\alpha.\]
+
+Property:
+
+\begin{itemize}
+  \item \(\alpha<0\): the sample paths oscillate back and forth about their long-term average level.
+  \item \(\alpha>0\): the sample path have sharper peaks and broader valleys.
+\end{itemize}
+
+  \end{Problem}
 
 \begin{equation*}
   \begin{aligned}

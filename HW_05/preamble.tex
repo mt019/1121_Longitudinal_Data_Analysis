@@ -209,3 +209,15 @@ doi = false, isbn=false,]{biblatex}
 \usepackage{booktabs}
 \usepackage{pdflscape}
 \usepackage{adjustbox}
+
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent
+   \begin{tabular}{>{$}r<{$} @{} >{${}}c<{{}$} @{} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+\newenvironment{conditions*}
+  {\par\vspace{\abovedisplayskip}\noindent
+   \tabularx{\columnwidth}{>{$}l<{$} @{}>{${}}c<{{}$}@{} >{\raggedright\arraybackslash}X}}
+  {\endtabularx\par\vspace{\belowdisplayskip}}
+  % https://tex.stackexchange.com/questions/95838/how-to-write-a-perfect-equation-parameters-description
