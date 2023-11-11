@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.8.25)  11 NOV 2023 20:52
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.8.25)  12 NOV 2023 01:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1262,13 +1262,45 @@ File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
 \adjbox@pheight=\dimen365
 \adjbox@pdepth=\dimen366
 \adjbox@ptotalheight=\dimen367
-))
+)) (d:/MaakApp/texlive/2022/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2022/05/22 v0.5v Insert pages of external PDF documents (AM)
+ (d:/MaakApp/texlive/2022/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count524
+\calc@Bcount=\count525
+\calc@Adimen=\dimen368
+\calc@Bdimen=\dimen369
+\calc@Askip=\skip123
+\calc@Bskip=\skip124
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count526
+\calc@Cskip=\skip125
+) (d:/MaakApp/texlive/2022/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
+\ESO@tempdima=\dimen370
+\ESO@tempdimb=\dimen371
+)
+\AM@pagewidth=\dimen372
+\AM@pageheight=\dimen373
+\AM@fboxrule=\dimen374
+ (d:/MaakApp/texlive/2022/texmf-dist/tex/latex/pdfpages/ppxetex.def
+File: ppxetex.def 2022/05/22 v0.5v Pdfpages driver for XeTeX (AM)
+)
+\pdfpages@includegraphics@status=\count527
+\AM@pagebox=\box143
+\AM@global@opts=\toks56
+\AM@pagecnt=\count528
+\AM@toc@title=\toks57
+\c@AM@survey=\count529
+\AM@templatesizebox=\box144
+)
 
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count524
-\@quotereset=\count525
+\@quotelevel=\count530
+\@quotereset=\count531
 (./R10A21126_HW05.aux)
 \openout1 = `R10A21126_HW05.aux'.
 
@@ -1391,7 +1423,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 33.
-\c@lstlisting=\count526
+\c@lstlisting=\count532
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 (d:/MaakApp/texlive/2022/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -1421,9 +1453,42 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-] [2] [3] [4] 
+] [2] [3] [4]
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf>
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf>
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf, page 1>
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf, page 1>
+ [5]
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf, page 1>
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf, page 1>
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf, page 1>
+ [6]
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf, page 2>
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf, page 2>
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf, page 2>
+ [7]
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf, page 3>
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf, page 3>
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf, page 3>
+ [8] 
 AED: lastpage setting LastPage
-[5] (./R10A21126_HW05.aux)
+(./R10A21126_HW05.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `R10A21126_HW05.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'R10A21126_HW05.run.xml'.
@@ -1431,12 +1496,12 @@ Package logreq Info: Writing requests to 'R10A21126_HW05.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45410 strings out of 475848
- 970192 string characters out of 5801585
- 1802484 words of memory out of 5000000
- 65786 multiletter control sequences out of 15000+600000
+ 46152 strings out of 475848
+ 982985 string characters out of 5801585
+ 1817123 words of memory out of 5000000
+ 66510 multiletter control sequences out of 15000+600000
  473401 words of font info for 56 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 104i,12n,107p,683b,3848s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,17n,107p,683b,3848s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on R10A21126_HW05.pdf (5 pages).
+Output written on R10A21126_HW05.pdf (8 pages).
