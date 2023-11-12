@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.8.25)  12 NOV 2023 01:46
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.8.25)  12 NOV 2023 16:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1453,42 +1453,39 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-] [2] [3] [4]
+] [2] [3] [4] [5]
 File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
 <use R10A21126_HW05_Q4.pdf>
 File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
 <use R10A21126_HW05_Q4.pdf>
-File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
-<use R10A21126_HW05_Q4.pdf, page 1>
-File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
-<use R10A21126_HW05_Q4.pdf, page 1>
- [5]
-File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
-<use R10A21126_HW05_Q4.pdf, page 1>
 File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
 <use R10A21126_HW05_Q4.pdf, page 1>
 File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
 <use R10A21126_HW05_Q4.pdf, page 1>
  [6]
 File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
-<use R10A21126_HW05_Q4.pdf, page 2>
+<use R10A21126_HW05_Q4.pdf, page 1>
 File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
-<use R10A21126_HW05_Q4.pdf, page 2>
+<use R10A21126_HW05_Q4.pdf, page 1>
 File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
-<use R10A21126_HW05_Q4.pdf, page 2>
+<use R10A21126_HW05_Q4.pdf, page 1>
  [7]
 File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
-<use R10A21126_HW05_Q4.pdf, page 3>
+<use R10A21126_HW05_Q4.pdf, page 2>
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf, page 2>
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf, page 2>
+ [8]
 File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
 <use R10A21126_HW05_Q4.pdf, page 3>
 File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
 <use R10A21126_HW05_Q4.pdf, page 3>
- [8] 
+File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
+<use R10A21126_HW05_Q4.pdf, page 3>
+ [9] 
 AED: lastpage setting LastPage
 (./R10A21126_HW05.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `R10A21126_HW05.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'R10A21126_HW05.run.xml'.
@@ -1496,12 +1493,12 @@ Package logreq Info: Writing requests to 'R10A21126_HW05.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46152 strings out of 475848
- 982985 string characters out of 5801585
- 1817123 words of memory out of 5000000
- 66510 multiletter control sequences out of 15000+600000
- 473401 words of font info for 56 fonts, out of 8000000 for 9000
+ 46159 strings out of 475848
+ 983186 string characters out of 5801585
+ 1817124 words of memory out of 5000000
+ 66513 multiletter control sequences out of 15000+600000
+ 473425 words of font info for 59 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  104i,17n,107p,683b,3848s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on R10A21126_HW05.pdf (8 pages).
+Output written on R10A21126_HW05.pdf (9 pages).

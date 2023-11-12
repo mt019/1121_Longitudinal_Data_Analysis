@@ -53,7 +53,7 @@ Consider \[f(y_{ij}\mid H_{ij},\alpha,\beta) = \exp\left\{\frac{y_{ij}-\psi(\the
 One has 
 $$\mu_{ij}^c=E\left[y_{ij} \mid H_{ij}\right]=\psi^{\prime}\left(\theta_{ij}\right)$$ 
 and 
-$$V_{ij}^c=V\left[y_{ij} \mid H_{ij}\right]=\psi''\left(\theta_{ij}\right) \phi$$ 
+$$v_{ij}^c=V\left[y_{ij} \mid H_{ij}\right]=\psi''\left(\theta_{ij}\right) \phi$$ 
 
 with
 
@@ -65,8 +65,6 @@ and
 
 \begin{Problem}[]{Fitting transition models: (A markov model of order $q$ )}
 
-
- 
 
 By
 \[L_i(y_{i1},\cdots,y_{im_i}) = f(y_{i1},\cdots,y_{iq})\prod_{j=q+1}^{m_i}f(y_{ij}\mid y_{i\, j-1},\cdots,y_{i \, j-q}), i = 1,\cdots,n,\]
@@ -82,13 +80,37 @@ Since the term $f\left(y_{i1}, \cdots, y_{iq}\right)$ is always unavailable, the
 
 $$\prod_{i=1}^{n} \prod_{j=q+1}^{m_i} f\left(y_{ij}\mid H_{ij}, \alpha, \beta\right).$$
 
-Let $\delta=(\alpha, \beta)$.
+Let $\theta=(\alpha, \beta)$.
 
 Show that the log-conditional likelihood or conditional score function has the form
 
-\[S^c(\delta) = \sum_{i=1}^{n}\sum_{j = (q+1)}^{m_i}\frac{\partial \mu_{ij}^c}{\partial \delta}{v_{ij}^c}^{-1}(y_{ij}-\mu_{ij}^c).\]
+\[S^c(\theta) = \sum_{i=1}^{n}\sum_{j = (q+1)}^{m_i}\frac{\partial \mu_{ij}^c}{\partial \theta}{v_{ij}^c}^{-1}(y_{ij}-\mu_{ij}^c).\]
 
 \end{Problem}
+
+
+\[L^c(\theta) =  \prod_{i=1}^{n} \prod_{j=q+1}^{m_i} f\left(y_{ij}\mid H_{ij}, \alpha, \beta\right).\]
+
+\[l^c(\theta) = \ln L^c(\theta) = \dfrac{\sum_{i=1}^{n}\sum_{j = (q+1)}^{m_i}(y_{ij}\theta_{ij}-\psi(\theta_{ij}))}{\phi}+\sum_{i=1}^{n}\sum_{j = (q+1)}^{m_i}c(y_{ij},\phi).\]
+
+
+We have
+\begin{align*}
+  S^c(\theta) = \frac{\partial l^c(\theta)}{\partial \theta} &= \frac{\sum_{i=1}^{n}\sum_{j = (q+1)}^{m_i}(y_{ij}-\psi'(\theta_{ij}))}{\phi}\\
+  & = \sum_{i=1}^{n}\sum_{j = (q+1)}^{m_i} \frac{1}{\phi} (y_{ij}-\mu_{ij}^c)\\
+  & = \sum_{i=1}^{n}\sum_{j = (q+1)}^{m_i}\frac{\partial \mu_{ij}^c}{\partial \theta}{v_{ij}^c}^{-1}(y_{ij}-\mu_{ij}^c),
+\end{align*}
+
+
+where
+\begin{align*}
+\E[y_{ij}\mid H_{ij}] = \psi'(\theta_{ij}) &\triangleq \mu_{ij}^c,\\
+\V[y_{ij}\mid H_{ij}] = \psi''(\theta_{ij}) \phi
+ = \frac{\partial \mu_{ij}^c}{\partial\theta}\phi &\triangleq v_{ij}^c \implies \frac{1}{\phi} = \frac{\partial \mu_{ij}^c}{\partial\theta} {v_{ij}^c}^{-1}.
+\end{align*}
+
+
+
 
 \pagebreak
 
@@ -211,13 +233,6 @@ Properties:
   \item When $\exp \left(x_{ij}^T \beta\right)=\mu$ and $\alpha<0$, it leads to a stationary process.
 \end{enumerate}
 
-
-\dotfill
-
-
-
-
-
 \end{Problem}
 
 
@@ -244,7 +259,6 @@ Property: $\left\{\begin{array}{l}\alpha=0 \text { : it reduces to an oedinary l
    \begin{conditions}
     y_{ij}     & :      &  the number of individuals in the \(i\)-th population at generation \(j\) \\
     Z_{k}(y_{i\,j-1})     & :      &  the number of offspring for person \(k\) in generation \((j-1)\)
-    % S_{d} & \propto & damage level
    \end{conditions}
 
    For \(y_{i\,j-1}>0,\)
