@@ -166,42 +166,42 @@ r_{l} = \beta_{l}-\beta_{l+1}
 
 \end{Problem}
 
+\pagebreak
+
+\begin{align*}
+  Y_{ij} &= a\\
+   \Rightarrow  Y_{ij}^* &= (\underset{a-1}{\underbrace{0\,\cdots\,0}} \,\, \underset{k-a}{\underbrace{1\,\cdots\,1}}).
+\end{align*}
+
 \begin{align*}
   % &\,
   \logit P(Y_{ij}\leq b\mid Y_{i\,j-1}^* = y_{i\,j-1}^*) 
-  = \theta_b + & (\theta_{1b}-\theta_{2\,b})y_{i(j-1)1}^*\\
-  +&(\theta_{2b}-\theta_{3\,b})y_{i(j-1)2}^*\\
-  +&\cdots\\
-  +&(\theta_{ab}-\theta_{a+1\,b})y_{i(j-1)a}^*\\
-  +&(\theta_{a+1\,b}-\theta_{a+2\,b})y_{i(j-1)(a+1)}^*\\
-  +&\cdots\\
-  +&(\theta_{(k-1)b}-\theta_{k\,b})y_{i(j-1)(k-1)}^*\\
-  +x_{ij}^T\{
-    &\beta \\
-  +&(\beta_{1}-\beta_{2})y_{i(j-1)1}^*\\
-  +&(\beta_{2}-\beta_{3})y_{i(j-1)2}^*\\
-  +&\cdots\\
-  +&(\beta_{a}-\beta_{a+1})y_{i(j-1)a}^*\\
-  +&\cdots\\
-  +&(\beta_{k-1}-\beta_{k})y_{i(j-1)(k-1)}^*\},\\
+  = \theta_b + & (\theta_{1b}-\theta_{2\,b})y_{i(j-1)1}^*  &+ x_{ij}^T\{    \beta&+(\beta_{1}-\beta_{2})y_{i(j-1)1}^*\\
+  +&(\theta_{2b}-\theta_{3\,b})y_{i(j-1)2}^* &&+ (\beta_{2}-\beta_{3})y_{i(j-1)2}^*\\
+  +&\cdots  &&+\cdots\\
+  +&(\theta_{a-1\,b}-\theta_{ab})y_{i(j-1)(a-1)}^* &&+(\beta_{a-1}-\beta_{a})y_{i(j-1)(a-1)}^*\\
+  +&(\theta_{ab}-\theta_{a+1\,b})y_{i(j-1)a}^* && +(\beta_{a}-\beta_{a+1})y_{i(j-1)a}^*\\
+  +&(\theta_{a+1\,b}-\theta_{a+2\,b})y_{i(j-1)(a+1)}^* && +(\beta_{a+1}-\beta_{a+2})y_{i(j-1)(a+1)}^*\\
+  +&\cdots &&+\cdots\\
+  +&(\theta_{(k-1)b}-\theta_{k\,b})y_{i(j-1)(k-1)}^* && +(\beta_{k-1}-\beta_{k})y_{i(j-1)(k-1)}^*\}.
 \end{align*}
-
 
 \begin{align*}
   % &\,
-  \logit P(Y_{ij}\leq b\mid Y_{i \, j-1} = a) 
-  = \theta_b + & (\theta_{1b}-\theta_{2\,b})\\
-  +&(\theta_{2b}-\theta_{3\,b})\\
-  +&\cdots\\
-  +&(\theta_{ab}-\theta_{a+1\,b})\\
-  +x_{ij}^T\{
-    &\beta \\
-  +&(\beta_{1}-\beta_{2})\\
-  +&(\beta_{2}-\beta_{3})\\
-  +&\cdots\\
-  +&(\beta_{a}-\beta_{a+1}) \},\\
-  = \theta_b + & \theta_{1b} - \theta_{a+1\,b} + x_{ij}^T\{ \beta + \beta_{1} -\beta_{a+1} \}.
+  \logit P(Y_{ij}\leq b\mid Y_{i \, j-1} = a)  
+  =\theta_b +&(\theta_{ab}-\theta_{a+1\,b}) & + x_{ij}^T\{    \beta& +(\beta_{a}-\beta_{a+1})\\
+  +&(\theta_{a+1\,b}-\theta_{a+2\,b}) && +(\beta_{a+1}-\beta_{a+2})\\
+  +&\cdots &&+\cdots\\
+  +&(\theta_{(k-1)b}-\theta_{k\,b}) && +(\beta_{k-1}-\beta_{k})\}.
 \end{align*}
+
+\begin{align*}
+  % &\,
+  \logit P(Y_{ij}\leq b\mid Y_{i \, j-1} = a)  
+  &=\theta_b +\theta_{ab}-\theta_{kb} + x_{ij}^T\{\beta +\beta_{a}-\beta_{k}\}\\
+  &=\theta_{ab}+x_{ij}^T\beta_{a}.
+\end{align*}
+
 
 \pagebreak
 
@@ -235,6 +235,19 @@ Properties:
 
 \end{Problem}
 
+\begin{align*}
+  \E[Y_{ij} \mid\left(H_{ij}, x_{ij}\right)] = 、Var[Y_{ij} \mid\left(H_{ij}, x_{ij}\right)] = \mu_{ij}^c.
+\end{align*}
+We can obtain
+\begin{align*}
+  \E[Y_{ij}] = \E[\mu_{ij}^c] &= \E[\exp\left(x_{ij}^T\beta+\alpha y_{i\,j-1}\right)]\\
+  &=\exp\left(x_{ij}^T\beta\right)\E[\exp\left(\alpha y_{i\,j-1}\right)]\\
+  &=\mu\E[\exp\left(\alpha y_{i\,j-1}\right)]
+\end{align*}
+If stationary, 
+\begin{align*}
+  \mu = \mu  \exp\left(\alpha \mu\right)\\
+\end{align*}
 
 \pagebreak
 

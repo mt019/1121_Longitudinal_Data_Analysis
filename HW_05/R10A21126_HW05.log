@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.8.25)  12 NOV 2023 16:20
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.8.25)  15 NOV 2023 01:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1453,7 +1453,10 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-] [2] [3] [4] [5]
+] [2] [3] [4]
+Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 、 (U+3001) in font [lmroman10-regular]:mapping=tex-text;!
+[5]
 File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
 <use R10A21126_HW05_Q4.pdf>
 File: R10A21126_HW05_Q4.pdf Graphic file (type pdf)
@@ -1495,10 +1498,10 @@ Package logreq Info: Writing requests to 'R10A21126_HW05.run.xml'.
 Here is how much of TeX's memory you used:
  46159 strings out of 475848
  983186 string characters out of 5801585
- 1817124 words of memory out of 5000000
+ 1817123 words of memory out of 5000000
  66513 multiletter control sequences out of 15000+600000
  473425 words of font info for 59 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 104i,17n,107p,683b,3848s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,18n,107p,683b,3848s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on R10A21126_HW05.pdf (9 pages).
