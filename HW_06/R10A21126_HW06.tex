@@ -53,7 +53,7 @@
             R_{k} = \{i:m_i\geq k\},\\
             r_{k} = \{i:m_i = k\},
         \end{align*}
-        and compute the set of scores \(h_{ik} = h_k(y_{i1\ldots,ik})\) for \(i\in R_{k}\).
+        and compute the set of scores \(h_{ik} = h_k(y_{i1\ldots,y_{ik}})\) for \(i\in R_{k}\).
         \item If \(1\leq |r_k|\leq |R_k|\), test the hypothesis that the \(r_k\)'s scores so defined are a random sample from the "populations" of \(R_k\)'s scores.
     \end{enumerate}
 ---
@@ -63,7 +63,7 @@ Remark:
 \begin{enumerate}
     \item The implicit assumption that the separated \(p-\)values are mutually independent is valid precisely because once a unit drops out, it never returns. 
     \item A natural test statistics is \(\widebar{h}_k = \frac{1}{|r_k|} \sum_{\{j\in r_k\}} h_{jk}\). Under the assumption of completely random dropouts, 
-    \[\widebar{h}_k \sim N\left(\frac{|R_k|-|r_k|}{|r_k|(|R_k|-1)}\right)\sum_{\{j\in R_k\}} (h_{jk}-\widebar{H}_{k})^2,\]
+    \[\widebar{h}_k \sim N\left(\widebar{H}_k, \frac{|R_k|-|r_k|}{|r_k|(|R_k|-1)}\sum_{\{j\in R_k\}} (h_{jk}-\widebar{H}_{k})^2\right),\]
     where \[\widebar{H}_{k} = \frac{1}{|R_k|} \sum_{\{j\in r_k\}} h_{jk}.\]
     \begin{itemize}
         \item When \(|R_k|\) or \(|r_k|\) is small, evaluate the randomization distribution of \(\widebar{h}_k\) under the null hypothesis.
