@@ -63,7 +63,7 @@ Remark:
 \begin{enumerate}
     \item The implicit assumption that the separated \(p-\)values are mutually independent is valid precisely because once a unit drops out, it never returns. 
     \item A natural test statistics is \(\widebar{h}_k = \frac{1}{|r_k|} \sum_{\{j\in r_k\}} h_{jk}\). Under the assumption of completely random dropouts, 
-    \[\widebar{h}_k \sim N\left(\widebar{H}_k, \frac{|R_k|-|r_k|}{|r_k|(|R_k|-1)}\sum_{\{j\in R_k\}} (h_{jk}-\widebar{H}_{k})^2\right),\]
+    \[\widebar{h}_k \sim N\left(\widebar{H}_k, \frac{|R_k|-|r_k|}{(|R_k|-1)|r_k|}\sum_{\{j\in R_k\}} (h_{jk}-\widebar{H}_{k})^2/|R_k|\right),\]
     where \[\widebar{H}_{k} = \frac{1}{|R_k|} \sum_{\{j\in r_k\}} h_{jk}.\]
     \begin{itemize}
         \item When \(|R_k|\) or \(|r_k|\) is small, evaluate the randomization distribution of \(\widebar{h}_k\) under the null hypothesis.
@@ -77,24 +77,55 @@ Remark:
 \end{enumerate}
 \end{Problem}
 
+Given a finite population of size \(N\), with individual values \(\{X_i\}_{i=1}^{N}\), 
 
-Suppose that $\sigma^2$ is the population variance. This implies: If the random variable $X$ is the result of a single draw from the population, then $\text{Var}(X) = \sigma^2$. Now consider drawing a sample of $n$ items $X_1, \ldots, X_n$ without replacement from the population. Since every pair $(X_i, X_j)$ for $i \neq j$ has the same joint distribution, the variance of the sum $S_n := X_1 + \ldots + X_n$ is
+and a set of sample of size \(n\), drawn from the population without replacement, with values \(\{X_i\}_{i=1}^{n}\).
+
+Let $\sigma^2$ be the population variance:
+\[\sigma^2 = \Var[X_i] = \frac{1}{N}\sum_{i=1}^{N}(X_i-\mu),\]
+where \(\mu = \sum_{i=1}^{N} X_i\) is the population mean.
+
+Let \(\bar{X} = \frac{1}{n}S_n = \frac{1}{n}\sum_{i=1}^{n}X_i\) be the sample mean based on the sample set.
+
+
+
+Since every pair $(X_i, X_j)$ for $i \neq j$ has the same joint distribution, we have
+% the variance of the sum $S_n := X_1 + \ldots + X_n$ is
+\begin{align*}
+    \Var[S_n] = \sum_{i=1}^{n}\sum_{j=1}^{n}\Cov[X_i,X_j],
+\end{align*}
+where 
+\[\Cov[X_i,X_j] = \begin{cases}
+     \sigma^2 & i=j\\
+    c  & i\neq j\\
+\end{cases}.\]
+Thus,
+\begin{align*}
+    \Var[S_n] 
+    % &= n \Var[X_i]+ \left(n^2 - n\right)\Cov[X_i, X_j] \\
+    &= n\sigma^2 + n(n-1)c.\label{eq.01}
+\end{align*}
+% \[
+% \Var[S_n] = n \Var[X_i]+ \left(n^2 - n\right)\Cov(X_i, X_j) = n\sigma^2 + n(n-1)c.
+% \]
+% where we write $c$ for the covariance between the results of two distinct draws. Formula (1) 
+which applies to the case $n=N$ as well. Notice that $S_N$ is a constant (equal to the sum of all $N$ values in the population). It follows that
 \[
-\text{Var}(S_n) = n \text{Var}(X_1) + \left(n^2 - n\right)\text{Cov}(X_1, X_2) = n\sigma^2 + n(n-1)c \quad (1),
+0 = \Var[S_N] = N\sigma^2 + N(N-1)c.
 \]
-where we write $c$ for the covariance between the results of two distinct draws. Formula (1) applies in the case $n=N$ as well, with the extra bonus that $S_N$ is a constant (equal to the sum of all $N$ values in the population). It follows that
+Solve the equation above for $$c = -\frac{\sigma^2}{N-1}.$$
+
+Hence,
 \[
-0 = \text{Var}(S_N) = N\sigma^2 + N(N-1)c \quad (2).
-\]
-Solve equation (2) for $c = -\frac{\sigma^2}{N-1}$ (3) and plug back into (1) to obtain
-\[
-\text{Var}(S_n) = n\sigma^2\left(1 - \frac{n-1}{N-1}\right) = \frac{N-n}{N-1} \cdot n\sigma^2 \quad (4)
+\Var[S_n] = n\sigma^2\left(1 - \frac{n-1}{N-1}\right) = \frac{N-n}{N-1} \cdot n\sigma^2
 \]
 and
 \[
-\text{Var}(\bar{X}_n) = \frac{N-n}{N-1} \cdot \frac{\sigma^2}{n} \quad (5).
+\Var[\bar{X}] = \frac{N-n}{N-1} \cdot \frac{\sigma^2}{n}.
 \]
-Notice the difference between formulas (4) and (5) and the corresponding formulas for sampling with replacement is a factor $\frac{N-n}{N-1}$, which is the famous correction factor for sampling without replacement.
+
+The factor \(\dfrac{N-n}{N-1}\) is the Finite Population Correction Factor (FPC).
+% Notice the difference between formulas (4) and (5) and the corresponding formulas for sampling with replacement is a factor $\frac{N-n}{N-1}$, which is the famous correction factor for sampling without replacement.
 
 
 \end{document}
