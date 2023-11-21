@@ -235,19 +235,27 @@ Properties:
 
 \end{Problem}
 
+
+
 \begin{align*}
-  \E[Y_{ij} \mid\left(H_{ij}, x_{ij}\right)] = 、Var[Y_{ij} \mid\left(H_{ij}, x_{ij}\right)] = \mu_{ij}^c.
+  \E[Y_{ij} \mid\left(H_{ij}, x_{ij}\right)] = 、Var[Y_{ij} \mid\left(H_{ij}, x_{ij}\right)] = \mu_{ij}^c &= \exp \left(x_{ij}^T\beta+\alpha y_{i\,j-1}\right).\\
+  &=\mu\exp \left(\alpha y_{i\,j-1}\right)\\
+  &\in[0,\mu].
 \end{align*}
-We can obtain
+
+
+% We can obtain
 \begin{align*}
   \E[Y_{ij}] = \E[\mu_{ij}^c] &= \E[\exp\left(x_{ij}^T\beta+\alpha y_{i\,j-1}\right)]\\
-  &=\exp\left(x_{ij}^T\beta\right)\E[\exp\left(\alpha y_{i\,j-1}\right)]\\
+  % &=\exp\left(x_{ij}^T\beta\right)\E[\exp\left(\alpha y_{i\,j-1}\right)]\\
   &=\mu\E[\exp\left(\alpha y_{i\,j-1}\right)]
 \end{align*}
-If stationary, 
-\begin{align*}
-  \mu = \mu  \exp\left(\alpha \mu\right)\\
-\end{align*}
+
+
+% If stationary, 
+% \begin{align*}
+%   \mu = \mu  \exp\left(\alpha \mu\right)\\
+% \end{align*}
 
 \pagebreak
 
