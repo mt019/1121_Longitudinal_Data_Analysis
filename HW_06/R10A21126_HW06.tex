@@ -127,6 +127,37 @@ and
 The factor \(\dfrac{N-n}{N-1}\) is the Finite Population Correction Factor (FPC).
 % Notice the difference between formulas (4) and (5) and the corresponding formulas for sampling with replacement is a factor $\frac{N-n}{N-1}$, which is the famous correction factor for sampling without replacement.
 
+\pagebreak
+
+\begin{Problem}[]{Generalized estimating equations under a random missing mechanism:}
+
+\[
+P(R_{ij}=1|R_{ij-1}=1, H_{im}) = P(R_{ij}=1|R_{ij-1}=1, H_{ij})
+\]
+
+---
+
+Basic GEE method when dropouts are completely random:
+\[
+S_{\beta}(\beta,\alpha) = \sum_{i}^n \left(\frac{\partial b}{\partial \theta_i}\right)^T \text{Var}(Y_i)^{-1}(Y_i - \mu_i) = 0
+\]
+
+
+Let $P=\text{diag}(P)$, $\text{diag}(P)=\sum_{i} P_{ij}$ with $P_{ij}=P(R_{ij}=1|R_{ij-1}=1,H_{ij})$.
+
+\[
+P = \prod_{j=1}^{k} \hat{P}_{ij}
+\]
+
+When $P$'s are themselves estimated from the data using an assumed random dropout model, the estimators of $\mathbf{b}$ obtained from the following extended estimating equation are consistent:
+\[
+\mathbf{S}^*(\mathbf{b},a) = \mathbf{b} - n \boldsymbol{\hat{\beta}}^T \text{Var}(Y)^{-1} P^{-1}(Y - \boldsymbol{\mu}) = 0
+\]
+
+\end{Problem}
+
+\begin{Problem}[]{}
+\end{Problem}
 
 \end{document}
 
