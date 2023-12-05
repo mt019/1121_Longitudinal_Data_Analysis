@@ -149,15 +149,157 @@ Let $P=\text{diag}(P)$, $\text{diag}(P)=\sum_{i} P_{ij}$ with $P_{ij}=P(R_{ij}=1
 P = \prod_{j=1}^{k} \hat{P}_{ij}
 \]
 
-When $P$'s are themselves estimated from the data using an assumed random dropout model, the estimators of $\mathbf{b}$ obtained from the following extended estimating equation are consistent:
+When $P_i$'s are themselves estimated from the data using an assumed random dropout model, the estimators of $\mathbf{b}$ obtained from the following extended estimating equation are consistent:
 \[
-\mathbf{S}^*(\mathbf{b},a) = \mathbf{b} - n \boldsymbol{\hat{\beta}}^T \text{Var}(Y)^{-1} P^{-1}(Y - \boldsymbol{\mu}) = 0
+S_{\beta}^*(\beta,\alpha) = \sum_{i}^n \left(\frac{\partial b}{\partial \theta_i}\right)^T \text{Var}(Y_i)^{-1}P_I^{-1}(Y_i - \mu_i) = 0
 \]
 
+---
+
+Show that 
+\[\E[S_{\beta}^*(\beta,\alpha)]=0.\]
 \end{Problem}
 
+\pagebreak
+
+Paper\Footcite{Robins1995} Summary
+
+
+
+\section*{Research Problem}
+The paper addresses the challenge of estimating the parameters of semiparametric regression models for repeated outcomes in the presence of missing data due to nonresponse, dropout, or censoring. The paper aims to provide consistent and efficient estimators that do not require full specification of the likelihood or the joint distribution of the data.
+
+\section*{Methodology}
+The paper proposes a class of inverse probability of censoring weighted estimators that can handle missing data that are missing at random but not missing completely at random. The paper also extends the generalized estimating equations approach to allow for missing data that depend on past outcomes and covariates. The paper derives the asymptotic properties of the proposed estimators and compares them with other methods such as the G-computation algorithm, the sweep estimator, and the likelihood-based methods.
+
+\section*{Data and Application}
+The paper illustrates the proposed methods with the analysis of the effect of zidovudine (AZT) treatment on the evolution of mean CD4 count with data from an AIDS clinical trial. The paper also conducts a simulation study to evaluate the performance of the proposed estimators under different scenarios of missing data mechanisms and model misspecification.
+
+\section*{Results and Conclusion}
+The paper shows that the proposed estimators can correct for dependent censoring and nonrandom noncompliance in randomized clinical trials and can be more efficient and robust than the existing methods. The paper also discusses the limitations of the proposed methods and suggests conducting a sensitivity analysis to assess the impact of possible violations of the assumptions. The paper concludes that the proposed methods are useful for analyzing longitudinal data with missing outcomes and covariates.
+
+
+\pagebreak
+
+
 \begin{Problem}[]{}
+    Theorem 20.1
+    
+    For longitudinal data with dropouts, MAR \(\Longleftrightarrow\)  ACMV.
+     \footcite[][334]{Verbeke2001}
 \end{Problem}
+
+
+The MAR assumption states that
+\begin{equation*}
+    f(d = t + 1\mid y_1,\ldots,y_n) = f(d = t + 1\mid y_1,\ldots,y_t) \tag*{(B.9)}
+\end{equation*}
+and the ACMV assumption that for all \(t \geq 2\), \(\forall j < t\),
+\begin{equation*}
+    f(y_t\mid y_1,\ldots,y_{t-1}, d = j + 1) = f(y_t\mid y_1,\ldots,y_{t-1},d > t). \tag*{(B.10)}
+\end{equation*}
+
+First, a lemma will be established.
+
+\textbf{Lemma B.1} In a longitudinal setting with dropout, ACMV \(\Leftrightarrow\) \(\forall t \geq 2, \forall j < t : f(y_t\mid y_1,\ldots,y_{t-1}, d = j + 1) = f(y_t\mid y_1,\ldots,y_{t-1}).\)
+
+\textit{Proof.} Take \(t \geq 2, j < t\), then ACMV leads to
+\begin{align*}
+    &f(y_t\mid y_1,\ldots,y_{t-1}) \\
+    &= \sum_{i=1}^{t-1} f(y_t\mid y_1,\ldots,y_{t-1}, d = i + 1)f(d = i + 1) \\
+    &\quad + f(y_t\mid y_1,\ldots,y_{t-1},d > t)f(d>t) \\
+    &= \sum_{i=1}^{t-1} f(y_t\mid y_1,\ldots,y_{t-1}, d = j + 1)f(d = i + 1) \\
+    &\quad + f(y_t\mid y_1,\ldots,y_{t-1}, d = j + 1)f(d>t) \\
+    &= f(y_t\mid y_1,\ldots,y_{t-1}, d = j + 1) \left( \sum_{i=1}^{t-1} f(d = i + 1) + f(d>t) \right) \\
+    &= f(y_t\mid y_1,\ldots,y_{t-1}, d = j + 1).
+\end{align*}
+
+To show the reverse direction, take again \(t \geq 2, j < t\):
+\begin{align*}
+    &f(y_t\mid y_1,\ldots,y_{t-1},d > t)f(d>t) \\
+    &= f(y_t\mid y_1,\ldots,y_{t-1}) - \sum_{i=1}^{t-1} f(y_t\mid y_1,\ldots,y_{t-1}, d = i + 1)f(d = i + 1) \\
+    &= f(y_t\mid y_1,\ldots,y_{t-1}) - \sum_{i=1}^{t-1} f(y_t\mid y_1,\ldots,y_{t-1})f(d = i + 1) \\
+    &= f(y_t\mid y_1,\ldots,y_{t-1}) \left( 1 - \sum_{i=1}^{t-1} f(d = i + 1) \right)\\
+    &= f(y_t\mid y_1,\ldots,y_{t-1}, d = j + 1) \left(1 - \sum_{i=1}^{t-1} f(d = i + 1)\right) \\
+    &= f(y_t\mid y_1,\ldots,y_{t-1}, d = j + 1)f(d>t).
+\end{align*}
+This completes the proof. We are now able to prove Theorem 20.1.
+
+\textbf{MAR} $\Rightarrow$ \textbf{ACMV}
+
+Consider the ratio \(Q\) of the complete data likelihood to the observed data likelihood. This gives, under the MAR assumption,
+\begin{equation*}
+    Q = \frac{f(y_1,\ldots,y_n)f(d = i + 1\mid y_1,\ldots,y_i)}{f(y_1,\ldots,y_i)f(d = i + 1\mid y_1,\ldots,y_i)} = f(y_{i+1},\ldots,y_n\mid y_1,\ldots,y_i). \tag*{(B.11)}
+\end{equation*}
+Further, one can always write,
+\begin{align*}
+    Q &= f(y_{i+1},\ldots,y_n\mid y_1,\ldots,y_i, d = i + 1) \times \frac{f(y_1,\ldots,y_i\mid d = i + 1)f(d = i + 1)}{f(y_1,\ldots,y_i\mid d = i + 1)f(d = i + 1)} \\
+    &= f(y_{i+1},\ldots,y_n\mid y_1,\ldots,y_i, d = i + 1). \tag*{(B.12)}
+\end{align*}
+Equating expressions (B.11) and (B.12) for \(Q\), we see that
+\begin{equation*}
+    f(y_{i+1},\ldots,y_n\mid y_1,\ldots,y_i, d = i + 1) = f(y_{i+1},\ldots,y_n\mid y_1,\ldots,y_i). \tag*{(B.13)}
+\end{equation*}
+To show that (B.13) implies the ACMV conditions (B.10), we will use the induction principle on \(t\). First, consider the case \(t = 2\). Using (B.13) for \(i = 1\), and integrating over \(y_3,\ldots,y_n\), we obtain
+\begin{equation*}
+    f(y_2\mid y_1, d = 2) = f(y_2\mid y_1),
+\end{equation*}
+leading to, using Lemma B.1,
+\begin{equation*}
+    f(y_2\mid y_1, d = 2) = f(y_2\mid y_1,d>2).
+\end{equation*}
+Suppose, by induction, ACMV holds for all \(t \leq i\). We will now prove the hypothesis for \(t = i+1\). Choose \(j \leq i\). Then, from the induction hypothesis and Lemma B.1, it follows that for all \(j < t \leq i\):
+\begin{equation*}
+    f(y_t\mid y_1,\ldots,y_{t-1}, d = j + 1) = f(y_t\mid y_1,\ldots,y_{t-1},d>t) = f(y_t\mid y_1,\ldots,y_{t-1}).
+\end{equation*}
+Taking the product over \(t = j + 1,\ldots,i\) then gives
+\begin{equation*}
+    f(y_{j+1},\ldots,y_i\mid y_1,\ldots,y_j , d = j + 1) = f(y_{j+1},\ldots,y_i\mid y_1,\ldots,y_j). \tag*{(B.14)}
+\end{equation*}
+
+
+After integration over \(y_{i+2},\ldots,y_n\), (B.13) leads to
+\[
+f(y_{j+1},\ldots,y_{i+1}\mid y_1,\ldots,y_j , d = j + 1) = f(y_{j+1},\ldots,y_{i+1}\mid y_1,\ldots,y_j ). \tag*{(B.15)}
+\]
+Dividing (B.15) by (B.14) and equating the left- and right-hand sides, we
+find that
+\[
+f(y_{i+1}\mid y_1,\ldots,y_i, d = j + 1) = f(y_{i+1}\mid y_1,\ldots,y_i).
+\]
+This holds for all \(j \leq i\), and Lemma B.1 shows this is equivalent to ACMV.
+
+\textbf{ACMV} $\Rightarrow$ \textbf{MAR}
+
+Starting from the ACMV assumption and Lemma 1, we have
+\[
+\forall t \geq 2, \forall j < t : f(y_t\mid y_1,\ldots,y_{t-1}, d = j + 1) = f(y_t\mid y_1,\ldots,y_{t-1}). \tag*{(B.16)}
+\]
+We now factorize the full data density as
+\begin{align*}
+    &f(y_1,\ldots,y_n, d = i + 1) \\
+    &= f(y_1,\ldots,y_i, d = i + 1)f(y_{i+1},\ldots,y_n\mid y_1,\ldots,y_i, d = i + 1) \\
+    &= f(y_1,\ldots,y_i, d = i + 1) \prod_{t=i+1}^{n} f(y_t\mid y_1,\ldots,y_{t-1}, d = i + 1).
+\end{align*}
+Using (B.16), it follows that
+\begin{align*}
+    &f(y_1,\ldots,y_n, d = i + 1) \\
+    &= f(y_1,\ldots,y_i\mid d = i + 1)f(d = i + 1) \prod_{t=i+1}^{n} f(y_t\mid y_1,\ldots,y_{t-1}) \\
+    &= f(y_1,\ldots,y_i\mid d = i + 1)f(d = i + 1)f(y_{i+1},\ldots,y_n\mid y_1,\ldots,y_i) \\
+    &= f(y_1,\ldots,y_i\mid d = i + 1)f(d = i + 1) \frac{f(y_1,\ldots,y_i)f(y_{i+1},\ldots,y_n\mid y_1,\ldots,y_i)}{f(y_1,\ldots,y_i)} \\
+    &= f(y_1,\ldots,y_i\mid d = i + 1)f(d = i + 1) \frac{f(y_1,\ldots,y_i)f(y_1,\ldots,y_n)}{f(y_1,\ldots,y_i)} \\
+    &= f(d = i + 1\mid y_1,\ldots,y_i)f(y_1,\ldots,y_n). \tag*{(B.17)}
+\end{align*}
+An alternative factorization of \(f(y, d)\) gives
+\[
+f(y_1,\ldots,y_n, d = i + 1) = f(d = i + 1\mid y_1,\ldots,y_n)f(y_1,\ldots,y_n). \tag*{(B.18)}
+\]
+It follows from (B.17) and (B.18) that
+\[
+f(d = i + 1\mid y_1,\ldots,y_n) = f(d = i + 1\mid y_1,\ldots,y_i),
+\]
+completing the proof of Theorem 20.1.
+
 
 \end{document}
 
