@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.8.25)  17 DEC 2023 13:23
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.8.25)  27 DEC 2023 04:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**R10A21126_HW06
-(./R10A21126_HW06.tex
+**R10A21126_Final
+(./R10A21126_Final.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-08-23> (d:/MaakApp/texlive/2022/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -1301,8 +1301,8 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count530
 \@quotereset=\count531
-(./R10A21126_HW06.aux)
-\openout1 = `R10A21126_HW06.aux'.
+(./R10A21126_Final.aux)
+\openout1 = `R10A21126_Final.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
@@ -1325,9 +1325,9 @@ LaTeX Font Info:    ... okay on input line 33.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
 Package hyperref Info: Link coloring OFF on input line 33.
- (./R10A21126_HW06.out) (./R10A21126_HW06.out)
+ (./R10A21126_Final.out) (./R10A21126_Final.out)
 \@outlinefile=\write6
-\openout6 = `R10A21126_HW06.out'.
+\openout6 = `R10A21126_Final.out'.
 
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
@@ -1394,15 +1394,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* h-part:(L,W,R)=(68.65627pt, 460.19534pt, 68.65627pt)
+* v-part:(T,H,B)=(68.65627pt, 707.73431pt, 68.65627pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=452.9679pt
-* \textheight=700.50687pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-37.0pt
+* \textwidth=460.19534pt
+* \textheight=707.73431pt
+* \oddsidemargin=-3.61372pt
+* \evensidemargin=-3.61372pt
+* \topmargin=-40.61372pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -1433,41 +1433,83 @@ Package biblatex Info: XeTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout5 = `R10A21126_HW06.bcf'.
+\openout5 = `R10A21126_Final.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'R10A21126_HW06.bbl' found.
- (./R10A21126_HW06.bbl)
+Package biblatex Info: ... file 'R10A21126_Final.bbl' found.
+ (./R10A21126_Final.bbl)
 Package biblatex Info: Reference section=0 on input line 33.
 Package biblatex Info: Reference segment=0 on input line 33.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
  (d:/MaakApp/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
  (d:/MaakApp/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
 
-] [2] [3] [4] [5] [6] 
+Package fontspec Info: Could not resolve font "FangSong/BI" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "FangSong/B" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "FangSong/I" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
+(fontspec)             with options [Script={CJK}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
+ [1
+
+]
+Missing character: There is no ， (U+FF0C) in font [lmroman7-regular]:mapping=tex-text;!
+[2] [3]
+Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
+[4]
+Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=tex-text;!
+
 AED: lastpage setting LastPage
-[7] (./R10A21126_HW06.aux)
-Package rerunfilecheck Info: File `R10A21126_HW06.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package logreq Info: Writing requests to 'R10A21126_HW06.run.xml'.
-\openout1 = `R10A21126_HW06.run.xml'.
+[5] (./R10A21126_Final.aux)
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `R10A21126_Final.out' has not changed.
+(rerunfilecheck)             Checksum: 224FAA866D97C6FE11D4F101A98BFF71;1878.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                R10A21126_Final
+(biblatex)                and rerun LaTeX afterwards.
+
+Package logreq Info: Writing requests to 'R10A21126_Final.run.xml'.
+\openout1 = `R10A21126_Final.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46419 strings out of 475848
- 988084 string characters out of 5801585
- 1822653 words of memory out of 5000000
- 66757 multiletter control sequences out of 15000+600000
- 476581 words of font info for 78 fonts, out of 8000000 for 9000
+ 46391 strings out of 475848
+ 987733 string characters out of 5801585
+ 1831280 words of memory out of 5000000
+ 66721 multiletter control sequences out of 15000+600000
+ 476605 words of font info for 81 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 104i,12n,107p,683b,5331s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,12n,107p,1100b,5093s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on R10A21126_HW06.pdf (7 pages).
+Output written on R10A21126_Final.pdf (5 pages).

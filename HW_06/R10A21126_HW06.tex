@@ -44,7 +44,7 @@
 
     Under the assumption of completely random dropouts, the probability \(P_{ij}\) may depend on time, treatment, or other explanatory variables, but cannot depend on the observed measurements \(y_{i} = (y_{i1}, \ldots, y_{i\,m_i})\).
 
-    \section*{Testing Method:}
+    \textbf{Testing Method:}
     \begin{enumerate}[label=(\alph*)]
         \item Choose the score function \(h_{k}(y_{1},\ldots,y_{k})\) so that extreme values constitute evidence against completely random dropouts. A sensible choice is 
         \[h_{k}(y_{1},\ldots,y_{k}) = \sum_{j=1}^{k}\omega_{j}y_{j}.\]
@@ -131,27 +131,33 @@ The factor \(\dfrac{N-n}{N-1}\) is the Finite Population Correction Factor (FPC)
 
 \begin{Problem}[]{Generalized estimating equations under a random missing mechanism:}
 
+
+
+    Suppose that at each occasion (visit) $t$, $t = 1, \ldots, T$, the marginal distribution of $Y_{it}$ given $X_i$ follows the regression model
+    \[
+    \E(Y_{it}|X_i) = g_t(X_i, \beta) 
+    \]
+    for $i = 1, \ldots, n$, where $\mathbf{P}_0$ is a $p \times 1$ vector of unknown parameters and $g_t(\cdot, \cdot)$ are fixed functions\Footcite[107]{Robins1995}.
+    
+---
 \[
 P(R_{ij}=1|R_{ij-1}=1, H_{im}) = P(R_{ij}=1|R_{ij-1}=1, H_{ij})
 \]
-
 ---
+
 
 Basic GEE method when dropouts are completely random:
 \[
-S_{\beta}(\beta,\alpha) = \sum_{i}^n \left(\frac{\partial b}{\partial \theta_i}\right)^T \text{Var}(Y_i)^{-1}(Y_i - \mu_i) = 0
+S_{\beta}(\beta,\alpha) = \sum_{i}^n \left(\frac{\partial \mu}{\partial \beta}\right)^T \text{Var}(Y_i)^{-1}(Y_i - \mu_i) = 0
 \]
 
+Let $P=\text{diag}(P)$, 
+$$P_{ij}=\prod_{k=1}^{j} \lambda_{ik},$$ 
+with $\lambda_{ij}=P(R_{ij}=1|R_{ij-1}=1,H_{ij})$, \(i = 1,\ldots,n\).
 
-Let $P=\text{diag}(P)$, $\text{diag}(P)=\sum_{i} P_{ij}$ with $P_{ij}=P(R_{ij}=1|R_{ij-1}=1,H_{ij})$.
-
+When $P_i$'s are themselves estimated from the data using an assumed random dropout model, the estimators of $\mathbf{b}$ obtained from the following extended estimating equation are consistent.
 \[
-P = \prod_{j=1}^{k} \hat{P}_{ij}
-\]
-
-When $P_i$'s are themselves estimated from the data using an assumed random dropout model, the estimators of $\mathbf{b}$ obtained from the following extended estimating equation are consistent:
-\[
-S_{\beta}^*(\beta,\alpha) = \sum_{i}^n \left(\frac{\partial b}{\partial \theta_i}\right)^T \text{Var}(Y_i)^{-1}P_I^{-1}(Y_i - \mu_i) = 0
+S_{\beta}^*(\beta,\alpha) = \sum_{i}^n \left(\frac{\partial \mu}{\partial \beta}\right)^T \text{Var}(Y_i)^{-1}P_{i}^{-1}(Y_i - \mu_i) = 0
 \]
 
 ---
@@ -160,23 +166,70 @@ Show that
 \[\E[S_{\beta}^*(\beta,\alpha)]=0.\]
 \end{Problem}
 
-\pagebreak
+
+
+% To show that $\E[S_{\beta}^*(\beta,\alpha)] = 0$, we start by taking the expectation of $S_{\beta}^*(\beta,\alpha)$ and demonstrate that it equals zero under certain conditions. Let's proceed with the calculation:
+
+\begin{align*}
+\E[S_{\beta}^*(\beta,\alpha)] &= \E\left[\sum_{i}^n \left(\frac{\partial \mu}{\partial \beta}\right)^T \text{Var}(Y_i)^{-1}P_{i}^{-1}(Y_i - \mu_i)\right] \\
+&= \sum_{i}^n \E\left[\left(\frac{\partial \mu}{\partial \beta}\right)^T \text{Var}(Y_i)^{-1}P_{i}^{-1}(Y_i - \mu_i)\right].
+\end{align*}
+
+Focus on one term of the summation 
+% and simplify it:
+\begin{align*}
+&\E\left[\left(\frac{\partial \mu}{\partial \beta}\right)^T \text{Var}(Y_i)^{-1}P_{i}^{-1}(Y_i - \mu_i)\right] \\
+&= \E\left[\left(\frac{\partial \mu}{\partial \beta}\right)^T \text{Var}(Y_i)^{-1}P_{i}^{-1}\E(Y_i - \mu_i|X_i)\right] \quad \text{(Taking the expectation inside)} \\
+&= \E\left[\left(\frac{\partial \mu}{\partial \beta}\right)^T \text{Var}(Y_i)^{-1}P_{i}^{-1}\cdot 0\right] \quad \text{(Since }\mu_i = \E(Y_i|X_i)) \\
+&= 0.
+\end{align*}
+% The last step follows because the expectation of the conditional mean $\mu_i$ given $X_i$ is the same as $\mu_i$, and therefore, $\E(Y_i - \mu_i|X_i) = 0$.
+
+Summing over all $i$, we get:
+\[
+\E[S_{\beta}^*(\beta,\alpha)] = \sum_{i}^n 0 = 0.
+\]
+Hence, we have shown that $\E[S_{\beta}^*(\beta,\alpha)] = 0$.
+
+% \pagebreak
+\dotfill
+
 
 Paper\Footcite{Robins1995} Summary
 
+\begin{enumerate}
+    \item \textbf{Research Problem}
+    The paper addresses the challenge of estimating the parameters of semiparametric regression models for repeated outcomes in the presence of missing data due to dropouts
+    \footnote{In this study, nonresponse, dropout, and censoring are used interchangeably to refer to the situation when some subjects miss one or more visits and their outcome data are not observed. A monotone missing data pattern in this paper means that once a subject leaves the study, returning is not possible. The paper assumes this pattern until Section 6, where it generalizes the results to allow for arbitrary patterns of missing data.}
+    . The paper aims to provide consistent and efficient estimators that do not require full specification of the likelihood or the joint distribution of the data.
+    \item     \textbf{Methodology}
+    The paper proposes a class of inverse probability of censoring weighted estimators that can handle missing data that are missing at random but not missing completely at random.
+    \begin{equation*}
+        P(R_{it} = 1 | R_{i,t-1} = 1, \bar{W}_{i,T+1}) = P(R_{it} = 1 | R_{i,t-1} = 1, \bar{W}_{it}),
+        \end{equation*}
+        
+        where:
+        
+        \begin{itemize}
+            \item $R_{it}$ is the response indicator, which equals 1 if the outcome is observed at time $t$ for subject $i$, and 0 otherwise.
+            \item $\bar{W}_{it}$ is the vector of observed outcomes and covariates up to time $t$ for subject $i$.
+            % \item The subscript $i$ indexes the subjects ($i = 1, \ldots, n$), and the subscript $t$ indexes the time points ($t = 1, \ldots, T$).
+        \end{itemize}
+        % The paper also extends the generalized estimating equations approach to allow for missing data that depend on past outcomes and covariates. 
+        The paper derives the asymptotic properties of the proposed estimators and compares them with other methods such as the G-computation algorithm, the sweep estimator\footnote{which I do not understand yet.}.
+    \item \textbf{Data and Application}
+    The paper illustrates the proposed methods with the analysis of the effect of zidovudine (AZT) treatment on the evolution of mean CD4 count with data from an AIDS clinical trial. The paper also conducts a simulation study to evaluate the performance of the proposed estimators under different scenarios of missing data mechanisms and model misspecification.
+    \item     \textbf{Results and Conclusion}
+    The paper shows that the proposed estimators can correct for dependent censoring and nonrandom noncompliance in randomized clinical trials and can be more efficient and robust than the existing methods. It also discusses the limitations of the proposed methods and suggests conducting a sensitivity analysis to assess the impact of possible violations of the assumptions. 
+    % It concludes that the proposed methods are useful for analyzing longitudinal data with missing outcomes and covariates.
+    
+\end{enumerate}
 
 
-\section*{Research Problem}
-The paper addresses the challenge of estimating the parameters of semiparametric regression models for repeated outcomes in the presence of missing data due to nonresponse, dropout, or censoring. The paper aims to provide consistent and efficient estimators that do not require full specification of the likelihood or the joint distribution of the data.
 
-\section*{Methodology}
-The paper proposes a class of inverse probability of censoring weighted estimators that can handle missing data that are missing at random but not missing completely at random. The paper also extends the generalized estimating equations approach to allow for missing data that depend on past outcomes and covariates. The paper derives the asymptotic properties of the proposed estimators and compares them with other methods such as the G-computation algorithm, the sweep estimator, and the likelihood-based methods.
 
-\section*{Data and Application}
-The paper illustrates the proposed methods with the analysis of the effect of zidovudine (AZT) treatment on the evolution of mean CD4 count with data from an AIDS clinical trial. The paper also conducts a simulation study to evaluate the performance of the proposed estimators under different scenarios of missing data mechanisms and model misspecification.
 
-\section*{Results and Conclusion}
-The paper shows that the proposed estimators can correct for dependent censoring and nonrandom noncompliance in randomized clinical trials and can be more efficient and robust than the existing methods. The paper also discusses the limitations of the proposed methods and suggests conducting a sensitivity analysis to assess the impact of possible violations of the assumptions. The paper concludes that the proposed methods are useful for analyzing longitudinal data with missing outcomes and covariates.
+
 
 
 \pagebreak
@@ -279,15 +332,15 @@ We now factorize the full data density as
 \begin{align*}
     &f(y_1,\ldots,y_n, d = i + 1) \\
     &= f(y_1,\ldots,y_i, d = i + 1)f(y_{i+1},\ldots,y_n\mid y_1,\ldots,y_i, d = i + 1) \\
-    &= f(y_1,\ldots,y_i, d = i + 1) \prod_{t=i+1}^{n} f(y_t\mid y_1,\ldots,y_{t-1}, d = i + 1).
+    &= f(y_1,\ldots,y_i, d = i + 1) \prod_{t=i+1}^{T} f(y_t\mid y_1,\ldots,y_{t-1}, d = i + 1).
 \end{align*}
 Using (B.16), it follows that
 \begin{align*}
     &f(y_1,\ldots,y_n, d = i + 1) \\
-    &= f(y_1,\ldots,y_i\mid d = i + 1)f(d = i + 1) \prod_{t=i+1}^{n} f(y_t\mid y_1,\ldots,y_{t-1}) \\
+    &= f(y_1,\ldots,y_i\mid d = i + 1)f(d = i + 1) \prod_{t=i+1}^{T} f(y_t\mid y_1,\ldots,y_{t-1}) \\
     &= f(y_1,\ldots,y_i\mid d = i + 1)f(d = i + 1)f(y_{i+1},\ldots,y_n\mid y_1,\ldots,y_i) \\
     &= f(y_1,\ldots,y_i\mid d = i + 1)f(d = i + 1) \frac{f(y_1,\ldots,y_i)f(y_{i+1},\ldots,y_n\mid y_1,\ldots,y_i)}{f(y_1,\ldots,y_i)} \\
-    &= f(y_1,\ldots,y_i\mid d = i + 1)f(d = i + 1) \frac{f(y_1,\ldots,y_i)f(y_1,\ldots,y_n)}{f(y_1,\ldots,y_i)} \\
+    &= f(y_1,\ldots,y_i\mid d = i + 1)f(d = i + 1) \frac{f(y_1,\ldots,y_n)}{f(y_1,\ldots,y_i)} \\
     &= f(d = i + 1\mid y_1,\ldots,y_i)f(y_1,\ldots,y_n). \tag*{(B.17)}
 \end{align*}
 An alternative factorization of \(f(y, d)\) gives

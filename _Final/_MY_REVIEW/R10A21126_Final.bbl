@@ -1,0 +1,455 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{2023c}{inreference}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{annotation}{Page Version ID: 1178364524}
+      \field{booktitle}{Wikipedia}
+      \field{day}{3}
+      \field{hour}{5}
+      \field{langid}{english}
+      \field{minute}{48}
+      \field{month}{10}
+      \field{second}{48}
+      \field{timezone}{Z}
+      \field{title}{Latent and Observable Variables}
+      \field{urlday}{25}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Latent_and_observable_variables&oldid=1178364524
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Latent_and_observable_variables&oldid=1178364524
+      \endverb
+    \endentry
+    \entry{Su2016}{article}{}
+      \name{author}{3}{}{%
+        {{hash=8944f97e434bbaf0d0d46342bce64ecf}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={Liangjun},
+           giveni={L\bibinitperiod}}}%
+        {{hash=63d79cce7e73f97ff6f461d6c570c010}{%
+           family={Shi},
+           familyi={S\bibinitperiod},
+           given={Zhentao},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=10ed28fafaff02f63917d3120eec9502}{%
+           family={Phillips},
+           familyi={P\bibinitperiod},
+           given={Peter\bibnamedelimb C.\bibnamedelimi B.},
+           giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{4ccbb12fbbe96f2975f560504daf332c}
+      \strng{fullhash}{4ccbb12fbbe96f2975f560504daf332c}
+      \strng{bibnamehash}{4ccbb12fbbe96f2975f560504daf332c}
+      \strng{authorbibnamehash}{4ccbb12fbbe96f2975f560504daf332c}
+      \strng{authornamehash}{4ccbb12fbbe96f2975f560504daf332c}
+      \strng{authorfullhash}{4ccbb12fbbe96f2975f560504daf332c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \true{singletitle}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1468-0262}
+      \field{journaltitle}{Econometrica}
+      \field{langid}{english}
+      \field{number}{6}
+      \field{title}{Identifying Latent Structures in Panel Data}
+      \field{urlday}{16}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{volume}{84}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{2215\bibrangedash 2264}
+      \range{pages}{50}
+      \verb{doi}
+      \verb 10.3982/ECTA12560
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA12560
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA12560
+      \endverb
+    \endentry
+    \entry{Fan2001}{article}{}
+      \name{author}{2}{}{%
+        {{hash=2eb00838f3cea970c7377bfea9631787}{%
+           family={Fan},
+           familyi={F\bibinitperiod},
+           given={Jianqing},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f2ad436fe263af9170cfac2259cc239f}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Runze},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {[American Statistical Association, Taylor \& Francis, Ltd.]}%
+      }
+      \strng{namehash}{4919a69c8da15306fbf0ed5ef6882210}
+      \strng{fullhash}{4919a69c8da15306fbf0ed5ef6882210}
+      \strng{bibnamehash}{4919a69c8da15306fbf0ed5ef6882210}
+      \strng{authorbibnamehash}{4919a69c8da15306fbf0ed5ef6882210}
+      \strng{authornamehash}{4919a69c8da15306fbf0ed5ef6882210}
+      \strng{authorfullhash}{4919a69c8da15306fbf0ed5ef6882210}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \true{singletitle}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{jstor}
+      \field{issn}{0162-1459}
+      \field{journaltitle}{Journal of the American Statistical Association}
+      \field{number}{456}
+      \field{title}{Variable Selection via Nonconcave Penalized Likelihood and Its Oracle Properties}
+      \field{urlday}{26}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{volume}{96}
+      \field{year}{2001}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1348\bibrangedash 1360}
+      \range{pages}{13}
+      \verb{eprint}
+      \verb 3085904
+      \endverb
+      \verb{urlraw}
+      \verb https://www.jstor.org/stable/3085904
+      \endverb
+      \verb{url}
+      \verb https://www.jstor.org/stable/3085904
+      \endverb
+    \endentry
+    \entry{Hardy2017}{online}{}
+      \name{author}{1}{}{%
+        {{hash=7e2bb0cc9e3194290b4dccad16fb1a7e}{%
+           family={Hardy},
+           familyi={H\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Cross Validated}%
+      }
+      \strng{namehash}{7e2bb0cc9e3194290b4dccad16fb1a7e}
+      \strng{fullhash}{7e2bb0cc9e3194290b4dccad16fb1a7e}
+      \strng{bibnamehash}{7e2bb0cc9e3194290b4dccad16fb1a7e}
+      \strng{authorbibnamehash}{7e2bb0cc9e3194290b4dccad16fb1a7e}
+      \strng{authornamehash}{7e2bb0cc9e3194290b4dccad16fb1a7e}
+      \strng{authorfullhash}{7e2bb0cc9e3194290b4dccad16fb1a7e}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \true{singletitle}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{27}
+      \field{month}{1}
+      \field{title}{What Is the Oracle Property of an Estimator?}
+      \field{type}{Forum post}
+      \field{urlday}{26}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://stats.stackexchange.com/q/229142
+      \endverb
+      \verb{url}
+      \verb https://stats.stackexchange.com/q/229142
+      \endverb
+    \endentry
+    \entry{Belloni2013}{article}{}
+      \name{author}{2}{}{%
+        {{hash=d36a7f02195c9b910441b02a96249f50}{%
+           family={Belloni},
+           familyi={B\bibinitperiod},
+           given={Alexandre},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c75cbe2cefd1e532f636a50892605d06}{%
+           family={Chernozhukov},
+           familyi={C\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{publisher}{3}{%
+        {International Statistical Institute (ISI)}%
+        {Bernoulli Society for Mathematical Statistics}%
+        {Probability}%
+      }
+      \strng{namehash}{37a5616507fdc1fca6c2bf0cf46c714b}
+      \strng{fullhash}{37a5616507fdc1fca6c2bf0cf46c714b}
+      \strng{bibnamehash}{37a5616507fdc1fca6c2bf0cf46c714b}
+      \strng{authorbibnamehash}{37a5616507fdc1fca6c2bf0cf46c714b}
+      \strng{authornamehash}{37a5616507fdc1fca6c2bf0cf46c714b}
+      \strng{authorfullhash}{37a5616507fdc1fca6c2bf0cf46c714b}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \true{singletitle}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{jstor}
+      \field{issn}{1350-7265}
+      \field{journaltitle}{Bernoulli}
+      \field{number}{2}
+      \field{title}{Least Squares after Model Selection in High-Dimensional Sparse Models}
+      \field{urlday}{26}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{volume}{19}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{521\bibrangedash 547}
+      \range{pages}{27}
+      \verb{eprint}
+      \verb 23525734
+      \endverb
+      \verb{urlraw}
+      \verb https://www.jstor.org/stable/23525734
+      \endverb
+      \verb{url}
+      \verb https://www.jstor.org/stable/23525734
+      \endverb
+    \endentry
+    \entry{Lu2017}{article}{}
+      \name{author}{2}{}{%
+        {{hash=ffb690fb4b33051633325b117e23173f}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={Xun},
+           giveni={X\bibinitperiod}}}%
+        {{hash=8944f97e434bbaf0d0d46342bce64ecf}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={Liangjun},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{93864d1ad49c562e66b0a08a778ec079}
+      \strng{fullhash}{93864d1ad49c562e66b0a08a778ec079}
+      \strng{bibnamehash}{93864d1ad49c562e66b0a08a778ec079}
+      \strng{authorbibnamehash}{93864d1ad49c562e66b0a08a778ec079}
+      \strng{authornamehash}{93864d1ad49c562e66b0a08a778ec079}
+      \strng{authorfullhash}{93864d1ad49c562e66b0a08a778ec079}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \true{singletitle}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1759-7331}
+      \field{journaltitle}{Quantitative Economics}
+      \field{langid}{english}
+      \field{number}{3}
+      \field{title}{Determining the Number of Groups in Latent Panel Structures with an Application to Income and Democracy}
+      \field{urlday}{25}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{volume}{8}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{729\bibrangedash 760}
+      \range{pages}{32}
+      \verb{doi}
+      \verb 10.3982/QE517
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.3982/QE517
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.3982/QE517
+      \endverb
+    \endentry
+    \entry{Su2018}{article}{}
+      \name{author}{2}{}{%
+        {{hash=8944f97e434bbaf0d0d46342bce64ecf}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={Liangjun},
+           giveni={L\bibinitperiod}}}%
+        {{hash=dbd7a342db0ea55d989d2d8255c3cc0a}{%
+           family={Ju},
+           familyi={J\bibinitperiod},
+           given={Gaosheng},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{62daae8ccf5152114866d2d42e983d11}
+      \strng{fullhash}{62daae8ccf5152114866d2d42e983d11}
+      \strng{bibnamehash}{62daae8ccf5152114866d2d42e983d11}
+      \strng{authorbibnamehash}{62daae8ccf5152114866d2d42e983d11}
+      \strng{authornamehash}{62daae8ccf5152114866d2d42e983d11}
+      \strng{authorfullhash}{62daae8ccf5152114866d2d42e983d11}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \true{singletitle}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{issn}{0304-4076}
+      \field{journaltitle}{Journal of Econometrics}
+      \field{month}{10}
+      \field{number}{2}
+      \field{series}{Special Issue on Advances in Econometric Theory: Essays in Honor of Takeshi Amemiya}
+      \field{shortjournal}{Journal of Econometrics}
+      \field{title}{Identifying Latent Grouped Patterns in Panel Data Models with Interactive Fixed Effects}
+      \field{urlday}{25}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{volume}{206}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{554\bibrangedash 573}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1016/j.jeconom.2018.06.014
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0304407618301106
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0304407618301106
+      \endverb
+    \endentry
+    \entry{Su2019}{article}{}
+      \name{author}{3}{}{%
+        {{hash=8944f97e434bbaf0d0d46342bce64ecf}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={Liangjun},
+           giveni={L\bibinitperiod}}}%
+        {{hash=870cdb1c26bac37701546885f71ea490}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Xia},
+           giveni={X\bibinitperiod}}}%
+        {{hash=2641231b7b9c020add11e6e370c8fbfa}{%
+           family={Jin},
+           familyi={J\bibinitperiod},
+           given={Sainan},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{8e644b6656edd2e2e93812ced0504484}
+      \strng{fullhash}{8e644b6656edd2e2e93812ced0504484}
+      \strng{bibnamehash}{8e644b6656edd2e2e93812ced0504484}
+      \strng{authorbibnamehash}{8e644b6656edd2e2e93812ced0504484}
+      \strng{authornamehash}{8e644b6656edd2e2e93812ced0504484}
+      \strng{authorfullhash}{8e644b6656edd2e2e93812ced0504484}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \true{singletitle}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{3}
+      \field{issn}{0735-0015}
+      \field{journaltitle}{Journal of Business \& Economic Statistics}
+      \field{month}{4}
+      \field{number}{2}
+      \field{title}{Sieve Estimation of Time-Varying Panel Data Models With Latent Structures}
+      \field{urlday}{25}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{volume}{37}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{334\bibrangedash 349}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1080/07350015.2017.1340299
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1080/07350015.2017.1340299
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1080/07350015.2017.1340299
+      \endverb
+    \endentry
+    \entry{Wang2021}{article}{}
+      \name{author}{2}{}{%
+        {{hash=7bc917763ae2f6c9e212c8bc9550d8e1}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Wuyi},
+           giveni={W\bibinitperiod}}}%
+        {{hash=8944f97e434bbaf0d0d46342bce64ecf}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={Liangjun},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{bc310561a996e5695fd1709b047ff256}
+      \strng{fullhash}{bc310561a996e5695fd1709b047ff256}
+      \strng{bibnamehash}{bc310561a996e5695fd1709b047ff256}
+      \strng{authorbibnamehash}{bc310561a996e5695fd1709b047ff256}
+      \strng{authornamehash}{bc310561a996e5695fd1709b047ff256}
+      \strng{authorfullhash}{bc310561a996e5695fd1709b047ff256}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \true{singletitle}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{issn}{0304-4076}
+      \field{journaltitle}{Journal of Econometrics}
+      \field{month}{2}
+      \field{number}{2}
+      \field{series}{Annals Issue: Celebrating 40 Years of Panel Data Analysis: Past, Present and Future}
+      \field{shortjournal}{Journal of Econometrics}
+      \field{title}{Identifying Latent Group Structures in Nonlinear Panels}
+      \field{urlday}{16}
+      \field{urlmonth}{12}
+      \field{urlyear}{2023}
+      \field{volume}{220}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{272\bibrangedash 295}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.1016/j.jeconom.2020.04.003
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0304407620301214
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0304407620301214
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
